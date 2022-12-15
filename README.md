@@ -198,14 +198,34 @@ Implement our own circuit (blink.v and counter.v) on a pre-existing
 FPGA architecture Earch.xml (VTR_ROOT/vtr_flow/arch - Use an automated approach (Odin II and ABC are automatically run)
 Perform timing simulation on the generated fabric
 
-Input to this VPS is:
--  Technology mapped netlist of a Design (in form of bmif file)
--  FPGA Architecture discription file (in form of xml format)
-VPR tool will go through following steps 
-- VPR Packing - It is going to combine all the primitive netlist blocks
+[VTR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
+### Input to this VPS is:
+-  Technology mapped netlist of a Design (in form of **blif** file)
+-  FPGA Architecture discription file (in form of **Earch.xml** format)
+### VPR tool will go through following steps. 
+#### VPR Packing 
+- It is going to combine all the primitive netlist blocks(e.g. - all the LUTs,FF,etc which are the part of the design) 
+- These are going to be packen in CLB(Complex Logic Blocks).
+- The output of this is a .net file
+#### VPR Placement 
+- The CLBs will get placed in the FPGA Grid.
+- The output of this is a .place file, which is going to contain the locations of where these CLBs are placed. 
+#### VPR Route
+- It is going connect all of these CLBs into ths FPGA grid.
+- The output of this is a .route file, which is going to contain all the route information.
+#### VPR Aalysis
+- It dose the analysis in terms of Area, Timing and Power.
+- It is also going to output a Post-Implemantation Netlist( it will give information about resource usage, number of block pipes and wires used, timimg in terms of critical path delay and timimg path and also poer usage be each of these blocks)
 
-
-
+#### Command to run VPR
+```
+$VTR_ROOT/vpr/vpr\
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\-- route_chan_width 100
+```
+# Day 3 - RISCV Core Programming Using Vivado
+# Day 4 - Introduction To SOFA FPGA Fabric
+# Day 5 - RISCV Core on Custom SOFA Fabric
 
 
 
