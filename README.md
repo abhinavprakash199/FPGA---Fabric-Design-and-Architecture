@@ -193,7 +193,6 @@ from  1 to 3
 
 ### Visualize(GUI) Circuit Implemantation
 
-## Example 2 :Run the entire VTR flow automatically 
 Implement our own circuit (blink.v and counter.v) on a pre-existing
 FPGA architecture Earch.xml (VTR_ROOT/vtr_flow/arch - Use an automated approach (Odin II and ABC are automatically run)
 Perform timing simulation on the generated fabric
@@ -219,13 +218,52 @@ Perform timing simulation on the generated fabric
 
 #### Command to run VPR
 ```
-$VTR_ROOT/vpr/vpr\
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\
-$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\-- route_chan_width 100
+$VTR_ROOT/vpr/vpr\                    // invoking vpr which is at VTR_ROOT (where vtr has been installed in the cloud)                                       
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\     // First input is FPGA Architecture Discription File (EArch.xml)
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\-- route_chan_width 100    // use a benchmark file that is already beign converter into blf format
 ```
+[Running VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+
+
+
+## Example 2 :Run the entire VTR flow automatically 
+
+
+
+
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml \
+    $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif \
+    --route_chan_width 100
+    --display on
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Day 3 - RISCV Core Programming Using Vivado
 # Day 4 - Introduction To SOFA FPGA Fabric
 # Day 5 - RISCV Core on Custom SOFA Fabric
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
