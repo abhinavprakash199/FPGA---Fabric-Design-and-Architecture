@@ -172,6 +172,47 @@ Do if from lec 4
 ### Generate Bitstream
 - A series of bytes is known as a bytestream. Since a byte is often an 8-bit quantity, the term "octet stream" is occasionally used interchangeably. There is no specific and direct translation between bytestreams and bitstreams because one octet can be encoded as a series of 8 bits in a variety of different ways (see bit numbering).
 - Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch  
+## VIO - Virtual Input/Output 
+
+
+
+
 
 
 # **Day 2 - Exploring OpenFPGA, VPR and VTR**
+## Introduction To OpenFPGA
+from  1 to 3
+
+## VPR - Versatile Place and Route
+
+## VTR -Verilog to Routing 
+
+## Example 1 : VPR on a Pre-Synthesized Circuit
+
+### Observe the result files
+
+### Visualize(GUI) Circuit Implemantation
+
+## Example 2 :Run the entire VTR flow automatically 
+Implement our own circuit (blink.v and counter.v) on a pre-existing
+FPGA architecture Earch.xml (VTR_ROOT/vtr_flow/arch - Use an automated approach (Odin II and ABC are automatically run)
+Perform timing simulation on the generated fabric
+
+Input to this VPS is:
+-  Technology mapped netlist of a Design (in form of bmif file)
+-  FPGA Architecture discription file (in form of xml format)
+VPR tool will go through following steps 
+- VPR Packing - It is going to combine all the primitive netlist blocks
+
+
+
+
+
+
+# References
+- [VLSI System Design](https://www.vlsisystemdesign.com/ip/)
+- https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
+
+# Acknowledgement
+- [Kunal Ghosh](https://github.com/kunalg123) Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.
+- [Nanditha Rao](https://github.com/nandithaec) Assistant Professor at International Institute of Information Technology – Bangalore
