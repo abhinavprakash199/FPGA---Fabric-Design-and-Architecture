@@ -1,6 +1,7 @@
 # FPGA--abric-Design-and-Architecture
 This repository contains all the information studied and created during the FPGA - Fabric, Design and Architecture workshop. It is primarily focused on a complete FPGA flow using the maximum open-source tools.
 # Table of Contents
+[Testbench](#VERILOG testbench)
 
 
 
@@ -134,6 +135,15 @@ endmodule
 
 
 ![Screenshot (2041)](https://user-images.githubusercontent.com/120498080/207792232-9b68120f-8b85-4007-a252-f2f653b11717.png)
+
+
+![Screenshot (2043)](https://user-images.githubusercontent.com/120498080/207792466-697fca77-ced7-4c0f-b1da-4283731ff720.png)
+
+
+![Screenshot (2044)](https://user-images.githubusercontent.com/120498080/207792629-8a565a89-b586-48dc-9be4-0dd4756585db.png)
+![Screenshot (2047)](https://user-images.githubusercontent.com/120498080/207792790-0b3e7b29-8ea9-4cdb-8593-18b314ab9b75.png)
+![Screenshot (2048)](https://user-images.githubusercontent.com/120498080/207792808-03244b4b-04aa-47d1-884c-3388fd819f25.png)
+
 
 
 
