@@ -8,6 +8,13 @@ This repository contains all the information studied and created during the FPGA
 
 
 
+
+
+
+## Counter Example in Vivado
+A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. Below mentioned the RTL for the counter modules that is being used
+### VERILOG Codes
+
 ```
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
@@ -15,11 +22,9 @@ This repository contains all the information studied and created during the FPGA
 // Description: 4 bit counter with source clock (100MHz) division.
 
 /*
-
 ////////////4 bit counter block///////////////////
 always @(posedge clk)
 begin
-
 if(rst)
 begin
 counter_out<=4'b0000;
@@ -30,11 +35,7 @@ begin
 counter_out<= counter_out+1;
 end
 end
-
 endmodule 
-
-
-
 */
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +59,7 @@ div_clk <= 1'b0; //initialise div_clk
 
 
 //uncomment this line while running just the div clock counter for simulation purpose
-//counter_out<=4'b0000;
+counter_out<=4'b0000;
 end
 else
 
@@ -93,4 +94,46 @@ end
 end
 
 endmodule 
+
 ```
+### VERILOG testbench
+```
+`timescale 1ns / 1ps
+
+module test_counter();
+reg clk, reset;
+wire [3:0] out;
+
+//create an instance of the design
+counter_clk_div dut(clk, reset, out);  
+
+initial begin
+
+//note that these statements are sequential.. execute one after the other 
+
+//$dumpfile ("count.vcd"); 
+//$dumpvars(0,upcounter_testbench);
+
+clk=0;  //at time=0
+
+reset=1;//at time=0
+
+#20; //delay 20 units
+reset=0; //after 20 units of time, reset becomes 0
+
+
+end
+
+
+always 
+#5 clk=~clk;  // toggle or negate the clk input every 5 units of time
+
+
+endmodule 
+```
+
+
+![Screenshot (2041)](https://user-images.githubusercontent.com/120498080/207792232-9b68120f-8b85-4007-a252-f2f653b11717.png)
+
+
+
