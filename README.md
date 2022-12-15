@@ -248,9 +248,34 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 #### Structure of FPGA Architecture
 
 
-- Finally .net .place .route and .log files are generate in same directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
+- Finally .net .place .route and .log files are generate in same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
+- It will also generate report_timing.setup.rpt , report_timing.hold.rpt, packing_pin_util.rpt, etc files. in the same working directory.
 
 
+- Command to search .rpt file in working directory `ls *.rpt`
+
+
+
+#### tseng.sdc file
+- To get the correct timing report we need to  set the clock and for that we need to set the contrains file (.sdc file)
+```
+1 create clock -period 10 -name pclk     //Created a clock with time period of 10nsec with name plck (we can find it from timing report)
+2 set_input_delay -clock pclk -max 0 [get_ports {*}]   //Set input delay to zero
+3 set_output_delay -clock pclk -max 0 [get_ports ("}]   //Set output delay to zero
+```
+
+### Now to add this clock 
+- First go back to the same working directory and append the sdc option.
+```
+$VTR_ROOT/vpr/vpr                                   
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf
+-- route_chan_width 100 
+-- sdc file /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.sdc
+```
+[Reference for VPR Command Line Options](https://docs.verilogtorouting.org/en/latest/vpr/command_line_usage/)
+
+#### Setup Slag Path
 
 ## Example 2 :Run the entire VTR flow automatically 
 
