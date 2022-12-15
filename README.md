@@ -202,27 +202,53 @@ Perform timing simulation on the generated fabric
 -  Technology mapped netlist of a Design (in form of **blif** file)
 -  FPGA Architecture discription file (in form of **Earch.xml** format)
 ### VPR tool will go through following steps. 
-#### VPR Packing 
+#### 1. VPR Packing 
 - It is going to combine all the primitive netlist blocks(e.g. - all the LUTs,FF,etc which are the part of the design) 
 - These are going to be packen in CLB(Complex Logic Blocks).
 - The output of this is a .net file
-#### VPR Placement 
+#### 2. VPR Placement 
 - The CLBs will get placed in the FPGA Grid.
 - The output of this is a .place file, which is going to contain the locations of where these CLBs are placed. 
-#### VPR Route
+#### 3. VPR Route
 - It is going connect all of these CLBs into ths FPGA grid.
 - The output of this is a .route file, which is going to contain all the route information.
-#### VPR Aalysis
+#### 4. VPR Aalysis
 - It dose the analysis in terms of Area, Timing and Power.
 - It is also going to output a Post-Implemantation Netlist( it will give information about resource usage, number of block pipes and wires used, timimg in terms of critical path delay and timimg path and also poer usage be each of these blocks)
 
+
+
+[Running VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+
+- Location of blif file : 
+> /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.blif
+  
+- Location of Earch.xml file :
+>/home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/arch/timing/Earch.xml
+
+#### Example xml file explanation :
+![Screenshot (2080)](https://user-images.githubusercontent.com/120498080/207940470-314389f2-05d8-4886-84b3-074b9638554b.png)
+
+- Command to open the VTR working location `cd $VTR_ROOT` |
+Working Location :
+>is22mtech14002@fpga-workshop-02:/home/kunalg123/Desktop/vtr-verilog-to-routing$ 
+
 #### Command to run VPR
+Use this command in the working location
 ```
 $VTR_ROOT/vpr/vpr\                    // invoking vpr which is at VTR_ROOT (where vtr has been installed in the cloud)                                       
 $VTR_ROOT/vtr_flow/arch/timing/EArch.xml\     // First input is FPGA Architecture Discription File (EArch.xml)
-$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\-- route_chan_width 100    // use a benchmark file that is already beign converter into blf format
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
+-- route_chan_width 100 \   // use a benchmark file that is already beign converter into blf format
+-- disp on    // to open GUI
 ```
-[Running VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+
+#### GUI
+![Screenshot (2081)](https://user-images.githubusercontent.com/120498080/207940492-b3c8ddb5-da7d-4026-86e0-b2f7bba9bce7.png)
+#### Structure of FPGA Architecture
+
+
+- Finally .net .place .route and .log files are generate in same directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
 
 
 
@@ -270,6 +296,7 @@ $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \
 # References
 - [VLSI System Design](https://www.vlsisystemdesign.com/ip/)
 - https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
+- https://docs.verilogtorouting.org/en/latest/arch/reference/#arch-grid-layout
 
 
 # Acknowledgement
