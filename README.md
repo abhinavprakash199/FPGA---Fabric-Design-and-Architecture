@@ -15,7 +15,10 @@ This repository contains all the information studied and created during the FPGA
 ## Counter Example in Vivado
 A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
 Below mentioned the RTL for the counter modules that is being used.
-### VERILOG Codes
+
+- Linux codes to download GitHub file from link `git clone https://github.com/nandithaec/fpga_workshop_collaterals.git`
+
+### VERILOG Codes 
 
 ```verilog
 `timescale 1ns / 1ps
@@ -82,7 +85,7 @@ endmodule
 
 ```
 ### VERILOG testbench
-```
+```verilog
 `timescale 1ns / 1ps
 
 module test_counter();
@@ -310,13 +313,16 @@ We will be invocing python script presnet at
 
 #### Codes to run VTR tool
 ```
+
+$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v   $VTR_ROOT/vtr_flow/arch/timing/EArch.xml   -temp_dir .  --route_chan_width 100
+```
+
  $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
     $VTR_ROOT/doc/src/quickstart/counter.v \            //Inputs the counter.v file
     $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we wnt to map the counter.v file
     -temp_dir . \                                     //Local working Directory
     --route_chan_width 100                             // Rounting Channel width for the Architecture
 
-```
 
 #### counter.v file
 ```verilog
@@ -351,6 +357,28 @@ endmodule
 ```
 
 
+```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --analysis --disp on
+```
+
+
+```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --disp on
+```
+
+## Generation of the Post-Implementation Netlist
+[Generation of the Post-Implementation Netlist](https://docs.verilogtorouting.org/en/latest/tutorials/timing_simulation/)
+
+```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --gen_post_synthesis_netlist on
+```
+
+- Linux Command to check up_counter_post_synthesis.sdf and up_counter_post_synthesis.v file has been generated `ls *.v *.sdf`
+
+/home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/primitives.v
+/home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.blif
+/home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.sdf
+/home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.v
 
 
 
@@ -358,30 +386,6 @@ endmodule
 
 
 
-
-$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         
-    $VTR_ROOT/doc/src/quickstart/counter.v \             
-    $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        
-    -temp_dir . \                                     
-    --route_chan_width 100 
-
-
- /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v \  
-
-
-
-
-
-create_clock -period 10 -name pclk     
-set_input_delay -clock pclk -max 0 [get_ports {*}]  
-set_output_delay -clock pclk -max 0 [get_ports {*}]  
-
-
-$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --sdc_file /home/is22mtech14002/LAB1/tseng.sdc  
-
-
-
-$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --disp on
 
 
 
