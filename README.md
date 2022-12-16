@@ -187,7 +187,7 @@ from  1 to 3
 [VPR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
 
 ## VTR -Verilog to Routing 
-[Running VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+[VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
 
 ## Example 1 : VPR on a Pre-Synthesized Circuit
 
@@ -246,14 +246,15 @@ Perform timing simulation on the generated fabric
 >is22mtech14002@fpga-workshop-02:~/vtr_work/quickstart/vpr_tseng$
 
 #### Command to run VPR
-Use this command in the working location
+- Use this command in the working location
+```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --disp on
 ```
 $VTR_ROOT/vpr/vpr\                    // invoking vpr which is at VTR_ROOT (where vtr has been installed in the cloud)                                       
 $VTR_ROOT/vtr_flow/arch/timing/EArch.xml\     // First input is FPGA Architecture Discription File (EArch.xml)
 $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 -- route_chan_width 100 \   // use a benchmark file that is already beign converter into blf format
 -- disp on    // to open GUI
-```
 
 #### GUI
 ![Screenshot (2081)](https://user-images.githubusercontent.com/120498080/207940492-b3c8ddb5-da7d-4026-86e0-b2f7bba9bce7.png)
@@ -277,54 +278,110 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 #### tseng.sdc file
 - To get the correct timing report we need to  set the clock and for that we need to set the contrains file (.sdc file)
 ```
-1 create clock -period 10 -name pclk     //Created a clock with time period of 10nsec with name plck (we can find it from timing report)
-2 set_input_delay -clock pclk -max 0 [get_ports {*}]   //Set input delay to zero
-3 set_output_delay -clock pclk -max 0 [get_ports ("}]   //Set output delay to zero
+create_clock -period 10 -name pclk     
+set_input_delay -clock pclk -max 0 [get_ports {*}]  
+set_output_delay -clock pclk -max 0 [get_ports {*}]  
 ```
+create_clock -period 10 -name pclk     //Created a clock with time period of 10nsec with name plck (we can find it from timing report)
+set_input_delay -clock pclk -max 0 [get_ports {*}]   //Set input delay to zero
+set_output_delay -clock pclk -max 0 [get_ports ("}]   //Set output delay to zero
 
 ### Now to add this clock 
 - First go back to the same working directory and append the sdc option.
 ```
-$VTR_ROOT/vpr/vpr \                                   
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\
-$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf \
--- route_chan_width 100 \
--- sdc_file /home/is22mtech14002/LAB1/tseng.sdc    
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --sdc_file /home/is22mtech14002/LAB1/tseng.sdc  
 ```
 [Reference for VPR Command Line Options](https://docs.verilogtorouting.org/en/latest/vpr/command_line_usage/)
 
 #### Setup Slag Path
-
+![Screenshot (2087)](https://user-images.githubusercontent.com/120498080/208078972-dc84eab8-f2e4-45bd-b51f-cafacb8b42fc.png)
+- Finally we got a Setup Slag Path as 8.507nsec
 
 
 ## Example 2 :Run the entire VTR flow automatically 
+- In VTR flow we will start with HDL going through Odin II then ABC then finally the VPR flow (as done is example 1)
+- There are two ways of running VTR
+1. Manually Running the VTR Flow
+2. Automatically Running the VTR Flow
+
+- Here we will Automatically Run the VTR Flow
+We will be invocing python script presnet at 
+>$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py
+
+#### Codes to run VTR tool
+```
+ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
+    $VTR_ROOT/doc/src/quickstart/counter.v \            //Inputs the counter.v file
+    $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we wnt to map the counter.v file
+    -temp_dir . \                                     //Local working Directory
+    --route_chan_width 100                             // Rounting Channel width for the Architecture
+
+```
+
+#### counter.v file
+```verilog
+/*Important: Once you run ./a.out, it will keep running infinitely, because it is in an always block. You need to hit Ctrl +Z to stop it, else, the vcd will become a large file and will never end.
+
+*/
+
+module up_counter    (
+out     ,  // Output of the counter
+enable  ,  // enable for counter
+clk     ,  // clock Input
+reset      // reset Input
+);
+
+output [3:0] out;
+//you can alternately write this as output reg [7:0] out;
+input enable, clk, reset;
+//------------Internal Variables--------
+reg [3:0] out; 
+
+
+
+always @(posedge clk)
+if (reset) begin //reset ==1
+  out = 4'b0 ;
+end 
+else if (enable) begin //reset =0
+  out = out + 1;
+end
+
+endmodule 
+```
 
 
 
 
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml \
-    $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif \
-    --route_chan_width 100 \
-    --disp on
-    
-
-
-
-$VTR_ROOT/vpr/vpr                                   
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml
-$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf 
--- route_chan_width 100 
--- sdc_file /home/is22mtech14002/LAB1/tseng.sdc    
 
 
 
 
-$VTR_ROOT/vpr/vpr\                                                          
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\     
-$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
--- route_chan_width 100 \   
--- disp on 
 
+
+$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         
+    $VTR_ROOT/doc/src/quickstart/counter.v \             
+    $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        
+    -temp_dir . \                                     
+    --route_chan_width 100 
+
+
+ /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v \  
+
+
+
+
+
+create_clock -period 10 -name pclk     
+set_input_delay -clock pclk -max 0 [get_ports {*}]  
+set_output_delay -clock pclk -max 0 [get_ports {*}]  
+
+
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --sdc_file /home/is22mtech14002/LAB1/tseng.sdc  
+
+
+
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --disp on
 
 
 
@@ -351,6 +408,7 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 - [VLSI System Design](https://www.vlsisystemdesign.com/ip/)
 - https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
 - https://docs.verilogtorouting.org/en/latest/arch/reference/#arch-grid-layout
+- [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
 
 
 # Acknowledgement
