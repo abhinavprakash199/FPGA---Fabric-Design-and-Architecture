@@ -184,8 +184,10 @@ Do if from lec 4
 from  1 to 3
 
 ## VPR - Versatile Place and Route
+[VPR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
 
 ## VTR -Verilog to Routing 
+[Running VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
 
 ## Example 1 : VPR on a Pre-Synthesized Circuit
 
@@ -197,7 +199,7 @@ Implement our own circuit (blink.v and counter.v) on a pre-existing
 FPGA architecture Earch.xml (VTR_ROOT/vtr_flow/arch - Use an automated approach (Odin II and ABC are automatically run)
 Perform timing simulation on the generated fabric
 
-[VTR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
+
 ### Input to this VPS is:
 -  Technology mapped netlist of a Design (in form of **blif** file)
 -  FPGA Architecture discription file (in form of **Earch.xml** format)
@@ -218,7 +220,7 @@ Perform timing simulation on the generated fabric
 
 
 
-[Running VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+
 
 - Location of blif file : 
 > /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.blif
