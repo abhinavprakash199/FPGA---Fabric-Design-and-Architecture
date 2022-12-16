@@ -229,9 +229,19 @@ Perform timing simulation on the generated fabric
 #### Example xml file explanation :
 ![Screenshot (2080)](https://user-images.githubusercontent.com/120498080/207940470-314389f2-05d8-4886-84b3-074b9638554b.png)
 
-- Command to open the VTR working location `cd $VTR_ROOT` |
-Working Location :
->is22mtech14002@fpga-workshop-02:/home/kunalg123/Desktop/vtr-verilog-to-routing$ 
+- Command to open the above blif and Earch.xml location `cd $VTR_ROOT` |
+
+#### Move to our home directory
+> cd ~
+
+#### Make a working directory
+> mkdir -p vtr_work/quickstart/vpr_tseng
+
+#### Move into the working directory
+> cd ~/vtr_work/quickstart/vpr_tseng
+
+#### Working Location :
+>is22mtech14002@fpga-workshop-02:~/vtr_work/quickstart/vpr_tseng$
 
 #### Command to run VPR
 Use this command in the working location
@@ -246,6 +256,12 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 #### GUI
 ![Screenshot (2081)](https://user-images.githubusercontent.com/120498080/207940492-b3c8ddb5-da7d-4026-86e0-b2f7bba9bce7.png)
 #### Structure of FPGA Architecture
+![Screenshot (2085)](https://user-images.githubusercontent.com/120498080/208040232-f0dee1aa-a7e5-49b3-a67e-fb13360531f1.png)
+#### Congestion Architecture
+- It shows which area is how mech Congusted.
+![Screenshot (2086)](https://user-images.githubusercontent.com/120498080/208039876-a64f94de-1a71-4858-afc8-e45fb232b2b8.png)
+
+- There are also differnet views available of this FPGA Architecture
 
 
 - Finally .net .place .route and .log files are generate in same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
@@ -267,11 +283,11 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 ### Now to add this clock 
 - First go back to the same working directory and append the sdc option.
 ```
-$VTR_ROOT/vpr/vpr                                   
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml
-$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf
--- route_chan_width 100 
--- sdc file /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.sdc
+$VTR_ROOT/vpr/vpr \                                   
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf \
+-- route_chan_width 100 \
+-- sdc_file /home/is22mtech14002/LAB1/tseng.sdc    
 ```
 [Reference for VPR Command Line Options](https://docs.verilogtorouting.org/en/latest/vpr/command_line_usage/)
 
@@ -286,17 +302,26 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf
 
 $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \
     $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif \
-    --route_chan_width 100
-    --display on
+    --route_chan_width 100 \
+    --disp on
     
 
 
 
+$VTR_ROOT/vpr/vpr                                   
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf 
+-- route_chan_width 100 
+-- sdc_file /home/is22mtech14002/LAB1/tseng.sdc    
 
 
 
 
-
+$VTR_ROOT/vpr/vpr\                                                          
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\     
+$VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
+-- route_chan_width 100 \   
+-- disp on 
 
 
 
