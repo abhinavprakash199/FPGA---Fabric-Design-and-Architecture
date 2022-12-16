@@ -259,10 +259,10 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 #### GUI
 ![Screenshot (2081)](https://user-images.githubusercontent.com/120498080/207940492-b3c8ddb5-da7d-4026-86e0-b2f7bba9bce7.png)
 #### Structure of FPGA Architecture
-![Screenshot (2085)](https://user-images.githubusercontent.com/120498080/208040232-f0dee1aa-a7e5-49b3-a67e-fb13360531f1.png)
+![Screenshot (2088)](https://user-images.githubusercontent.com/120498080/208081790-279b1699-d010-4a70-a94f-295040f1519a.png)
 #### Congestion Architecture
 - It shows which area is how mech Congusted.
-![Screenshot (2086)](https://user-images.githubusercontent.com/120498080/208039876-a64f94de-1a71-4858-afc8-e45fb232b2b8.png)
+![Screenshot (2089)](https://user-images.githubusercontent.com/120498080/208081834-0f92663a-bc7e-4757-86eb-24f96f55c9a5.png)
 
 - There are also differnet views available of this FPGA Architecture
 
