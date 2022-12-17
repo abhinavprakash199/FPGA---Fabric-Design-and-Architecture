@@ -451,8 +451,8 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 # Day 3 - RISC-V Core Programming Using Vivado
 
 
-We use the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add firt 9 numbers.
-Then we create a vivado priject with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
+We use the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add first 9 numbers.
+Then we create a vivado project with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
 
 ### SIMULATION
 ![Screenshot (2091)](https://user-images.githubusercontent.com/120498080/208234103-a18b8b86-aad0-4901-ab6e-8ce94ca0bfc0.png)
