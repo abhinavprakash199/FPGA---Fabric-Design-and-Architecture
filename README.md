@@ -448,7 +448,47 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 
 
 
-# Day 3 - RISCV Core Programming Using Vivado
+# Day 3 - RISC-V Core Programming Using Vivado
+
+
+We use the verilog code of RISC-V processor core (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add firt 9 numbers.
+Then we create a vivado priject with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
+
+### SIMULATION
+![Screenshot (2091)](https://user-images.githubusercontent.com/120498080/208234103-a18b8b86-aad0-4901-ab6e-8ce94ca0bfc0.png)
+
+### RTL ANALYSIS
+
+### To RUN in ILA
+A- fter running Elaboration we set I/O Std to LVCMOS33 and clk to W5 and reset to R2 and for output port we are going to assign an ILA (Integrated Logic Analyser) to view the output (ecause we are noe using practical FPGA board). Fo that we neet to make some changes in the codes
+> Replace `module core(input clk, input reset,output [7,0]out);` with `module core(input clk, input reset);` so we do not need to map the outputs to any LEDs
+- Then again run the Elaboration (Make sure we do not the behavioral simulation at this point, otherwise it will show a missmatch in the number or ports because we have eleminated the output port here, as the testbench contain the output port) 
+-  So we have to go with **Elaboration >> Syntheses >> Implemantation >> Bitstream**
+#### To run ILA in Vivado
+- We all ILA to probes the signals
+- Fo that go to IP Catalog/ILA(Integrated Logic Analyser)
+- In that set Number of Probes = 2 (because we want to check reset and output)
+- In next tab "Probe Ports" and set PROBE0|Probe With = 1 (because reset is a 1 bit signal) and PROBE1|Probe With = 8 (because output is a 8 bit signal)
+- Then confirm and generate.
+#### Generated ILA 
+![Screenshot (2095)](https://user-images.githubusercontent.com/120498080/208235941-000dff30-d315-4349-a0e7-7d723e07d7f4.png)
+
+- Then copy this and paste it in our codes
+```verilog
+ila_0 your_instance_name (
+	.clk(clk), // input wire clk
+
+
+	.probe0(reset), // input wire [0:0]  probe0  
+	.probe1(out) // input wire [7:0]  probe1
+);
+```
+![Screenshot (2096)](https://user-images.githubusercontent.com/120498080/208236104-2e9b6322-6692-4e5a-bd05-a27c1626549c.png)
+
+ - Finally run the sythesis
+ - 
+#### Code of mythcore_test_no_ILA.v
+
 # Day 4 - Introduction To SOFA FPGA Fabric
 # Day 5 - RISCV Core on Custom SOFA Fabric
 
