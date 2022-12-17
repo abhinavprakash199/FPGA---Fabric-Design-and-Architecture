@@ -188,21 +188,16 @@ from  1 to 3
 
 ## VPR - Versatile Place and Route
 [VPR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
+#### VPR Flow
+![Screenshot (2078)](https://user-images.githubusercontent.com/120498080/208228994-29779770-a2ac-4f8e-882c-0333beaf97a9.png)
 
 ## VTR -Verilog to Routing 
 [VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+#### VTR Flow
+![Screenshot (2077)](https://user-images.githubusercontent.com/120498080/208229019-3d36e223-5d2e-4410-927c-3ecb3ff7f7ec.png)
+
 
 ## Example 1 : VPR on a Pre-Synthesized Circuit
-
-### Observe the result files
-
-### Visualize(GUI) Circuit Implemantation
-
-Implement our own circuit (blink.v and counter.v) on a pre-existing
-FPGA architecture Earch.xml (VTR_ROOT/vtr_flow/arch - Use an automated approach (Odin II and ABC are automatically run)
-Perform timing simulation on the generated fabric
-
-
 ### Input to this VPS is:
 -  Technology mapped netlist of a Design (in form of **blif** file)
 -  FPGA Architecture discription file (in form of **Earch.xml** format)
@@ -222,9 +217,6 @@ Perform timing simulation on the generated fabric
 - It is also going to output a Post-Implemantation Netlist( it will give information about resource usage, number of block pipes and wires used, timimg in terms of critical path delay and timimg path and also poer usage be each of these blocks)
 
 
-
-
-
 - Location of blif file : 
 > /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.blif
   
@@ -234,8 +226,9 @@ Perform timing simulation on the generated fabric
 #### Example xml file explanation :
 ![Screenshot (2080)](https://user-images.githubusercontent.com/120498080/207940470-314389f2-05d8-4886-84b3-074b9638554b.png)
 
-- Command to open the above blif and Earch.xml location `cd $VTR_ROOT` |
+- **NOTE** Command to open the above blif and Earch.xml location `cd $VTR_ROOT` (after that use `cd` and `ls` to go into particular location and open the file) 
 
+### Make new working directory
 #### Move to our home directory
 > cd ~
 
@@ -249,17 +242,19 @@ Perform timing simulation on the generated fabric
 >is22mtech14002@fpga-workshop-02:~/vtr_work/quickstart/vpr_tseng$
 
 #### Command to run VPR
-- Use this command in the working location
+- Use this command in the working location to run VPR
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --disp on
 ```
-$VTR_ROOT/vpr/vpr\                    // invoking vpr which is at VTR_ROOT (where vtr has been installed in the cloud)                                       
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\     // First input is FPGA Architecture Discription File (EArch.xml)
+```
+$VTR_ROOT/vpr/vpr\                             // invoking vpr which is at VTR_ROOT (where vtr has been installed in the cloud)                                       
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\      // First input is FPGA Architecture Discription File (EArch.xml)
 $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
--- route_chan_width 100 \   // use a benchmark file that is already beign converter into blf format
--- disp on    // to open GUI
+-- route_chan_width 100 \                      // use a benchmark file that is already beign converter into blf format
+-- disp on                                     // to open GUI
+```
 
-#### GUI
+#### GUI - Graphical User Interface
 ![Screenshot (2081)](https://user-images.githubusercontent.com/120498080/207940492-b3c8ddb5-da7d-4026-86e0-b2f7bba9bce7.png)
 #### Structure of FPGA Architecture
 ![Screenshot (2088)](https://user-images.githubusercontent.com/120498080/208081790-279b1699-d010-4a70-a94f-295040f1519a.png)
