@@ -419,7 +419,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 --route_chan_width 100 
 --gen_post_synthesis_netlist on                                              //to genrete post synthesis netlist
 ```
-- So now VPR will generate the  Post-Implementation Netlist (up_counter_post_synthesis.v file) and also the delay file (up_counter_post_synthesis.sdf file)
+- So now VPR will generate the  Post-Implementation Netlist (up_counter_post_synthesis.v file) and also the delay file (up_counter_post_synthesis.sdf) file
 
 
 - **NOTE** Linux Command to check up_counter_post_synthesis.sdf and up_counter_post_synthesis.v file has been generated `ls *.v *.sdf`
