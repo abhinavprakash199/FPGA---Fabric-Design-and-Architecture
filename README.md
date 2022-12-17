@@ -387,11 +387,12 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --gen_post_synthesis_netlist on
 ```
-$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml      //Run VPR with the Architecture file (.xml file)
-/home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif    //Run the .blif file that has been created from the VPR
+```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //Run VPR with the Architecture file (.xml file)
+/home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif      //Run the .blif file that has been created from the VPR
 --route_chan_width 100 
---gen_post_synthesis_netlist on       //to genrete post synthesis netlist
-
+--gen_post_synthesis_netlist on                                              //to genrete post synthesis netlist
+```
 - So now VPR will generate the  Post-Implementation Netlist (up_counter_post_synthesis.v file) and also the delay file (up_counter_post_synthesis.sdf file)
 
 
