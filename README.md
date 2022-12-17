@@ -243,7 +243,7 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 #### Example xml file explanation :
 ![Screenshot (2080)](https://user-images.githubusercontent.com/120498080/207940470-314389f2-05d8-4886-84b3-074b9638554b.png)
 
-- **NOTE** Command to open the above blif and Earch.xml location `cd $VTR_ROOT` (after that use `cd` and `ls` to go into particular location and open the file) 
+- ***NOTE** Command to open the above blif and Earch.xml location `cd $VTR_ROOT` (after that use `cd` and `ls` to go into particular location and open the file)* 
 
 ### Make new working directory
 #### Move to our home directory
@@ -341,6 +341,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 We will be invocing python script presnet at 
 >$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py
 
+
 #### Codes to run VTR tool
 ```
 
@@ -399,7 +400,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --disp on
 ```
 
-### GUI
+### GUI (Graphical User Interface)
 ![Screenshot (2090)](https://user-images.githubusercontent.com/120498080/208226847-1cfb86ed-e9fa-42fd-9afc-f4fdce2b5814.png)
 
 - So now it will complete the entire VPR flow
@@ -507,12 +508,16 @@ ila_0 your_instance_name (
 
 - Then we can go for Bitstream Genaration if we have the FPGA Basys3 board. 
 ### 1. To RUN without ILA
-We create a project in vivado and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below.
+We create a project in vivado and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below. For pin selection we can refer [Schematic of Basys3 Board](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 #### Constrains File
 ![Screenshot (2108)](https://user-images.githubusercontent.com/120498080/208255165-9b0db85a-5aba-4444-856b-27b6209a2e3e.png)
 - Finally go to Run and run the Post Implementation Timing Simulation and it will give the same output as before.
 #### Post Implementation Timing Simulation
 ![Screenshot (2107)](https://user-images.githubusercontent.com/120498080/208255251-dbd75711-772e-4476-9f44-7c2eff15a031.png)
+
+**NOTE**
+- **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output
+- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA
 
 
 
