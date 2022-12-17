@@ -305,7 +305,10 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 - In VTR flow we will start with HDL going through Odin II then ABC then finally the VPR flow (as done is example 1)
 - There are two ways of running VTR
 1. Manually Running the VTR Flow
-2. Automatically Running the VTR Flow
+- We have to invoke Odin II manually
+- Then we have to do the tecjnology mapping with ABC
+- Then mannualy implement the circuit using VPR
+2  . Automatically Running the VTR Flow
 
 - Here we will Automatically Run the VTR Flow
 We will be invocing python script presnet at 
@@ -317,6 +320,8 @@ We will be invocing python script presnet at
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v   $VTR_ROOT/vtr_flow/arch/timing/EArch.xml   -temp_dir .  --route_chan_width 100
 ```
 
+- Then run the commands in working direcory to generate .blif file 
+
  $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
     $VTR_ROOT/doc/src/quickstart/counter.v \            //Inputs the counter.v file
     $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we wnt to map the counter.v file
@@ -324,7 +329,7 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
     --route_chan_width 100                             // Rounting Channel width for the Architecture
 
 
-#### counter.v file
+#### Codes of counter.v file
 ```verilog
 /*Important: Once you run ./a.out, it will keep running infinitely, because it is in an always block. You need to hit Ctrl +Z to stop it, else, the vcd will become a large file and will never end.
 
@@ -355,23 +360,40 @@ end
 
 endmodule 
 ```
-
-
+- Commands to invoke GUI analysis step
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --analysis --disp on
 ```
 
+--analysis      // to run GUI from analysis step onwards
 
+- Commands to invoke GUI with entire VPR flow
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --disp on
 ```
 
+### GUI
+![Screenshot (2090)](https://user-images.githubusercontent.com/120498080/208226847-1cfb86ed-e9fa-42fd-9afc-f4fdce2b5814.png)
+
+- So now it will complete the entire VPR flow
+
+
+
+
 ## Generation of the Post-Implementation Netlist
+- Now we need to generete a Post-Implementation Netlist from VPR
 [Generation of the Post-Implementation Netlist](https://docs.verilogtorouting.org/en/latest/tutorials/timing_simulation/)
 
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --gen_post_synthesis_netlist on
 ```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml      //Run VPR with the Architecture file (.xml file)
+/home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif    //Run the .blif file that has been created from the VPR
+--route_chan_width 100 
+--gen_post_synthesis_netlist on       //to genrete post synthesis netlist
+
+- So now VPR will generate the  Post-Implementation Netlist (up_counter_post_synthesis.v file) and also the delay file (up_counter_post_synthesis.sdf file)
+
 
 - Linux Command to check up_counter_post_synthesis.sdf and up_counter_post_synthesis.v file has been generated `ls *.v *.sdf`
 
@@ -380,8 +402,17 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.sdf
 /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.v
 
+## Now to make this run in VIVADO
+- Now create a project in VIVADO and add primitives.v and up_counter_post_synthesis.v as design sources  and upcounter_testbench.v as simulation sources
 
 
+#### Codes of upcounter_testbench.v file
+```verilog
+
+...
+
+```
+- **NOTE** It does not matter what FPGA we choose inintially in VIVADI tool because we are noe going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
 
 
 
