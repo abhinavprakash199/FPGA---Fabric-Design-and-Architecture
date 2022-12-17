@@ -347,13 +347,13 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ```
 
 - Then run the commands in working direcory to generate .blif file 
-
+```
  $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
     $VTR_ROOT/doc/src/quickstart/counter.v \            //Inputs the counter.v file
     $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we wnt to map the counter.v file
     -temp_dir . \                                     //Local working Directory
     --route_chan_width 100                             // Rounting Channel width for the Architecture
-
+```
 
 #### Codes of counter.v file
 ```verilog
