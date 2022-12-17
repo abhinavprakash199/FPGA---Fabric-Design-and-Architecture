@@ -187,12 +187,28 @@ Do if from lec 4
 from  1 to 3
 
 ## VPR - Versatile Place and Route
+The last part of VTR is versatile place and route (VPR). A BLIF circuit serves as its input, and it packs, puts, and routes the circuit on an input FPGA design.
+
+During packing, adjacent and connected logic components of the circuit are grouped together into Logic Blocks that match the FPGA's hardware. These logic blocks and hard blocks are assigned to the FPGA's available hardware resources during placement. Finally, signal connections between blocks are formed during routing. Many other universities and businesses have contributed to the development of VPR, which is principally being done by the University of Toronto.
+
 [VPR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
+
 #### VPR Flow
 ![Screenshot (2078)](https://user-images.githubusercontent.com/120498080/208228994-29779770-a2ac-4f8e-882c-0333beaf97a9.png)
 
-## VTR -Verilog to Routing 
+## VTR - Verilog to Routing 
+
+The Verilog to Routing (VTR) project offers free and open-source CAD tools for studying FPGA architecture.
+In contrast to closed-source tools, open source CAD tools allow for the investigation of novel FPGA architectures and CAD algorithms.
+A Verilog description of a digital circuit and information about the intended FPGA architecture are inputs into the VTR design flow. Next, it performs:
+- ODIN II -  Elaboration & Synthesis 
+- ABC - Logic Optimization & Technology Mapping 
+- VPR - Packing, Placement, Routing & Timing Analysis 
+to generate FPGA area and speed data. The data necessary for bitstream synthesis to target actual FPGA devices can also be produced via VTR.
+The benchmark designs included in VTR are ideal for evaluating FPGA architectures and are adaptable and can accommodate a variety of hypothetical, commercial-like, and practical FPGA architectures.
+
 [VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
+
 #### VTR Flow
 ![Screenshot (2077)](https://user-images.githubusercontent.com/120498080/208229019-3d36e223-5d2e-4410-927c-3ecb3ff7f7ec.png)
 
@@ -259,31 +275,37 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 #### Structure of FPGA Architecture
 ![Screenshot (2088)](https://user-images.githubusercontent.com/120498080/208081790-279b1699-d010-4a70-a94f-295040f1519a.png)
 #### Congestion Architecture
-- It shows which area is how mech Congusted.
+- It shows which area is how much Congusted.
 ![Screenshot (2089)](https://user-images.githubusercontent.com/120498080/208081834-0f92663a-bc7e-4757-86eb-24f96f55c9a5.png)
 
-- There are also differnet views available of this FPGA Architecture
+- There are also differnet views available of this FPGA Architecture which can be accessed through GUI
 
 
-- Finally .net .place .route and .log files are generate in same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
+- Finally the output of this VPR step is 
+1. **tseng.net** Its a packed netlist format, its basically a xml file that describes post packed circuit. So it represent the user netlist in terms of complex logic blocks of this particular architecture. 
+2. **tseng.place** Its the output of Placement step. It is going to list the netlist and tells about the differnet block number and their placement in the Architecture.
+3. **tseng.route**  Its the output of Routing step which going to contain informating about the net and the nodes which are going to connect.
+4. **tseng.log** Its basically what it printed out in the terminal.
+- All the files are generate in same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
 - It will also generate report_timing.setup.rpt , report_timing.hold.rpt, packing_pin_util.rpt, etc files. in the same working directory.
 
 
-- Command to search .rpt file in working directory `ls *.rpt`
+- **NOTE** Command to search .rpt file in working directory `ls *.rpt`
 
 
 
 #### tseng.sdc file
-- To get the correct timing report we need to  set the clock and for that we need to set the contrains file (.sdc file)
+- To get the correct timing report we need to  set the clock and for that we need to set the contrains file (tseng.sdc file)
 ```
 create_clock -period 10 -name pclk     
 set_input_delay -clock pclk -max 0 [get_ports {*}]  
 set_output_delay -clock pclk -max 0 [get_ports {*}]  
 ```
-create_clock -period 10 -name pclk     //Created a clock with time period of 10nsec with name plck (we can find it from timing report)
-set_input_delay -clock pclk -max 0 [get_ports {*}]   //Set input delay to zero
+```
+create_clock -period 10 -name pclk                    //Created a clock with time period of 10nsec with name plck (we can find it from timing report)
+set_input_delay -clock pclk -max 0 [get_ports {*}]    //Set input delay to zero
 set_output_delay -clock pclk -max 0 [get_ports ("}]   //Set output delay to zero
-
+```
 ### Now to add this clock 
 - First go back to the same working directory and append the sdc option.
 ```
@@ -291,9 +313,18 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 ```
 [Reference for VPR Command Line Options](https://docs.verilogtorouting.org/en/latest/vpr/command_line_usage/)
 
+- Finally it will generate several reports:
+1. report_timing.setup.rpt
+2. report_timing.hold.rpt
+3. report_unconstrained_timing.hold.rpt
+4. report_unconstrained_timing.setup.rpt
+5. packing_pin_util.rpt
+
+
 #### Setup Slag Path
 ![Screenshot (2087)](https://user-images.githubusercontent.com/120498080/208078972-dc84eab8-f2e4-45bd-b51f-cafacb8b42fc.png)
-- Finally we got a Setup Slag Path as 8.507nsec
+- Finally we got a Setup Slag Path of 8.507nsec
+
 
 
 ## Example 2 :Run the entire VTR flow automatically 
