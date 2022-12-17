@@ -334,7 +334,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 - We have to invoke Odin II manually
 - Then we have to do the tecjnology mapping with ABC
 - Then mannualy implement the circuit using VPR
-2  . Automatically Running the VTR Flow
+2. Automatically Running the VTR Flow
 
 - Here we will Automatically Run the VTR Flow
 We will be invocing python script presnet at 
@@ -422,7 +422,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 - So now VPR will generate the  Post-Implementation Netlist (up_counter_post_synthesis.v file) and also the delay file (up_counter_post_synthesis.sdf file)
 
 
-- Linux Command to check up_counter_post_synthesis.sdf and up_counter_post_synthesis.v file has been generated `ls *.v *.sdf`
+- **NOTE** Linux Command to check up_counter_post_synthesis.sdf and up_counter_post_synthesis.v file has been generated `ls *.v *.sdf`
 
 /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/primitives.v
 /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.blif
@@ -451,7 +451,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 # Day 3 - RISC-V Core Programming Using Vivado
 
 
-We use the verilog code of RISC-V processor core (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add firt 9 numbers.
+We use the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add firt 9 numbers.
 Then we create a vivado priject with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
 
 ### SIMULATION
@@ -485,9 +485,20 @@ ila_0 your_instance_name (
 ```
 ![Screenshot (2096)](https://user-images.githubusercontent.com/120498080/208236104-2e9b6322-6692-4e5a-bd05-a27c1626549c.png)
 
- - Finally run the sythesis
- - 
-#### Code of mythcore_test_no_ILA.v
+ - Finally run the sythesis and set clock as 100MHz Constrains Wizard 
+ 
+ #### Constrains File
+ ![Screenshot (2097)](https://user-images.githubusercontent.com/120498080/208237807-8adf67b4-7238-4f22-9ebc-d42a201a47f1.png)
+
+### SYNTHESIS and IMPLEMENTATION Report
+
+#### Utilization Report
+![Screenshot (2098)](https://user-images.githubusercontent.com/120498080/208238191-99e41f5a-e8b7-4aa1-b864-2b8db9084174.png)
+#### Schematic of the Architecture 
+![Screenshot (2099)](https://user-images.githubusercontent.com/120498080/208238125-ec9e3bc0-bf5e-4c63-9663-ebb93110e4b6.png)
+#### Floarplanning of Implemented Design 
+
+
 
 # Day 4 - Introduction To SOFA FPGA Fabric
 # Day 5 - RISCV Core on Custom SOFA Fabric
