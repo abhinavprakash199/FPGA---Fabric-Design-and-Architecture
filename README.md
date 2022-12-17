@@ -485,10 +485,11 @@ ila_0 your_instance_name (
 ```
 ![Screenshot (2096)](https://user-images.githubusercontent.com/120498080/208236104-2e9b6322-6692-4e5a-bd05-a27c1626549c.png)
 
- - Finally run the sythesis and set clock as 100MHz Constrains Wizard 
+ - Finally run the sythesis and set clock as 100MHz Constrains Wizard.
  
  #### Constrains File
- ![Screenshot (2097)](https://user-images.githubusercontent.com/120498080/208237807-8adf67b4-7238-4f22-9ebc-d42a201a47f1.png)
+ ![Screenshot (2104)](https://user-images.githubusercontent.com/120498080/208252230-e09a8c3d-4792-425a-8819-77c2ce7e410e.png)
+
 
 ### SYNTHESIS and IMPLEMENTATION Report
 
@@ -497,8 +498,14 @@ ila_0 your_instance_name (
 #### Schematic of the Architecture 
 ![Screenshot (2099)](https://user-images.githubusercontent.com/120498080/208238125-ec9e3bc0-bf5e-4c63-9663-ebb93110e4b6.png)
 #### Floarplanning of Implemented Design 
+![Screenshot (2103)](https://user-images.githubusercontent.com/120498080/208252100-e2d57600-2e73-423b-bac6-509bf56b1a5a.png)
+#### Report Timing Summary
+![Screenshot (2100)](https://user-images.githubusercontent.com/120498080/208252113-b7869a24-82aa-44db-930b-d151173d6d1e.png)
+#### Power Report
+![Screenshot (2105)](https://user-images.githubusercontent.com/120498080/208252633-0f729d19-de3a-46f3-b922-ef13db969ae1.png)
 
 
+- Then we can go for Bitstream Genaration if we have the FPGA Basys3 board. 
 
 # Day 4 - Introduction To SOFA FPGA Fabric
 # Day 5 - RISCV Core on Custom SOFA Fabric
