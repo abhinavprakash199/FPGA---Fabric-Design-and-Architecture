@@ -138,7 +138,8 @@ It is usually done before Synthesis
 
 ### Mapping I/O Ports to the pins of the FPGA
 - If we do not have access to FPGA board then we can use the scheamitic of basis 3 and map the pins accordingle
-#### Sceheamitic of basis 3
+#### Sceheamitic of basis 3 
+[SCHEMATIC PDF](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 ![Screenshot (2046)](https://user-images.githubusercontent.com/120498080/207820032-b6efb987-a4ae-45eb-af8a-756cf998eaf4.png)
 #### Mapping in constarints.edx file 
 - We set Vcc as 3.3V (I/O Std - LVCMOS33) for all input and output pins. 
