@@ -8,7 +8,7 @@ This repository contains all the information studied and created during the FPGA
 
 # **Day 1 - Exploring FPGA Basics and Vivado**
 ## FPGA Architecture
-
+L 1 to 3
 
 
 
