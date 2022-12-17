@@ -460,8 +460,8 @@ Then we create a vivado project with adding basys3(xc7a35tcpg238-1) board and we
 
 ### RTL ANALYSIS
 
-### To RUN in ILA
-A- fter running Elaboration we set I/O Std to LVCMOS33 and clk to W5 and reset to R2 and for output port we are going to assign an ILA (Integrated Logic Analyser) to view the output (ecause we are noe using practical FPGA board). Fo that we neet to make some changes in the codes
+### 1. To RUN in ILA
+After running Elaboration we set I/O Std to LVCMOS33 and clk to W5 and reset to R2 and for output port we are going to assign an ILA (Integrated Logic Analyser) to view the output (ecause we are noe using practical FPGA board). Fo that we neet to make some changes in the codes
 > Replace `module core(input clk, input reset,output [7,0]out);` with `module core(input clk, input reset);` so we do not need to map the outputs to any LEDs
 - Then again run the Elaboration (Make sure we do not the behavioral simulation at this point, otherwise it will show a missmatch in the number or ports because we have eleminated the output port here, as the testbench contain the output port) 
 -  So we have to go with **Elaboration >> Syntheses >> Implemantation >> Bitstream**
@@ -505,8 +505,16 @@ ila_0 your_instance_name (
 #### Power Report
 ![Screenshot (2105)](https://user-images.githubusercontent.com/120498080/208252633-0f729d19-de3a-46f3-b922-ef13db969ae1.png)
 
-
 - Then we can go for Bitstream Genaration if we have the FPGA Basys3 board. 
+### 1. To RUN without ILA
+We create a project in vivado and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below.
+#### Constrains File
+![Screenshot (2108)](https://user-images.githubusercontent.com/120498080/208255165-9b0db85a-5aba-4444-856b-27b6209a2e3e.png)
+- Finally go to Run and run the Post Implementation Timing Simulation and it will give the same output as before.
+#### Post Implementation Timing Simulation
+![Screenshot (2107)](https://user-images.githubusercontent.com/120498080/208255251-dbd75711-772e-4476-9f44-7c2eff15a031.png)
+
+
 
 # Day 4 - Introduction To SOFA FPGA Fabric
 # Day 5 - RISCV Core on Custom SOFA Fabric
