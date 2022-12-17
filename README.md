@@ -330,11 +330,11 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 ## Example 2 :Run the entire VTR flow automatically 
 - In VTR flow we will start with HDL going through Odin II then ABC then finally the VPR flow (as done is example 1)
 - There are two ways of running VTR
-1. Manually Running the VTR Flow
+1. **Manually Running the VTR Flow**
 - We have to invoke Odin II manually
 - Then we have to do the tecjnology mapping with ABC
 - Then mannualy implement the circuit using VPR
-2. Automatically Running the VTR Flow
+2. **Automatically Running the VTR Flow**
 
 - Here we will Automatically Run the VTR Flow
 We will be invocing python script presnet at 
