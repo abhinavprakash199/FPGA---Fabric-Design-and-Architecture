@@ -215,9 +215,11 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 
 
 ## Example 1 : VPR on a Pre-Synthesized Circuit
-### Input to this VPS is:
--  Technology mapped netlist of a Design (in form of **blif** file)
--  FPGA Architecture discription file (in form of **Earch.xml** format)
+### Input to this VPR is:
+1. Technology mapped netlist of a Design (in form of **tseng.blif** file)
+2. FPGA Architecture discription file (in form of **Earch.xml** format)
+- **NOTE** This EArch.xml is already available (nearly 40 differnet FPGA Architectures available) available (For  our own FPGA achitecture it can be written using xml langage) 
+- **NOTE** This tseng.blif is generated from Tech Mapped Netlist and it contains information about the technology Tech Mapped circuits (for eg if we are targeting a 40nm circuit) which will be implemented in the target FPGA and used as a input file to VPR flow.
 ### VPR tool will go through following steps. 
 #### 1. VPR Packing 
 - It is going to combine all the primitive netlist blocks(e.g. - all the LUTs,FF,etc which are the part of the design) 
@@ -291,8 +293,7 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 - It will also generate report_timing.setup.rpt , report_timing.hold.rpt, packing_pin_util.rpt, etc files. in the same working directory.
 
 
-- **NOTE** Command to search .rpt file in working directory `ls *.rpt`
-
+- ***NOTE** Command to search .rpt file in working directory `ls *.rpt`*
 
 
 #### tseng.sdc file
@@ -341,8 +342,10 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 We will be invocing python script presnet at 
 >$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py
 
-
+- **NOTE** This run_vtr_flow.py file is alraedy available for this Open FPGA (for our simplicity) if we are Automatically Running the VTR Flow.
+- **NOTE** This EArch.xml is already available (nearly 40 differnet FPGA Architectures available) available (For  our own FPGA achitecture it can be written using xml langage) 
 #### Codes to run VTR tool
+
 ```
 
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v   $VTR_ROOT/vtr_flow/arch/timing/EArch.xml   -temp_dir .  --route_chan_width 100
@@ -351,10 +354,10 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 - Then run the commands in working direcory to generate .blif file 
 ```
  $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
-    $VTR_ROOT/doc/src/quickstart/counter.v \            //Inputs the counter.v file
+    $VTR_ROOT/doc/src/quickstart/counter.v \          //Inputs the counter.v file
     $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we wnt to map the counter.v file
     -temp_dir . \                                     //Local working Directory
-    --route_chan_width 100                             // Rounting Channel width for the Architecture
+    --route_chan_width 100                            // Rounting Channel width for the Architecture
 ```
 
 #### Codes of counter.v file
@@ -431,6 +434,8 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.sdf
 /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.v
 
+- **NOTE** This privitive.v file is specific for particular FPGA board and it is available in FPGA fabric (sometimes it have constrains which we neet to fix, like clock written as clk which should match with our up_counter_post_synthesis.v file)
+
 ## Now to make this run in VIVADO
 - Now create a project in VIVADO and add primitives.v and up_counter_post_synthesis.v as design sources  and upcounter_testbench.v as simulation sources
 
@@ -441,7 +446,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 ...
 
 ```
-- **NOTE** It does not matter what FPGA we choose inintially in VIVADI tool because we are noe going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
+- **NOTE** It does not matter what FPGA we choose inintially in VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
 
 
 
