@@ -16,7 +16,7 @@ L 1 to 3
 A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
 Below mentioned the RTL for the counter modules that is being used.
 
-- Linux codes to download GitHub file from link `git clone https://github.com/nandithaec/fpga_workshop_collaterals.git`
+- ***NOTE**Linux codes to download GitHub file from link `git clone https://github.com/nandithaec/fpga_workshop_collaterals.git`*
 
 ### VERILOG Codes 
 
@@ -166,7 +166,7 @@ Do if from lec 4
 ![Screenshot (2070)](https://user-images.githubusercontent.com/120498080/207825343-2fa69e41-a876-4a59-8982-9898858ec658.png)
 
 #### Report Utilazation
-- It basic aly tells about the area report 
+- It basic aly tells about the area report.
 - e.g - it shows us how many resources has been utilized in the FPGA
 ![Screenshot (2071)](https://user-images.githubusercontent.com/120498080/207827717-1e2d4d97-c7d2-49d3-8d4b-9eeea1413900.png)
 
@@ -175,8 +175,16 @@ Do if from lec 4
 ## PROGRAM AND DEBUG
 ### Generate Bitstream
 - A series of bytes is known as a bytestream. Since a byte is often an 8-bit quantity, the term "octet stream" is occasionally used interchangeably. There is no specific and direct translation between bytestreams and bitstreams because one octet can be encoded as a series of 8 bits in a variety of different ways (see bit numbering).
-- Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch  
+- Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as we do have access to the Basys3 board so we are not doing it here)
+
+### Alternative way is Post Implementation Timing Simulation
+
+**NOTE**
+- **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
+- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA.
+
 ## VIO - Virtual Input/Output 
+
 
 
 
