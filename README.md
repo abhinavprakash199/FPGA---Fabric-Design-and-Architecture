@@ -556,17 +556,25 @@ SOFA (Skywater Opensource FPGAs) are a collection of opensource FPGAs IPs using 
 ### How to run SOFA
 First we will start with a **design of a counter in SOFA** and then we will use a design of RISC-V processor called RVMyth in SOFA
 #### Installing SOFA
-- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git`
+- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
 - Our working directoy in `Desktop/Day3/SOFA/`
-- Then go to `cd FPGA1212_QLSOFA_HD_PNR`
-- Then open `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` 
-
-
-
-
+- Then open `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.
 - Now open `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.
 - Then the architecture file is available under the `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.
-
+- Then 'vim ~/.bashrc' and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
+```
+export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
+export OPENFPGA_PATH=/home/kunalg123/Desktop/OpenFPGA
+alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
+```
+- Now go to 'Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR`
+- Then run 'make runOpenFPGA'
+#### Running OpenFPGA
+![Screenshot (2118)](https://user-images.githubusercontent.com/120498080/208313739-0b385ce8-bcd8-4094-b753-12e57efa15e3.png)
+- So after completion it is going to dump the outputs as .blif .rpt .log under the location `/Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH`
+- This openfpgashell.log files gives the detail about the set of commands it has run , the outputs, the area reports.
+#### openfpgashell.log files
+![Screenshot (2119)](https://user-images.githubusercontent.com/120498080/208313940-458564df-1bcc-4226-abbc-fa48737622c6.png)
 
 - ***NOTE** Command to open a text edior in linux - After going into that folder use `vim <file_name.extension>*
 - ***NOTE** Command to close and save a text edior in linux - Press Esc then type `:wq` and press Enter*
