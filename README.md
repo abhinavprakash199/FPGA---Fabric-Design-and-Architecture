@@ -521,12 +521,24 @@ We create a project in vivado and we add mythcore_test_no_ILA.v as desination so
 ![Screenshot (2107)](https://user-images.githubusercontent.com/120498080/208255251-dbd75711-772e-4476-9f44-7c2eff15a031.png)
 
 **NOTE**
-- **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output
-- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA
-
-
+- **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
+- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA.
 
 # Day 4 - Introduction To SOFA FPGA Fabric
+
+[SOFA (Skywater Opensource FPGAs)](https://github.com/lnis-uofu/SOFA) are a collection of opensource FPGAs IPs using the open-source [Skywater 130nm PDK](https://github.com/google/skywater-pdk) and [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) framework.
+
+### The following eFPGA (Embedded FPGA) IPs are supported by this repository:
+- Architecture description file: Using the VTR project and the OpenFPGA project, users can examine architecture specifics and test architecture evaluation.
+- Fabrication-ready GDSII layouts: Users can integrate to their chip designs.
+- Post-layout Verilog Netlists: Users can run HDL simulations on the eFPGA IPs to validate their applications.
+- Benchmark suites: An example benchmarking suite with which users can run quick examples on the eFPGA IPs
+- Documentation: Datasheets for each eFPGA IPs downto circuit-level details
+
+### Resource Utilization of HD eFPGA
+![Screenshot (2109)](https://user-images.githubusercontent.com/120498080/208286236-582cb3e7-4223-475e-b94b-88bf657fd7cf.png)
+
+
 # Day 5 - RISCV Core on Custom SOFA Fabric
 
 
