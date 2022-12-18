@@ -120,7 +120,9 @@ always
 endmodule 
 ```
 
-## SIMULATION
+## BEHAVIORAL SIMULATION
+![Screenshot (2115)](https://user-images.githubusercontent.com/120498080/208306281-42b14bad-2357-4156-9cb7-18f147949796.png)
+
 ![Screenshot (2041)](https://user-images.githubusercontent.com/120498080/207792232-9b68120f-8b85-4007-a252-f2f653b11717.png)
 ## RTL ANALYSIS
 ### Elaborate Design
@@ -176,12 +178,16 @@ Do if from lec 4
 ### Generate Bitstream
 - Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as we do have access to the Basys3 board so we are not doing it here)
 
-### Alternative way is Post Implementation Timing Simulation
+## Alternative way is Post Implementation Timing Simulation
 
 **NOTE**
 - **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
 - **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA.
 
+
+### POST IMPLEMENTATION TIMIMG SIMULATION
+- This simulation output waveform should match with the Behavioral Simulation output waveform.
+![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
 ## VIO - Virtual Input/Output 
 
 
@@ -468,7 +474,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 We use the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add first 9 numbers.
 Then we create a vivado project with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
 
-### SIMULATION
+### BEHAVIORAL SIMULATION
 ![Screenshot (2091)](https://user-images.githubusercontent.com/120498080/208234103-a18b8b86-aad0-4901-ab6e-8ce94ca0bfc0.png)
 
 ### RTL ANALYSIS
@@ -525,6 +531,7 @@ We create a project in vivado and we add mythcore_test_no_ILA.v as desination so
 ![Screenshot (2108)](https://user-images.githubusercontent.com/120498080/208255165-9b0db85a-5aba-4444-856b-27b6209a2e3e.png)
 - Finally go to Run and run the Post Implementation Timing Simulation and it will give the same output as before.
 #### Post Implementation Timing Simulation
+- This simulation output waveform should match with the Behavioral Simulation output waveform.
 ![Screenshot (2107)](https://user-images.githubusercontent.com/120498080/208255251-dbd75711-772e-4476-9f44-7c2eff15a031.png)
 
 **NOTE**
