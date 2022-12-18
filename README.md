@@ -174,7 +174,6 @@ Do if from lec 4
 
 ## PROGRAM AND DEBUG
 ### Generate Bitstream
-- A series of bytes is known as a bytestream. Since a byte is often an 8-bit quantity, the term "octet stream" is occasionally used interchangeably. There is no specific and direct translation between bytestreams and bitstreams because one octet can be encoded as a series of 8 bits in a variety of different ways (see bit numbering).
 - Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as we do have access to the Basys3 board so we are not doing it here)
 
 ### Alternative way is Post Implementation Timing Simulation
