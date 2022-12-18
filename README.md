@@ -540,7 +540,7 @@ SOFA (Skywater Opensource FPGAs) are a collection of opensource FPGAs IPs using 
 ![Screenshot (2109)](https://user-images.githubusercontent.com/120498080/208286236-582cb3e7-4223-475e-b94b-88bf657fd7cf.png)
 
 ### How to run SOFA
-First we will start with a design of a counter and then we will use a design of RISC-V processor called RVMyth
+First we will start with a **design of a counter in SOFA** and then we will use a design of RISC-V processor called RVMyth in SOFA
 #### Installing SOFA
 - Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git`
 - Our working directoy in `Desktop/Day3/SOFA/`
@@ -563,7 +563,7 @@ First we will start with a design of a counter and then we will use a design of 
 
 
 # Day 5 - RISCV Core on Custom SOFA Fabric
-
+Here **we are going to implement the RISC-V processor core which is the RVMyth Core on SOFA** 
 
 
 
