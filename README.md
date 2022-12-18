@@ -526,8 +526,9 @@ We create a project in vivado and we add mythcore_test_no_ILA.v as desination so
 
 # Day 4 - Introduction To SOFA FPGA Fabric
 
-[SOFA (Skywater Opensource FPGAs)](https://github.com/lnis-uofu/SOFA) are a collection of opensource FPGAs IPs using the open-source [Skywater 130nm PDK](https://github.com/google/skywater-pdk) and [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) framework.
+SOFA (Skywater Opensource FPGAs) are a collection of opensource FPGAs IPs using the open-source [Skywater 130nm PDK](https://github.com/google/skywater-pdk) and [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) framework.
 
+[SOFA Main Reference](https://github.com/lnis-uofu/SOFA)
 ### The following eFPGA (Embedded FPGA) IPs are supported by this repository:
 - Architecture description file: Using the VTR project and the OpenFPGA project, users can examine architecture specifics and test architecture evaluation.
 - Fabrication-ready GDSII layouts: Users can integrate to their chip designs.
@@ -541,11 +542,25 @@ We create a project in vivado and we add mythcore_test_no_ILA.v as desination so
 ### How to run SOFA
 First we will start with a design of a counter and then we will use a design of RISC-V processor called RVMyth
 #### Installing SOFA
-- Go to the folder in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git`
+- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git`
+- Our working directoy in `Desktop/Day3/SOFA/`
 - Then go to `cd FPGA1212_QLSOFA_HD_PNR`
+- Then open `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` 
 
 
-- ***NOTE** Command to open a texxt file in linux - After going into that folder use `vim <file_name.extension>*
+
+
+- Now open `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.
+- Then the architecture file is available under the `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.
+
+
+- ***NOTE** Command to open a text edior in linux - After going into that folder use `vim <file_name.extension>*
+- ***NOTE** Command to close and save a text edior in linux - Press Esc then type `:wq` and press Enter*
+- ***NOTE** Command to close and not save a text edior in linux - Press Esc then type `:q!` and press Enter*
+- ***NOTE** Command to go back one folder in linux is `cd ../` and press Enter*
+- 
+#### Running SOFA
+
 
 # Day 5 - RISCV Core on Custom SOFA Fabric
 
