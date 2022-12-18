@@ -1,4 +1,4 @@
-# **FPGA--abric-Design-and-Architecture**
+# **FPGA--Fabric-Design-and-Architecture**
 This repository contains all the information studied and created during the FPGA - Fabric, Design and Architecture workshop. It is primarily focused on a complete FPGA flow using the maximum open-source tools.
 # Table of Contents
 [FPGA--abric-Design-and-Architecture](#FPGA--abric-Design-and-Architecture)
@@ -538,6 +538,14 @@ We create a project in vivado and we add mythcore_test_no_ILA.v as desination so
 ### Resource Utilization of HD eFPGA
 ![Screenshot (2109)](https://user-images.githubusercontent.com/120498080/208286236-582cb3e7-4223-475e-b94b-88bf657fd7cf.png)
 
+### How to run SOFA
+First we will start with a design of a counter and then we will use a design of RISC-V processor called RVMyth
+#### Installing SOFA
+- Go to the folder in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git`
+- Then go to `cd FPGA1212_QLSOFA_HD_PNR`
+
+
+- ***NOTE** Command to open a texxt file in linux - After going into that folder use `vim <file_name.extension>*
 
 # Day 5 - RISCV Core on Custom SOFA Fabric
 
