@@ -18,9 +18,10 @@ Below mentioned the RTL for the counter modules that is being used.
 
 - ***NOTE**Linux codes to download GitHub file from link `git clone https://github.com/nandithaec/fpga_workshop_collaterals.git`*
 
-### VERILOG Codes 
+### VERILOG Codes "counter_clk_div.v"
 
 ```verilog
+
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -82,9 +83,8 @@ else
 
 endmodule
 
-
 ```
-### VERILOG testbench
+### VERILOG testbench "test_counter.v"
 ```verilog
 `timescale 1ns / 1ps
 
@@ -93,7 +93,7 @@ reg clk, reset;
 wire [3:0] out;
 
 //create an instance of the design
-counter_clk_div dut(clk, reset, out);  
+counter dut(clk, reset, out);  
 
 initial begin
 
@@ -189,8 +189,25 @@ Do if from lec 4
 - This simulation output waveform should match with the Behavioral Simulation output waveform.
 ![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
 ## VIO - Virtual Input/Output 
+- VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to our design(counter) the we are able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
+- So this need some changes is the codes : we have create a instance of the VIO 
+1. "reset" will be output from VIO which is given as input to the counter.
+2. "counter_out" and "div_clk" will be an input to VIO which is taken from output of counter
+### VIO Block Diagram
+![Screenshot (2125)](https://user-images.githubusercontent.com/120498080/208318452-00b8e63e-20ab-46c9-be3f-61ed70be2bc4.png)
 
+### Opening VIO in vivado
+- Fo that go to IP Catalog/VIO
+- In that set  "Input Probes Cout = 2" (because we are having 2 inputs ) and "Output Probes Cout = 1" (because we are having 1 output(rset))
+- In next tab "PROBE_IN Ports" and set "PROBE_IN0 = 1" (because div_clk is a 1 bit signal) and "PROBE_IN1 = 4" (because counter_out is a 1 bit signal)
+- In next tab "PROBE_OUT Ports" and set "PROBE_OUT0 = 1" (because reset is a 1 bit signal
+- Then confirm and generate.
 
+#### Generated VIO
+![Screenshot (2127)](https://user-images.githubusercontent.com/120498080/208319739-db6700a8-f480-4443-a113-efd717abc7a9.png)
+
+- Then use the codes 'counter_clk_div_vio.v` and go for Simulation >>Elaboration >> Syntheses >> Implemantation >> Bitstream Generation and set clk as W5.
+- Then after connecting the Basys3 FPGA board go to Open Hardware Manager and observe the outputs.
 
 
 
