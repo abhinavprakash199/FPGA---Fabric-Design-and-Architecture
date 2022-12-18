@@ -555,7 +555,7 @@ SOFA (Skywater Opensource FPGAs) are a collection of opensource FPGAs IPs using 
 
 ### How to run SOFA
 First we will start with a **design of a counter in SOFA** and then we will use a design of RISC-V processor called RVMyth in SOFA
-#### Installing SOFA
+#### Installing and Running SOFA
 - Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
 - Our working directoy in `Desktop/Day3/SOFA/`
 - Then open `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.
@@ -571,7 +571,8 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 - Then run 'make runOpenFPGA'
 #### Running OpenFPGA
 ![Screenshot (2118)](https://user-images.githubusercontent.com/120498080/208313739-0b385ce8-bcd8-4094-b753-12e57efa15e3.png)
-- So after completion it is going to dump the outputs as .blif .rpt .log under the location `/Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH`
+- So after completion it is going to dump all the outputs as .blif .rpt .log under the location: 
+- **File Dumping Location** `/Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH`
 - This openfpgashell.log files gives the detail about the set of commands it has run , the outputs, the area reports.
 #### openfpgashell.log files
 ![Screenshot (2119)](https://user-images.githubusercontent.com/120498080/208313940-458564df-1bcc-4226-abbc-fa48737622c6.png)
@@ -580,8 +581,28 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 - ***NOTE** Command to close and save a text edior in linux - Press Esc then type `:wq` and press Enter*
 - ***NOTE** Command to close and not save a text edior in linux - Press Esc then type `:q!` and press Enter*
 - ***NOTE** Command to go back one folder in linux is `cd ../` and press Enter*
-- 
-#### Running SOFA
+### Timing Analysis using SOFA
+- To do timing analysis using SOFA make a `counter.sdc` file with details about the clock time periods and delays as shown below
+```
+create_clock -period 20 clk
+set_input_delay -clock clk -max 0 [get_ports {*}]
+set_output_delay -clock clk -max 0 [get_ports {*}]
+```
+- Then make Add `--sdc_file /home//home/is22mtech14002/Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/counter/counter.sdc` on `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `report_timing.setup.rtp` file in Dumping Location.
+#### Changes made in generate_testbench.openfpga
+![Screenshot (2123)](https://user-images.githubusercontent.com/120498080/208317678-ae0fdc90-f481-49a0-b446-476445713500.png)
+
+
+### Generation of Post Implementation Netlist and Running Post Implementation Netlist using SOFA
+- To Generation of Post Implementation Netlis add `--gen_post_synthesis_netlist on` on `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `counter_post_synthesis.v` file in Dumping Location.
+#### Changes made in generate_testbench.openfpga
+![Screenshot (2124)](https://user-images.githubusercontent.com/120498080/208317699-c995d195-c901-4546-9e3c-263822c1e82b.png)
+
+
+- Now after creation of this `counter_post_synthesis.v` file use `primitives.v` and `counter_tb.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
+
+
+
 
 
 # Day 5 - RISCV Core on Custom SOFA Fabric
