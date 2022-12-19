@@ -578,13 +578,13 @@ First we will start with a **design of a counter in SOFA** and then we will use 
 - Then open `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.
 - Now open `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.
 - Then the architecture file is available under the `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.
-- Then 'vim ~/.bashrc' and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
+- Then `vim ~/.bashrc` and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
 ```
 export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
 export OPENFPGA_PATH=/home/kunalg123/Desktop/OpenFPGA
 alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 ```
-- Now go to 'Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR`
+- Now go to `Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR`
 - Then run 'make runOpenFPGA'
 #### Running OpenFPGA
 ![Screenshot (2118)](https://user-images.githubusercontent.com/120498080/208313739-0b385ce8-bcd8-4094-b753-12e57efa15e3.png)
@@ -652,14 +652,14 @@ Here **we are going to implement the RISC-V processor core which is the RVMyth C
 ![Screenshot (2138)](https://user-images.githubusercontent.com/120498080/208373059-5edb2f96-1edb-49fb-a776-9724f81f922b.png)
 
 - Then the architecture file is available under the `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.(changed vpr_arch.xml is alraedy available in gihub repo Day5)
-- Then 'vim ~/.bashrc' and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
+- Then `vim ~/.bashrc` and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
 ```
 export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
 export OPENFPGA_PATH=/home/kunalg123/Desktop/OpenFPGA
 alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 ```
-- Now go to 'Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR`
-- Then run 'make runOpenFPGA'
+- Now go to `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR`
+- Then run `make runOpenFPGA`
 #### Running OpenFPGA
 ![Screenshot (2140)](https://user-images.githubusercontent.com/120498080/208392216-219c16e1-e13a-4af3-8cd5-ca9f99cb59ed.png)
 
