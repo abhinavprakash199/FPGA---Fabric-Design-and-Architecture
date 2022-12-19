@@ -145,12 +145,15 @@ It is usually done before Synthesis
 ![Screenshot (2046)](https://user-images.githubusercontent.com/120498080/207820032-b6efb987-a4ae-45eb-af8a-756cf998eaf4.png)
 #### Mapping in constarints.edx file 
 - We set Vcc as 3.3V (I/O Std - LVCMOS33) for all input and output pins. 
-- Then by setting the inouts and outouts we generate the constarints.edx file.
-![Screenshot (2047)](https://user-images.githubusercontent.com/120498080/207792790-0b3e7b29-8ea9-4cdb-8593-18b314ab9b75.png)
+- Then by setting the inputs and outputs we generate the `constarints.edx file`
+- Provinging the clovk frequency of 100MHz (time period of 10nsec).
+![Screenshot (2172)](https://user-images.githubusercontent.com/120498080/208490548-82b91717-2562-458c-b1f6-286b71ac4b67.png)
 #### Theoty Slack 
 Do if from lec 4
+
+
 ## SYNTHESIS & IMPLEMANTATION
-- Clock frequency is set as 100MHz (from Constraints Wizard)
+- Clock frequency is 100MHz (from Constraints Wizard)
 
 #### Report Timing Summary
 ![Screenshot (2068)](https://user-images.githubusercontent.com/120498080/207813932-5b9ffb95-2197-4598-a2ae-e8f5f9a9e220.png)
@@ -690,7 +693,10 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - Add `--power --activity_file /home/is22mtech14002/Desktop/DAY3_COUNTER/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH/counter_ace_out.act  --tech_properties /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml` where .act will is generated from prevour run of Open FPGA and 45nm.xml file is already available when we download VTR.
 ![Screenshot (2135)](https://user-images.githubusercontent.com/120498080/208366229-40f5e6fc-665b-4f84-9f64-818893cd8410.png)
 
-- Then again run 'make runOpenFPGA' which will create `counter.power file` in Dum File location which will contain information about power breakdown of the circuit.
+- Then again run 'make runOpenFPGA' which will create `counter.power file` in dum File location which will contain information about power breakdown of the circuit.
+- But in our design we where getting errors in generation of the outputs.
+#### Generated error message in `openfpgashell.log`
+![Screenshot (2163)](https://user-images.githubusercontent.com/120498080/208490994-30a72b2d-6d2f-4ddb-9378-caa58eaba133.png)
 
 
 
