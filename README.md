@@ -684,12 +684,12 @@ create_clock -period 200 clk
 set_input_delay -clock clk -max 0 [get_ports {*}]
 set_output_delay -clock clk -max 0 [get_ports {*}]
 ```
-- Then add `--sdc_file /home/is22mtech14002/Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/rvmuth/mythcore.sdc` on `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `report_timing.setup.rtp` file in Dumping Location.
+- Then add `--sdc_file /home/is22mtech14002/Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/rvmyth/mythcore.sdc` on `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `report_timing.setup.rtp` file in Dumping Location.
 #### Changes made in generate_testbench.openfpga
 ![Screenshot (2143)](https://user-images.githubusercontent.com/120498080/208400099-6f81f504-0fc6-45ad-a9e1-206f96f65af3.png)
 
 #### Output of Timing Analysis
-![Screenshot (2131)](https://user-images.githubusercontent.com/120498080/208358534-a755e16f-695f-445d-89f5-685057b29eae.png)
+
 
 
 
