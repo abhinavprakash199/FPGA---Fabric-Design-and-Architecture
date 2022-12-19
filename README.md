@@ -706,6 +706,7 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - Now after creation of this `core_post_synthesis.v` file use `primitives.v` and `test.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
 
 #### Behavioural Simulation
+![Screenshot (2159)](https://user-images.githubusercontent.com/120498080/208431880-73730c32-2cc1-4195-9730-e937f860a197.png)
 
 
 
