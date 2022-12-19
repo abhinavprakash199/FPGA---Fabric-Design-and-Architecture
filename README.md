@@ -480,16 +480,18 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 #### Behavioural Simulation of the provided `up_counter_post_synthesis.v`
 ![Screenshot (2162)](https://user-images.githubusercontent.com/120498080/208438709-58782213-34a0-41ea-b25b-f5e37b6bc3ae.png)
 
-
-
-
-
-#### Codes of upcounter_testbench.v file
-```verilog
-
-...
+- We will create a counter.sdc file whose clock name `up_counter_clk` should be same as the clock name in `counter.pre-vpr.blif` file
+- In `counter.pre-vpr.blif` replace up_counter^clk with up_counter_clk
+```
+create_clock -period 5 up_counter_clk
+set_input_delay -clock up_counter_clk -max 0 [get_ports {*}]
+set_output_delay -clock up_counter_clk -max 0 [get_ports {*}]
+```
 
 ```
+$VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --sdc_file /home/is22mtech14002/Desktop/counter.sdc
+```
+
 - **NOTE** It does not matter what FPGA we choose inintially in VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
 
 
