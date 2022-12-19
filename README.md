@@ -691,23 +691,21 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 ```
 - Then add `--sdc_file /home/is22mtech14002/Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/rvmyth/mythcore.sdc` on `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `report_timing.setup.rtp` file in Dumping Location.
 #### Changes made in generate_testbench.openfpga
-![Screenshot (2143)](https://user-images.githubusercontent.com/120498080/208400099-6f81f504-0fc6-45ad-a9e1-206f96f65af3.png)
+![Screenshot (2153)](https://user-images.githubusercontent.com/120498080/208424757-053d226e-d9ab-4e2d-8f5f-0df86d6f93c9.png)
 
 #### Output of Timing Analysis
-
-
+![Screenshot (2155)](https://user-images.githubusercontent.com/120498080/208424985-fc9baf48-bd49-4cf2-9e90-98b4763bd03e.png)
+![Screenshot (2157)](https://user-images.githubusercontent.com/120498080/208425013-caa33a9c-1954-4110-89a7-cb6e2f1cad9d.png)
 
 
 ### Generation of Post Implementation Netlist and Running Post Implementation Netlist using SOFA
-- To Generation of Post Implementation Netlis add `--gen_post_synthesis_netlist on` on `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `counter_post_synthesis.v` file in Dumping Location.
+- To Generation of Post Implementation Netlis add `--gen_post_synthesis_netlist on` on `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `core_post_synthesis.v` file in Dumping Location.
 #### Changes made in generate_testbench.openfpga
-![Screenshot (2129)](https://user-images.githubusercontent.com/120498080/208357945-c09fa29d-dde3-483a-88d9-64cb749febc0.png)
+![Screenshot (2158)](https://user-images.githubusercontent.com/120498080/208426103-a925cd43-58b7-466a-80e7-e5ffae9d7526.png)
 
-
-- Now after creation of this `counter_post_synthesis.v` file use `primitives.v` and `counter_tb.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
+- Now after creation of this `core_post_synthesis.v` file use `primitives.v` and `test.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
 
 #### Behavioural Simulation
-![Screenshot (2129)](https://user-images.githubusercontent.com/120498080/208358021-0eb18e5c-5e84-474c-83a8-bd359981dfa8.png)
 
 
 
