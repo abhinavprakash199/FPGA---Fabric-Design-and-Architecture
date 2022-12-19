@@ -670,11 +670,39 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 #### openfpgashell.log files
 ![Screenshot (2141)](https://user-images.githubusercontent.com/120498080/208392339-a2f44f10-23c8-4176-95f7-39a6595abcdb.png)
 
+### Area Analysis using SOFA
+- The `vpr_stdout.log file` generate in the Dump file location contain information about the Utilization Report(Area Report) of our Design. 
+#### Output of Area Analysis
+![Screenshot (2142)](https://user-images.githubusercontent.com/120498080/208397931-0b97b5b1-0dfe-4a7b-b805-0c10f0c0082f.png)
 
 
 
+### Timing Analysis using SOFA
+- To do timing analysis using SOFA make a `mythcore.sdc` file with details about the clock time periods and delays as shown below (here we have used slow clock with period of 200nsec because its for a design of a processor and it need to meet the timings)
+```
+create_clock -period 200 clk
+set_input_delay -clock clk -max 0 [get_ports {*}]
+set_output_delay -clock clk -max 0 [get_ports {*}]
+```
+- Then add `--sdc_file /home/is22mtech14002/Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/BENCHMARK/rvmuth/mythcore.sdc` on `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `report_timing.setup.rtp` file in Dumping Location.
+#### Changes made in generate_testbench.openfpga
+![Screenshot (2143)](https://user-images.githubusercontent.com/120498080/208400099-6f81f504-0fc6-45ad-a9e1-206f96f65af3.png)
+
+#### Output of Timing Analysis
+![Screenshot (2131)](https://user-images.githubusercontent.com/120498080/208358534-a755e16f-695f-445d-89f5-685057b29eae.png)
 
 
+
+### Generation of Post Implementation Netlist and Running Post Implementation Netlist using SOFA
+- To Generation of Post Implementation Netlis add `--gen_post_synthesis_netlist on` on `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `counter_post_synthesis.v` file in Dumping Location.
+#### Changes made in generate_testbench.openfpga
+![Screenshot (2129)](https://user-images.githubusercontent.com/120498080/208357945-c09fa29d-dde3-483a-88d9-64cb749febc0.png)
+
+
+- Now after creation of this `counter_post_synthesis.v` file use `primitives.v` and `counter_tb.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
+
+#### Behavioural Simulation
+![Screenshot (2129)](https://user-images.githubusercontent.com/120498080/208358021-0eb18e5c-5e84-474c-83a8-bd359981dfa8.png)
 
 
 
