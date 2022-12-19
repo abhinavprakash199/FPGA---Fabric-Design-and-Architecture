@@ -639,6 +639,25 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 
 # Day 5 - RISCV Core on Custom SOFA Fabric
 Here **we are going to implement the RISC-V processor core which is the RVMyth Core on SOFA** 
+#### Installing and Running SOFA
+- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
+- Our working directoy in `Desktop/Day5_RVMyth/SOFA/`
+- Then open `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.(changed task_simulation.conf is alraedy available in gihub repo Day5) 
+#### Changes in task_simulation.conf file
+![Screenshot (2137)](https://user-images.githubusercontent.com/120498080/208372853-8838a1cf-96c2-413d-9ec7-afd8e018e2a8.png)
+- Now open `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.(changed generate_testbench.openfpga is alraedy available in gihub repo Day5)
+#### Changes in generate_testbench.openfpga file
+![Screenshot (2138)](https://user-images.githubusercontent.com/120498080/208373059-5edb2f96-1edb-49fb-a776-9724f81f922b.png)
+
+- Then the architecture file is available under the `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.(changed vpr_arch.xml is alraedy available in gihub repo Day5)
+- Then 'vim ~/.bashrc' and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
+```
+export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
+export OPENFPGA_PATH=/home/kunalg123/Desktop/OpenFPGA
+alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
+```
+- Now go to 'Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR`
+- Then run 'make runOpenFPGA'
 
 
 
@@ -658,6 +677,7 @@ Here **we are going to implement the RISC-V processor core which is the RVMyth C
 - https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
 - https://docs.verilogtorouting.org/en/latest/arch/reference/#arch-grid-layout
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
+
 
 
 # Acknowledgement
