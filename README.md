@@ -479,20 +479,55 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 - So we used the provided `up_counter_post_synthesis.v` file and proceed furter.
 #### Behavioural Simulation of the provided `up_counter_post_synthesis.v`
 ![Screenshot (2162)](https://user-images.githubusercontent.com/120498080/208438709-58782213-34a0-41ea-b25b-f5e37b6bc3ae.png)
+- **NOTE** It does not matter what FPGA we choose inintially in VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
 
-- We will create a counter.sdc file whose clock name `up_counter_clk` should be same as the clock name in `counter.pre-vpr.blif` file
+
+### Area Analysis in VTR
+- The `vpr_stdout.log file` generate in the Dump file location contain information about the Utilization Report(Area Report) of our Design. 
+#### Output of Area Analysis
+![Screenshot (2164)](https://user-images.githubusercontent.com/120498080/208465505-b6a85e2c-f537-4312-b723-1f2cb4a585bb.png)
+
+### Timing Analysis in VTR
+- To do timing analysis using VTR we will create a `counter.sdc` file whose clock name `up_counter_clk` should be same as the clock name in `counter.pre-vpr.blif` file
 - In `counter.pre-vpr.blif` replace up_counter^clk with up_counter_clk
 ```
-create_clock -period 5 up_counter_clk
+create_clock -period 10 up_counter_clk
 set_input_delay -clock up_counter_clk -max 0 [get_ports {*}]
 set_output_delay -clock up_counter_clk -max 0 [get_ports {*}]
 ```
-
+- Then ron the timing analysis which will create the report in working directory.
+- 
+#### Commands to run Timing Analysis in VTR
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --sdc_file /home/is22mtech14002/Desktop/counter.sdc
 ```
+#### Output of Timing Analysis
+![Screenshot (2170)](https://user-images.githubusercontent.com/120498080/208470305-4ea394b9-4e1a-488d-8fc3-38f4edadc666.png)
+![Screenshot (2171)](https://user-images.githubusercontent.com/120498080/208470776-2309ae2e-4500-46e2-92b3-a69c49b76873.png)
 
-- **NOTE** It does not matter what FPGA we choose inintially in VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
+
+### Power Analysis in VTR
+- We do Power Analysis in VTR we have to use following commands.
+[Reference for Power Analysis](docs.verilogtorouting.org/en/latest/vtr/power_estimation/#running-vtr-with-power-estimation) 
+
+```
+$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v   $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  -power -cmos_tech /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml -temp_dir .  --route_chan_width 100
+```
+```
+-power                                                                                         // to have the power estimaton 
+-cmos_tech /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml    //passes cmos technology file available while downloading VTR
+```
+- This will generate the 'counter.power` file in the working directory.
+
+#### Output of Power Analysis
+![Screenshot (2167)](https://user-images.githubusercontent.com/120498080/208471755-803825a8-1e10-43eb-aec6-db124452e25d.png)
+
+
+## Comparision of counnter design from Basys3 and VTR Flow
+
+
+
+
 
 
 
