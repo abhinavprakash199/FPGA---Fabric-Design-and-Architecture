@@ -590,7 +590,8 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 ![Screenshot (2118)](https://user-images.githubusercontent.com/120498080/208313739-0b385ce8-bcd8-4094-b753-12e57efa15e3.png)
 - So after completion it is going to dump all the outputs as .blif .rpt .log under the location: 
 - **File Dumping Location** `/Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH`
-- This openfpgashell.log files gives the detail about the set of commands it has run , the outputs, the area reports.
+- This `openfpgashell.log` files gives the detail about the set of commands it has run , the outputs, the area reports.
+- **NOTE** If we face some error in running 'make runOpenFPGA' then we can study the error in this  `openfpgashell.log` files
 #### openfpgashell.log files
 ![Screenshot (2119)](https://user-images.githubusercontent.com/120498080/208313940-458564df-1bcc-4226-abbc-fa48737622c6.png)
 
@@ -598,6 +599,7 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 - ***NOTE** Command to close and save a text edior in linux - Press Esc then type `:wq` and press Enter*
 - ***NOTE** Command to close and not save a text edior in linux - Press Esc then type `:q!` and press Enter*
 - ***NOTE** Command to go back one folder in linux is `cd ../` and press Enter*
+
 ### Timing Analysis using SOFA
 - To do timing analysis using SOFA make a `counter.sdc` file with details about the clock time periods and delays as shown below
 ```
@@ -656,8 +658,17 @@ export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
 export OPENFPGA_PATH=/home/kunalg123/Desktop/OpenFPGA
 alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 ```
-- Now go to 'Desktop/Day3/SOFA/FPGA1212_QLSOFA_HD_PNR`
+- Now go to 'Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR`
 - Then run 'make runOpenFPGA'
+#### Running OpenFPGA
+![Screenshot (2140)](https://user-images.githubusercontent.com/120498080/208392216-219c16e1-e13a-4af3-8cd5-ca9f99cb59ed.png)
+
+- So after completion it is going to dump all the outputs as .blif .rpt .log under the location: 
+- **File Dumping Location** `/Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/core/MIN_ROUTE_CHAN_WIDTH`
+- This `openfpgashell.log` files gives the detail about the set of commands it has run , the outputs, the area reports.
+- **NOTE** If we face some error in running 'make runOpenFPGA' then we can study the error in this  `openfpgashell.log` files
+#### openfpgashell.log files
+![Screenshot (2141)](https://user-images.githubusercontent.com/120498080/208392339-a2f44f10-23c8-4176-95f7-39a6595abcdb.png)
 
 
 
