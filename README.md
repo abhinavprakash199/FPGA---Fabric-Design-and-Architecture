@@ -471,10 +471,14 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 
 ## Now to make this run in VIVADO
 - Now create a project in VIVADO and add `primitives.v` and `up_counter_post_synthesis.v` as design sources  and `upcounter_testbench.v` as simulation sources and run the simulation.
+- **NOTE** In the generated `up_counter_post_synthesis.v` file have valres assigned to cout and sumout as dontcares **`cout(1'bX)`** and **sumout(1'bX)** which shows an error in vivado simulator so it need to not assign any values as **`cout()`** and **sumout()**
+#### Vivado error of generated `up_counter_post_synthesis.v`
+![image (2)](https://user-images.githubusercontent.com/120498080/208493016-a17c34db-0aef-457e-97f1-59d9c65bedcb.png)
+
 - **NOTE** But due to some errors it was giving don't cares in the output if we where using generated `up_counter_post_synthesis.v` and provided `upcounter_testbench.v` and `primitives.v`in git repo.
 #### Comparison report of generated `up_counter_post_synthesis.v` and provided `up_counter_post_synthesis.v`
 ![Screenshot (2160)](https://user-images.githubusercontent.com/120498080/208436679-41fded33-2069-4c97-b24e-e9f8251c50fb.png)
-- But this missmach can't be the reason of getting don't cares in the output.
+- But this missmatch can't be the reason of getting don't cares in the output.
 - According to me there must be some dissconnection in the nodes of the generated verilog codes in generated `up_counter_post_synthesis.v`
 #### Behavioural Simulation of the generated `up_counter_post_synthesis.v`
 ![Screenshot (2161)](https://user-images.githubusercontent.com/120498080/208437905-24ecd678-6165-471e-be24-4176a42de94d.png)
