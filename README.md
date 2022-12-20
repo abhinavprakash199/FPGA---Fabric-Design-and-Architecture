@@ -181,7 +181,7 @@ Tlogic = Time required to reach the data from A to B
 - This simulation output waveform should match with the Behavioral Simulation output waveform.
 ![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
 
-<h3 id="header-3">## VIO - Virtual Input/Output </h3>
+## <h3 id="header-3"> VIO - Virtual Input/Output </h3>
 - VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to our design(counter) the we are able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
 - So this need some changes is the codes : we have create a instance of the VIO 
 1. "reset" will be output from VIO which is given as input to the counter.
