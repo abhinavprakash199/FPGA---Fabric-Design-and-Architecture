@@ -47,25 +47,15 @@ This repository contains all the information studied and created during the [FPG
 
 <div class="toc">
   <ul>
-    <li><a href="#header-2">Day 2 - Exploring OpenFPGA, VPR and VTR</a></li>
+    <li><a href="#header-3">Day 3 - RISC-V Core Programming Using Vivado</a></li>
 	<ul>
-        <li><a href="#header-2_1">Introduction To OpenFPGA</a></li>
+        <li><a href="#header-3_1">Behavioral Simulation</a></li>
       </ul>
       <ul>
-        <li><a href="#header-2_2">VPR(Versatile Place and Route)</a></li>
+        <li><a href="#header-3_2">1. Running with ILA(Integrated Logic Analyser)</a></li>
       </ul>
 	<ul>
-        <li><a href="#header-2_3">VTR(Verilog to Routing)</a></li>
-      </ul>
-	 <ul>
-        <li><a href="#header-2_4">Example 1 : VPR on a Pre-Synthesized Circuit</a></li>
-      </ul>
-	 <ul>
-        <li><a href="#header-2_5">Example 2 :Run the entire VTR flow automatically</a></li>
-      </ul>
-	 </ul>
-	 <ul>
-        <li><a href="#header-2_6">Comparision of counnter design from Basys3 and VTR Flow</a></li>
+        <li><a href="#header-3_3">2. Running without ILA(Integrated Logic Analyser)</a></li>
       </ul>
   </ul>
 </div>
