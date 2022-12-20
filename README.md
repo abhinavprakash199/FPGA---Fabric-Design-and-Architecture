@@ -10,22 +10,27 @@ This repository contains all the information studied and created during the FPGA
 # **Day 1 - Exploring FPGA Basics and Vivado**
 ## FPGA (Field Programmable Gate Array) 
 ### Introduction to FPGA 
-The term FPGA stands for Field Programmable Gate Array and, it is a one type of  semiconductor logic chip which can be programmed to become almost any kind of system or digital circuit, similar to PLDs. PLDS are limited to hundreds of gates, but FPGAs supports thousands of gates. The configuration of the FPGA architecture is generally specified using a language, i.e., HDL (Hardware Description language) which is similar to the one used for an ASIC ( Application Specific Integrated Circuit).
+FPGA, or field programmable gate array, is a type of semiconductor logic device that, like PLDs, may be configured to create virtually any system or digital circuit. PLDS can support only a few hundred gates, but FPGAs can accommodate thousands of gates. An ASIC-like language called HDL (Hardware Description Language) is typically used to specify the setting of the FPGA design ( Application Specific Integrated Circuit).
 ![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
-FPGAs can provide a number of advantages over a fixed function ASIC technology such as standard cells. Normally, ASICs takes months to manufacture and the cost of them will be thousands of dollars to obtain the device. But, FPGAs are fabricated in less than a second,the cost will be from a few dollars to a thousand dollars.The flexible nature of the FPGA comes at a significant costin area, power consumption and delay.When compared to a standard cell ASIC, an FPGA requires 20 to 35 times more area, and the speed’s performance will be 3 to 4 times slower than the ASIC. This article describes about theFPGA basics and FPGA architecture module that includes I/O pad, logic blocks and switch matrix. FPGAs are some of the new trending areas of VLSI.
+When compared to ASIC technologies with fixed functions, like conventional cells, FPGAs can offer a variety of benefits. ASICs typically take months to create and cost thousands of dollars to purchase the device. However, FPGAs may be made in less than a second, and they can cost anything from a few dollars to a few thousand. The FPGA's flexibility has a hefty price tag in terms of space, power, and delay. An FPGA uses 20 to 35 times more space than a conventional cell ASIC while performing at speeds that are 3 to 4 times slower. One of the newest areas of VLSI that is trending is FPGAs.
 ### FPGA Architecture
-The general FPGA architecture consists of three types of modules. They are I/O blocks or Pads, Switch Matrix/ Interconnection Wires and Configurable logic blocks (CLB). The basic FPGA architecture has two dimensional arrays of logic blocks with a means for a user  to arrange the interconnection between the logic blocks. The functions of an FPGA architecture module are discussed below:
-- CLB (Configurable Logic Block) includes digital logic, inputs, outputs. It implements the user logic.
-- Interconnects provide direction between the logic blocks to implement the user logic.
-- Depending on the logic, switch matrix provides switching between interconnects.
-- I/O Pads used for the outside world to communicate with different applications
+There are three different types of modules in the typical FPGA architecture. They are 
+1. Configurable Logic Blocks (CLB)
+2.  Interconnection Wires
+3. Switch Matrixes
+4. I/O blocks or pads 
+They are the fundamental FPGA architecture consists of two-dimensional arrays of logic blocks that can be connected in any order by the user. The following is an overview of an FPGA architecture module's functions:
+- The CLB (Configurable Logic Block) has inputs, outputs, and digital logic. It carries out user logic.
+- Interconnects give the logic blocks direction so they can apply the user logic.
+- Switch matrix offers switching between interconnects based on the logic.
+- I/O pads utilised to connect to various applications from the outside world.
 ![Screenshot (2176)](https://user-images.githubusercontent.com/120498080/208611382-16d884fd-bda5-4188-9fbb-b79df8038ab1.png)
-Logic Block contains  MUX (Multiplexer), D flip flop and LUT. LUT implements the combinational logical functions; the MUX is used for selection logic, and D flip flop stores the output of the LUT
-The basic building block of the FPGA is the Look Up Table based function generator. The number of inputs to the LUT vary from 3,4,6, and even 8 after experiments. Now, we have adaptive LUTs that provides two outputs per single LUT with the implementation of two function generators.
+The MUX (Multiplexer), D flip-flop, and LUT components of a logic block. The MUX is utilised for selection logic, the LUT performs the combinational logical operations, and the D flip flop stores the LUT's output.
+The Look Up Table-based function generator is the fundamental component of the FPGA. Following tests, the LUT can have 3, 4, 6, or even 8 inputs. We now have adaptive LUTs, which use two function generators to implement two outputs from a single LUT.
 ![Screenshot (2177)](https://user-images.githubusercontent.com/120498080/208611400-3a3ee907-f95e-4949-ba90-f03cf880aa2f.png)
-Xilinx Virtex-5 is the most popular FPGA, that contains a Look up Table (LUT) which is connected with MUX, and a flip flop as discussed above. Present FPGA consists of about hundreds or thousands of configurable logic blocks. For configuring the FPGA,  Modelsim and Xilinx ISE softwares are used to generate a bitstream file and for development.
+The most well-known FPGA, the Xilinx Virtex-5, has a flip-flop and a look-up table (LUT) that are coupled by MUX. Thousands or hundreds of customizable logic blocks make up the modern FPGA. Modelsim and Xilinx ISE software are used for development and to create a bitstream file for setting the FPGA.
 ### Basys 3 Artix-7 FPGA Board
-The Basys 3 is an entry-level FPGA development board designed exclusively for the Vivado® Design Suite featuring the Xilinx® Artix®-7-FPGA architecture. Basys 3 is the newest addition to the popular Basys line of FPGA development boards for students or beginners just getting started with FPGA technology. The Basys 3 includes the standard features found on all Basys boards: complete ready-to-use hardware, a large collection of on-board I/O devices, all required FPGA support circuits, and a free version of development tools and at a student-level price point.
+The Basys 3 is a basic FPGA development board using the Xilinx® Artix®-7-FPGA architecture that was created specifically for the Vivado® Design Suite. The Basys 3 is the most recent model in the well-liked Basys range of FPGA development boards for novices or students just entering into FPGA technology. The Basys 3 has all of the features that are common to all Basys boards, including fully functional hardware that is ready for use, a sizable selection of on-board I/O devices, all necessary FPGA support circuits, a free version of development tools, and a price point that is affordable for students.
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
 
