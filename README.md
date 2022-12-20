@@ -2,29 +2,10 @@
 This repository contains all the information studied and created during the [FPGA - Fabric, Design and Architecture](https://www.vlsisystemdesign.com/fpga/) workshop. It is primarily focused on a complete FPGA flow using the maximum open-source tools.
 # Table of Contents
 
-* [Day 1 - Exploring FPGA Basics and Vivado](#markdown-header-span-elements)
-	* [FPGA (Field Programmable Gate Array)](#markdown-header-emphasis)
-	* [Strikethrough](#markdown-header-strikethrough)
-	* [Counter Example in Vivado](#markdown-header-preformatted-code)
-
-	* [Links](#markdown-header-links)
-
-	* [Images](#markdown-header-images)
-
-* [Block Elements](#markdown-header-block-elements)
-	* [Headings](#markdown-header-headings)
-
-	* [Paragraphs and blockquotes](#markdown-header-paragraphs-and-blockquotes)
-
-	* [Lists](#markdown-header-lists)
-
-	* [Tables](#markdown-header-tables)
-
-	* [Code and Syntax highlighting](#markdown-header-code-and-syntax-highlighting)
-
-	* [Horizontal rules](#markdown-header-horizontal-rules)
-
-
+* [**Day 1 - Exploring FPGA Basics and Vivado**](#markdown-header-span-elements)
+	* [FPGA (Field Programmable Gate Array) ](#markdown-header-emphasis)
+	* [Counter Example in Vivado](#markdown-header-strikethrough)
+	
 
 [Day 1 - Exploring FPGA Basics and Vivado](#headers)  
 - [FPGA (Field Programmable Gate Array) ](##header)  
