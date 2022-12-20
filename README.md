@@ -3,7 +3,7 @@ This repository contains all the information studied and created during the [FPG
 # Table of Contents
 
 [Day 1 - Exploring FPGA Basics and Vivado](#headers)  
-- [FPGA (Field Programmable Gate Array) ](#header)  
+- [FPGA (Field Programmable Gate Array) ](##header)  
  
 <a name="headers"/>
 ## Headers
