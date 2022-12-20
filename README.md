@@ -94,7 +94,7 @@ This repository contains all the information studied and created during the [FPG
 ### Introduction to FPGA 
 FPGA, or field programmable gate array, is a type of semiconductor logic device that, like PLDs, may be configured to create virtually any system or digital circuit. PLDS can support only a few hundred gates, but FPGAs can accommodate thousands of gates. An ASIC-like language called HDL (Hardware Description Language) is typically used to specify the setting of the FPGA design ( Application Specific Integrated Circuit).
 ![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
-When compared to ASIC technologies with fixed functions, like conventional cells, FPGAs can offer a variety of benefits. ASICs typically take months to create and cost thousands of dollars to purchase the device. However, FPGAs may be made in less than a second, and they can cost anything from a few dollars to a few thousand. The FPGA's flexibility has a hefty price tag in terms of space, power, and delay. An FPGA uses 20 to 35 times more space than a conventional cell ASIC while performing at speeds that are 3 to 4 times slower. One of the newest areas of VLSI that is trending is FPGAs.
+When compared to ASIC technologies with fixed functions, like conventional cells, FPGAs can offer a variety of benefits. ASICs typically take months to create and cost thousands of dollars to purchase the device. Ho ver, FPGAs may be made in less than a second, and they can cost anything from a few dollars to a few thousand. The FPGA's flexibility has a hefty price tag in terms of space, power, and delay. An FPGA uses 20 to 35 times more space than a conventional cell ASIC while performing at speeds that are 3 to 4 times slower. One of the newest areas of VLSI that is trending is FPGAs.
 ### FPGA Architecture
 There are three different types of modules in the typical FPGA architecture. They are 
 1. Configurable Logic Blocks (CLB)
@@ -194,13 +194,13 @@ It is usually done before Synthesis
 - It se to obsreve the differnet pins of FPGA
 ![Screenshot (2044)](https://user-images.githubusercontent.com/120498080/207792629-8a565a89-b586-48dc-9be4-0dd4756585db.png)
 ### Mapping I/O Ports to the pins of the FPGA
-- If we do not have access to FPGA board then we can use the scheamitic of basis 3 and map the pins accordingle
+- As I am not have access to FPGA board so I am using the scheamatic of basis 3 and map the pins accordingle
 #### Schematic of Basys3 Board
 [SCHEMATIC PDF](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 ![Screenshot (2046)](https://user-images.githubusercontent.com/120498080/207820032-b6efb987-a4ae-45eb-af8a-756cf998eaf4.png)
 #### Mapping in constarints.edx file 
-- We set Vcc as 3.3V (I/O Std - LVCMOS33) for all input and output pins. 
-- Then by setting the inputs and outputs we generate the `constarints.edx file`
+- I set Vcc as 3.3V (I/O Std - LVCMOS33) for all input and output pins. 
+- Then by setting the inputs and outputs I generated the `constarints.edx file`
 - Provinging the clovk frequency of 100MHz (time period of 10nsec).
 ![Screenshot (2172)](https://user-images.githubusercontent.com/120498080/208490548-82b91717-2562-458c-b1f6-286b71ac4b67.png)
 ### Introduction to Slack 
@@ -241,7 +241,7 @@ Tlogic = Time required to reach the data from A to B
 ![Screenshot (2071)](https://user-images.githubusercontent.com/120498080/207827717-1e2d4d97-c7d2-49d3-8d4b-9eeea1413900.png)
 ### PROGRAM AND DEBUG
 #### Generate Bitstream of the Counter
-- Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as we do have access to the Basys3 board so we are not doing it here)
+- Here I locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as I was not having access to the Basys3 board so I am are not doing it here)
 ### Alternative way is Post Implementation Timing Simulation
 **NOTE**
 - **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
@@ -251,15 +251,15 @@ Tlogic = Time required to reach the data from A to B
 ![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
 
 ## <h1 id="header-1_3"> VIO - Virtual Input/Output </h1>
-- VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to our design(counter) the we are able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
-- So this need some changes is the codes : we have create a instance of the VIO 
+- VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to my design (counter) then I am able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
+- So this need some changes is the codes : I have create a instance of the VIO 
 1. "reset" will be output from VIO which is given as input to the counter.
 2. "counter_out" and "div_clk" will be an input to VIO which is taken from output of counter
 ### VIO Block Diagram
 ![Screenshot (2125)](https://user-images.githubusercontent.com/120498080/208318452-00b8e63e-20ab-46c9-be3f-61ed70be2bc4.png)
 ### Opening VIO in vivado
 - Fo that go to IP Catalog/VIO
-- In that set  "Input Probes Cout = 2" (because we are having 2 inputs ) and "Output Probes Cout = 1" (because we are having 1 output(rset))
+- In that set  "Input Probes Cout = 2" (because I am having 2 inputs ) and "Output Probes Cout = 1" (because I am having 1 output(rset))
 - In next tab "PROBE_IN Ports" and set "PROBE_IN0 = 1" (because div_clk is a 1 bit signal) and "PROBE_IN1 = 4" (because counter_out is a 1 bit signal)
 - In next tab "PROBE_OUT Ports" and set "PROBE_OUT0 = 1" (because reset is a 1 bit signal
 - Then confirm and generate.
@@ -385,16 +385,16 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 
 - ***NOTE** Command to search .rpt file in working directory `ls *.rpt`*
 ### Running VTR with added clock
-To run VTR with the clock we need to define `tseng.sdc` and invoke it in the VTR command
+To run VTR with the clock I needed to define `tseng.sdc` and invoke it in the VTR command
 #### `tseng.sdc` file
-- To get the correct timing report we need to  set the clock and for that we need to set the contrains file (`tseng.sdc file`)
+- To get the correct timing report I need to  set the clock and for that I need to set the contrains file (`tseng.sdc file`)
 ```
 create_clock -period 10 -name pclk     
 set_input_delay -clock pclk -max 0 [get_ports {*}]  
 set_output_delay -clock pclk -max 0 [get_ports {*}]  
 ```
 ```
-create_clock -period 10 -name pclk                    //Created a clock with time period of 10nsec with name plck (we can find it from timing report)
+create_clock -period 10 -name pclk                    //Created a clock with time period of 10nsec with name plck (I can find it from timing report)
 set_input_delay -clock pclk -max 0 [get_ports {*}]    //Set input delay to zero
 set_output_delay -clock pclk -max 0 [get_ports ("}]   //Set output delay to zero
 ```
@@ -412,7 +412,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 5. `packing_pin_util.rpt`
 #### Setup Slack Path
 ![Screenshot (2087)](https://user-images.githubusercontent.com/120498080/208078972-dc84eab8-f2e4-45bd-b51f-cafacb8b42fc.png)
-- Finally we got a Setup Slack Path of 8.507nsec
+- Finally I got a Setup Slack Path of 8.507nsec
 
 
 
@@ -424,10 +424,10 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 - Then we have to do the technology mapping with ABC
 - Then mannualy implement the circuit using VPR
 2. **Automatically Running the VTR Flow**
-- In Automatically Running the VTR Flow insted of invoking Odin II and ABC we use some existing file and VPR with the help of these files.
+- In Automatically Running the VTR Flow insted of invoking Odin II and ABC I used some existing file and VPR with the help of these files.
 ### Automatically Running VTR
 - To Automatically Run the VTR Flow
-We will be invoking python script present at 
+I will be invoking python script present at 
 >$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py
 - **NOTE** This `run_vtr_flow.py file` is alraedy available for this Open FPGA (for our simplicity) if we are Automatically Running the VTR Flow.
 - **NOTE** This `EArch.xml` is already available (nearly 40 differnet FPGA Architectures available) available (For  our own FPGA achitecture it can be written using xml langage) 
@@ -439,7 +439,7 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ```
  $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
     $VTR_ROOT/doc/src/quickstart/counter.v \          //Inputs the counter.v file
-    $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we wnt to map the counter.v file
+    $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we want to map the counter.v file
     -temp_dir . \                                     //Local working Directory
     --route_chan_width 100                            // Rounting Channel width for the Architecture
 ```
@@ -480,7 +480,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 - So now it will complete the entire VPR flow
 
 ### Generation of the Post-Implementation Netlist of the Design
-- Now we need to generete a Post-Implementation Netlist from VPR
+- Now I need to generete a Post-Implementation Netlist from VPR
 [Generation of the Post-Implementation Netlist](https://docs.verilogtorouting.org/en/latest/tutorials/timing_simulation/)
 
 ```
@@ -502,21 +502,21 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 > /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.sdf
 > /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.v
 
-- **NOTE** This `privitive.v` file is specific for particular FPGA board and it is available in FPGA fabric (sometimes it have constrains which we neet to fix, like clock written as clk which should match with our up_counter_post_synthesis.v file)
+- **NOTE** This `privitive.v` file is specific for particular FPGA board and it is available in FPGA fabric (sometimes it have constrains which I neet to fix, like clock written as clk which should match with our up_counter_post_synthesis.v file)
 
 ### Post-Implementation Simulation in Vivado of the Design
 - Now create a project in VIVADO and add `primitives.v` and `up_counter_post_synthesis.v` as design sources  and `upcounter_testbench.v` as simulation sources and run the simulation.
 - **NOTE** In the generated `up_counter_post_synthesis.v` file have values assigned to cout and sumout as dontcares **`cout(1'bX)`** and **sumout(1'bX)** which shows an error in vivado simulator so it need to not assign any values as **`cout()`** and **sumout()**
 #### Vivado error of generated `up_counter_post_synthesis.v`
 ![image (2)](https://user-images.githubusercontent.com/120498080/208493016-a17c34db-0aef-457e-97f1-59d9c65bedcb.png)
-- **NOTE** But due to some errors it was giving don't cares in the output if we where using generated `up_counter_post_synthesis.v` and provided `upcounter_testbench.v` and `primitives.v`in git repo.
+- **NOTE** But due to some errors it was giving don't cares in the output if I where using generated `up_counter_post_synthesis.v` and provided `upcounter_testbench.v` and `primitives.v`in git repo.
 #### Comparison report of generated `up_counter_post_synthesis.v` and provided `up_counter_post_synthesis.v`
 ![Screenshot (2160)](https://user-images.githubusercontent.com/120498080/208436679-41fded33-2069-4c97-b24e-e9f8251c50fb.png)
 - But this missmatch can't be the reason of getting don't cares in the output.
 - According to me there must be some dissconnection in the nodes of the generated verilog codes in generated `up_counter_post_synthesis.v`
 #### Behavioural Simulation of the generated `up_counter_post_synthesis.v`
 ![Screenshot (2161)](https://user-images.githubusercontent.com/120498080/208437905-24ecd678-6165-471e-be24-4176a42de94d.png)
-- So we used the provided `up_counter_post_synthesis.v` file and proceed furter.
+- So I used the provided `up_counter_post_synthesis.v` file and proceed furter.
 #### Behavioural Simulation of the provided `up_counter_post_synthesis.v`
 ![Screenshot (2162)](https://user-images.githubusercontent.com/120498080/208438709-58782213-34a0-41ea-b25b-f5e37b6bc3ae.png)
 - **NOTE** It does not matter what FPGA we choose inintially in VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
@@ -528,7 +528,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 ![Screenshot (2164)](https://user-images.githubusercontent.com/120498080/208465505-b6a85e2c-f537-4312-b723-1f2cb4a585bb.png)
 
 ### Timing Analysis in VTR of the Design
-- To do timing analysis using VTR we will create a `counter.sdc` file whose clock name `up_counter_clk` should be same as the clock name in `counter.pre-vpr.blif` file
+- To do timing analysis using VTR I created a `counter.sdc` file whose clock name `up_counter_clk` should be same as the clock name in `counter.pre-vpr.blif` file
 - In `counter.pre-vpr.blif` replace up_counter^clk with up_counter_clk
 ```
 create_clock -period 10 up_counter_clk
@@ -547,7 +547,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 
 
 ### Power Analysis in VTR of the Design
-- We do Power Analysis in VTR we have to use following commands.
+- Then I do Power Analysis in VTR and I used the following commands.
 [Reference for Power Analysis](docs.verilogtorouting.org/en/latest/vtr/power_estimation/#running-vtr-with-power-estimation) 
 
 ```
