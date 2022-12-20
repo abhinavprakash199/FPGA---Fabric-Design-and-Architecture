@@ -46,7 +46,7 @@ The most well-known FPGA, the Xilinx Virtex-5, has a flip-flop and a look-up tab
 The Basys 3 is a basic FPGA development board using the Xilinx® Artix®-7-FPGA architecture that was created specifically for the Vivado® Design Suite. The Basys 3 is the most recent model in the well-liked Basys range of FPGA development boards for novices or students just entering into FPGA technology. The Basys 3 has all of the features that are common to all Basys boards, including fully functional hardware that is ready for use, a sizable selection of on-board I/O devices, all necessary FPGA support circuits, a free version of development tools, and a price point that is affordable for students.
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
-<h2 id="header-2">## Counter Example in Vivado</h2>
+## <h2 id="header-2"> Counter Example in Vivado</h2>
 A counter is a device that stores (and sometimes displays) the number of times a specific event or process has occurred in digital logic and computing, frequently in relation to a clock. The most typical kind is a sequential digital logic circuit, which has several output lines and a clock-input line. The binary or BCD number system is represented by the values on the output lines as a number. The value in the counter is increased or decreased with each pulse applied to the clock input.
 - A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
 - Below mentioned the RTL for the counter modules that is being used.
