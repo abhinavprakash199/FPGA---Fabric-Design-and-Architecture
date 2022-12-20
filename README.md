@@ -45,7 +45,30 @@ This repository contains all the information studied and created during the [FPG
   </ul>
 </div>
 
-
+<div class="toc">
+  <ul>
+    <li><a href="#header-2">Day 2 - Exploring OpenFPGA, VPR and VTR</a></li>
+	<ul>
+        <li><a href="#header-2_1">Introduction To OpenFPGA</a></li>
+      </ul>
+      <ul>
+        <li><a href="#header-2_2">VPR(Versatile Place and Route)</a></li>
+      </ul>
+	<ul>
+        <li><a href="#header-2_3">VTR(Verilog to Routing)</a></li>
+      </ul>
+	 <ul>
+        <li><a href="#header-2_4">Example 1 : VPR on a Pre-Synthesized Circuit</a></li>
+      </ul>
+	 <ul>
+        <li><a href="#header-2_5">Example 2 :Run the entire VTR flow automatically</a></li>
+      </ul>
+	 </ul>
+	 <ul>
+        <li><a href="#header-2_6">Comparision of counnter design from Basys3 and VTR Flow</a></li>
+      </ul>
+  </ul>
+</div>
 
 
 # <h1 id="header-1">Day 1 - Exploring FPGA Basics and Vivado</h1> 
