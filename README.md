@@ -1,8 +1,6 @@
 # **FPGA - Fabric, Design, and, Architecture**
 This repository contains all the information studied and created during the [FPGA - Fabric, Design and Architecture](https://www.vlsisystemdesign.com/fpga/) workshop. It is primarily focused on a complete FPGA flow using the maximum open-source tools.
 # Table of Contents
-
-
 <div class="toc">
   <ul>
     <li><a href="#header-1">Day 1 - Exploring FPGA Basics and Vivado</a></li>
@@ -17,8 +15,6 @@ This repository contains all the information studied and created during the [FPG
       </ul>
   </ul>
 </div>
-
-
 
 <div class="toc">
   <ul>
@@ -60,6 +56,35 @@ This repository contains all the information studied and created during the [FPG
   </ul>
 </div>
 
+<div class="toc">
+  <ul>
+    <li><a href="#header-4">Day 4 - Introduction To SOFA FPGA Fabric</a></li>
+	<ul>
+        <li><a href="#header-4_1">Running SOFA to design a counter</a></li>
+      </ul>
+  </ul>
+</div>
+
+<div class="toc">
+  <ul>
+    <li><a href="#header-5">Day 5 - RISCV Core on Custom SOFA Fabric</a></li>
+	<ul>
+        <li><a href="#header-5_1">Running SOFA to design a RISC-V Core</a></li>
+      </ul>
+  </ul>
+</div>
+
+<div class="toc">
+  <ul>
+    <li><a href="#header-5">References</a></li>
+  </ul>
+</div>
+
+<div class="toc">
+  <ul>
+    <li><a href="#header-5">Acknowledgement</a></li>
+  </ul>
+</div>
 
 # <h1 id="header-1">Day 1 - Exploring FPGA Basics and Vivado</h1> 
 ## <h1 id="header-1_1">FPGA (Field Programmable Gate Array)</h1> 
