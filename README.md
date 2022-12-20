@@ -12,7 +12,7 @@ This repository contains all the information studied and created during the [FPG
   </ul>
 </div>
 <h1 id="header-1">Header 1</h1>
-<h2 id="header-2">Header 2</h2>
+
 
 
 
@@ -44,7 +44,6 @@ The Basys 3 is a basic FPGA development board using the Xilinx® Artix®-7-FPGA 
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
 <h2 id="header-2">## Counter Example in Vivado</h2>
-
 A counter is a device that stores (and sometimes displays) the number of times a specific event or process has occurred in digital logic and computing, frequently in relation to a clock. The most typical kind is a sequential digital logic circuit, which has several output lines and a clock-input line. The binary or BCD number system is represented by the values on the output lines as a number. The value in the counter is increased or decreased with each pulse applied to the clock input.
 - A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
 - Below mentioned the RTL for the counter modules that is being used.
