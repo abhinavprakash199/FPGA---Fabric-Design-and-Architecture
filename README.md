@@ -2,10 +2,8 @@
 This repository contains all the information studied and created during the [FPGA - Fabric, Design and Architecture](https://www.vlsisystemdesign.com/fpga/) workshop. It is primarily focused on a complete FPGA flow using the maximum open-source tools.
 # Table of Contents
 
-
-##### Table of Contents  
 [Day 1 - Exploring FPGA Basics and Vivado](#headers)  
-- [FPGA (Field Programmable Gate Array) ](#emphasis)  
+- [FPGA (Field Programmable Gate Array) ](#header)  
  
 <a name="headers"/>
 ## Headers
