@@ -600,22 +600,22 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 
 # <h1 id="header-3">Day 3 - RISC-V Core Programming Using Vivado</h1> 
 
-We use the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add first 9 numbers.
-Then we create a vivado project with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
+Here I used the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, I used no_ILA one because I am not using practical FPGA board). It has a 5 stage pipelined processor which is going to add first 9 numbers.
+Then I created a vivado project with adding basys3(xc7a35tcpg238-1) board and I added mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
 
 ## <h1 id="header-3_1">Behavioral Simulation</h1> 
 ![Screenshot (2091)](https://user-images.githubusercontent.com/120498080/208234103-a18b8b86-aad0-4901-ab6e-8ce94ca0bfc0.png)
 
 ## RTL ANALYSIS
 ## <h1 id="header-3_2">1. Running with ILA(Integrated Logic Analyser)</h1> 
-After running Elaboration we set I/O Std to LVCMOS33 and clk to W5 and reset to R2 and for output port we are going to assign an ILA (Integrated Logic Analyser) to view the output (ecause we are noe using practical FPGA board). Fo that we neet to make some changes in the codes
-> Replace `module core(input clk, input reset,output [7,0]out);` with `module core(input clk, input reset);` so we do not need to map the outputs to any LEDs
-- Then again run the Elaboration (Make sure we do not the behavioral simulation at this point, otherwise it will show a missmatch in the number or ports because we have eleminated the output port here, as the testbench contain the output port) 
--  So we have to go with **Elaboration >> Syntheses >> Implemantation >> Bitstream**
+After running Elaboration I set I/O Std as LVCMOS33 and clk to W5 and reset to R2 and for output port I am going to assign an ILA (Integrated Logic Analyser) to view the output (because I am not using practical FPGA board). Fo that I made some changes in the codes
+> Replace `module core(input clk, input reset,output [7,0]out);` with `module core(input clk, input reset);` so I do not need to map the outputs to any LEDs
+- Then again run the Elaboration (Do not the behavioral simulation at this point, otherwise it will show a missmatch in the number or ports because I have eleminated the output port here, as the testbench contain the output port) 
+-  So I have gone with **Elaboration >> Syntheses >> Implemantation >> Bitstream**
 #### Running ILA in Vivado
-- We all ILA to probes the signals
-- Fo that go to IP Catalog/ILA(Integrated Logic Analyser)
-- In that set Number of Probes = 2 (because we want to check reset and output)
+- I added ILA to probes the signals
+- For that go to IP Catalog/ILA(Integrated Logic Analyser)
+- In that set Number of Probes = 2 (because I wanted to check reset and output)
 - In next tab "Probe Ports" and set PROBE0|Probe With = 1 (because reset is a 1 bit signal) and PROBE1|Probe With = 8 (because output is a 8 bit signal)
 - Then confirm and generate.
 #### Generated ILA(Integrated Logic Analyser)
@@ -644,9 +644,9 @@ ila_0 your_instance_name (
 ![Screenshot (2100)](https://user-images.githubusercontent.com/120498080/208252113-b7869a24-82aa-44db-930b-d151173d6d1e.png)
 #### Power Report
 ![Screenshot (2105)](https://user-images.githubusercontent.com/120498080/208252633-0f729d19-de3a-46f3-b922-ef13db969ae1.png)
-- Then we can go for Bitstream Genaration if we have the FPGA Basys3 Board. 
+- Then I proceed for Bitstream Genaration if I have the FPGA Basys3 Board. 
 ## <h1 id="header-3_3">2. Running without ILA(Integrated Logic Analyser)</h1> 
-We create a project in vivado and we add `mythcore_test_no_ILA.v` as desination source and `test.v` as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below. For pin selection we can refer [Schematic of Basys3 Board](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
+I create a project in vivado and I added `mythcore_test_no_ILA.v` as desination source and `test.v` as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below. For pin selection I refered [Schematic of Basys3 Board](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 #### Constrains File
 ![Screenshot (2108)](https://user-images.githubusercontent.com/120498080/208255165-9b0db85a-5aba-4444-856b-27b6209a2e3e.png)
 - Finally go to Run and run the Post Implementation Timing Simulation and it will give the same output as before.
@@ -678,9 +678,9 @@ The Caravel SoC interface is supported by all SOFA FPGAs. With its high-density 
 ![Screenshot (2109)](https://user-images.githubusercontent.com/120498080/208286236-582cb3e7-4223-475e-b94b-88bf657fd7cf.png)
 
 ## <h1 id="header-4_2">Running SOFA to design a counter</h1>
-First we will start with a **design of a counter in SOFA** and then we will use a design of RISC-V processor called RVMyth in SOFA
+First I started with a **design of a counter in SOFA** and then I will use a design of RISC-V processor called RVMyth in SOFA
 ### Installing and Running SOFA
-- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
+- Go to the directory in which SOFA is installed and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
 - Our working directoy in `Desktop/Day4_counter/SOFA/`
 - Then open `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.
 - Now open `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.
