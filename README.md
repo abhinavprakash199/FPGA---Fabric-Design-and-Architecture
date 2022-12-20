@@ -410,9 +410,9 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 3. `report_unconstrained_timing.hold.rpt`
 4. `report_unconstrained_timing.setup.rpt`
 5. `packing_pin_util.rpt`
-#### Setup Slag Path
+#### Setup Slack Path
 ![Screenshot (2087)](https://user-images.githubusercontent.com/120498080/208078972-dc84eab8-f2e4-45bd-b51f-cafacb8b42fc.png)
-- Finally we got a Setup Slag Path of 8.507nsec
+- Finally we got a Setup Slack Path of 8.507nsec
 
 
 
@@ -563,7 +563,11 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ![Screenshot (2167)](https://user-images.githubusercontent.com/120498080/208471755-803825a8-1e10-43eb-aec6-db124452e25d.png)
 
 ## <h1 id="header-2_6">Comparision of counnter design from Basys3 and VTR Flow</h1>
-
+### Timing Comparision
+- I have used a clock frrquency of 100MHz (Time Period = 10nsec)
+| Parameters | Counter from Basys3 | Counter from VTR Flow|
+|:---:|:---:|:---:|
+|Technology |28nm|40nm|
 
 
 
