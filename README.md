@@ -7,7 +7,7 @@ This repository contains all the information studied and created during the [FPG
   <ul>
     <li><a href="#header-1">Day 1 - Exploring FPGA Basics and Vivado</a></li>
       <ul>
-        <li><a href="#header-2">FPGA (Field Programmable Gate Array)</a></li>
+        <li><a href="#header-2">Counter Example in Vivado</a></li>
       </ul>
   </ul>
 </div>
@@ -15,19 +15,6 @@ This repository contains all the information studied and created during the [FPG
 <h2 id="header-2">Header 2</h2>
 
 
-1. [Day 1 - Exploring FPGA Basics and Vivado](#my-first-title)
-2. [My second title](#my-second-title)
-3. 
-* [**Day 1 - Exploring FPGA Basics and Vivado**](#markdown-header-span-elements)
-	* [FPGA (Field Programmable Gate Array) ](#markdown-header-emphasis)
-	* [Counter Example in Vivado](#markdown-header-strikethrough)
-	
-
-[Day 1 - Exploring FPGA Basics and Vivado](#headers)  
-- [FPGA (Field Programmable Gate Array) ](##header)  
- 
-<a name="headers"/>
-## Headers
 
 
 # **Day 1 - Exploring FPGA Basics and Vivado**
