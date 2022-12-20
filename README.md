@@ -185,33 +185,33 @@ endmodule
 ![Screenshot (2115)](https://user-images.githubusercontent.com/120498080/208306281-42b14bad-2357-4156-9cb7-18f147949796.png)
 ### RTL ANALYSIS 
 #### Elaborate Design of the Counter
-It is going to bind few module and the modulate hierarchi and it will also enstablish certain net connectivities.
+It is going to bind a few modules and the modulate hierarchy and it will also establish certain net connectivities.
 It is usually done before Synthesis
 #### Schematic of the Counter
-- To see how the designes are actually getting mapped.
+- To see how the designs are getting mapped.
 ![Screenshot (2043)](https://user-images.githubusercontent.com/120498080/207792466-697fca77-ced7-4c0f-b1da-4283731ff720.png)
 ### I/O Planning of the Counter
 - It se to obsreve the differnet pins of FPGA
 ![Screenshot (2044)](https://user-images.githubusercontent.com/120498080/207792629-8a565a89-b586-48dc-9be4-0dd4756585db.png)
 ### Mapping I/O Ports to the pins of the FPGA
-- As I am not have access to FPGA board so I am using the scheamatic of basis 3 and map the pins accordingle
+- As I do not have access to the FPGA board so I am using the schematic of basis 3 and mapping the pins accordingly
 #### Schematic of Basys3 Board
 [SCHEMATIC PDF](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 ![Screenshot (2046)](https://user-images.githubusercontent.com/120498080/207820032-b6efb987-a4ae-45eb-af8a-756cf998eaf4.png)
-#### Mapping in constarints.edx file 
+#### Mapping in constraints.edx file 
 - I set Vcc as 3.3V (I/O Std - LVCMOS33) for all input and output pins. 
-- Then by setting the inputs and outputs I generated the `constarints.edx file`
-- Provinging the clovk frequency of 100MHz (time period of 10nsec).
+- Then by setting the inputs and outputs I generated the `constraints. edx` file
+- Providing the clovk frequency of 100MHz (period of 10nsec).
 ![Screenshot (2172)](https://user-images.githubusercontent.com/120498080/208490548-82b91717-2562-458c-b1f6-286b71ac4b67.png)
 ### Introduction to Slack 
 - **Slack** is the difference between achieved or actual time and the desired time for a timing path.  The amount of timing path slack tells us whether the design operates at the desired speed or frequency.
 ![Screenshot (2174)](https://user-images.githubusercontent.com/120498080/208606261-344b03cc-e153-46ad-b017-233a816e2c72.png)
 Tcq = Time Delay to reach the data from D to A
 Tlogic = Time required to reach the data from A to B
-- **Setup Time** The amount of time needed for the input to a flip-flop to be steady prior to a clock edge is known as setup time.
-- **Hold Time** The hold time is the shortest period of time necessary for the input to a flip-flop to remain steady following a clock edge.
+- **Setup Time** The amount of time needed for the input to a flip-flop to be steady before a clock edge is known as setup time.
+- **Hold Time** The hold time is the shortest period necessary for the input to a flip-flop to remain steady following a clock edge.
 - **Data Arrival Time** This is the amount of time needed for data to go through the data path.(Tcq + Tlogic)
-- **Data Required Time** This is the amount of time needed for the clock go through through clock path.(T - Tsetup)
+- **Data Required Time** This is the amount of time needed for the clock to go through the clock path. (T - Tsetup)
 - Setup and hold slack is the difference between data required time and data arrival time.
 
 **Setup Slack = Data Required Time - Data Arrival Time**
@@ -219,8 +219,8 @@ Tlogic = Time required to reach the data from A to B
 
 - A positive setup slack indicates that the design is operating at the desired frequency and also has some additional margin.
 - Zero setup slack indicates that there is no buffer available and that the design is precisely operating at the intended frequency.
-- Negative setup Slack indicates that the restricted frequency and time are not met by the design. This is called as setup violation.
-### SYNTHESIS & IMPLEMANTATION
+- Negative setup Slack indicates that the restricted frequency and time are not met by the design. This is called a setup violation.
+### SYNTHESIS & IMPLEMENTATION
 - Clock frequency is 100MHz (from Constraints Wizard)
 #### Report Timing Summary of the Counter
 ![Screenshot (2068)](https://user-images.githubusercontent.com/120498080/207813932-5b9ffb95-2197-4598-a2ae-e8f5f9a9e220.png)
@@ -235,33 +235,33 @@ Tlogic = Time required to reach the data from A to B
 ![Screenshot (2069)](https://user-images.githubusercontent.com/120498080/207824737-cfb319d1-aaba-44fe-9699-2e830f28b627.png)
 #### Power Report of the Counter
 ![Screenshot (2070)](https://user-images.githubusercontent.com/120498080/207825343-2fa69e41-a876-4a59-8982-9898858ec658.png)
-#### Report Utilazation of the Counter
-- It basic aly tells about the area report.
-- e.g - it shows us how many resources has been utilized in the FPGA
+#### Report Utilization of the Counter
+- It tells about the area report.
+- e.g - it shows us how many resources have been utilized in the FPGA
 ![Screenshot (2071)](https://user-images.githubusercontent.com/120498080/207827717-1e2d4d97-c7d2-49d3-8d4b-9eeea1413900.png)
 ### PROGRAM AND DEBUG
 #### Generate Bitstream of the Counter
-- Here I locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as I was not having access to the Basys3 board so I am are not doing it here)
+- Here I locally connected the FPGA Basis3 board to our pc, programmed the board, and test the output by adjusting the reset switch (as I was not having access to the Basys3 board so I am not doing it here)
 ### Alternative way is Post Implementation Timing Simulation
 **NOTE**
-- **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
-- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA.
-#### POST IMPLEMENTATION TIMIMG SIMULATION
-- This simulation output waveform should match with the Behavioral Simulation output waveform.
+- **Run Behavioral Simulation** It just takes the original design (the written .v file Verilog codes) and runs the testbench on it to give the output.
+- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is closest to running in an FPGA.
+#### POST-IMPLEMENTATION TIMING SIMULATION
+- This simulation output waveform should match the Behavioral Simulation output waveform.
 ![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
 
 ## <h1 id="header-1_3"> VIO - Virtual Input/Output </h1>
-- VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to my design (counter) then I am able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
-- So this need some changes is the codes : I have create a instance of the VIO 
+- VIO is an IP that comes along with vivado (inbuild into vivado), so when this interface is virtually connected to my design (counter) then I can virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
+- So this needs some changes in the codes: I have created an instance of the VIO 
 1. "reset" will be output from VIO which is given as input to the counter.
-2. "counter_out" and "div_clk" will be an input to VIO which is taken from output of counter
+2. "counter_out" and "div_clk" will be input to VIO which is taken from the output of counter
 ### VIO Block Diagram
 ![Screenshot (2125)](https://user-images.githubusercontent.com/120498080/208318452-00b8e63e-20ab-46c9-be3f-61ed70be2bc4.png)
 ### Opening VIO in vivado
-- Fo that go to IP Catalog/VIO
-- In that set  "Input Probes Cout = 2" (because I am having 2 inputs ) and "Output Probes Cout = 1" (because I am having 1 output(rset))
+- For that go to IP Catalog/VIO
+- In that set  "Input Probes Cout = 2" (because I am having 2 inputs ) and "Output Probes Cout = 1" (because I am having 1 output(reset))
 - In next tab "PROBE_IN Ports" and set "PROBE_IN0 = 1" (because div_clk is a 1 bit signal) and "PROBE_IN1 = 4" (because counter_out is a 1 bit signal)
-- In next tab "PROBE_OUT Ports" and set "PROBE_OUT0 = 1" (because reset is a 1 bit signal
+- In the next tab "PROBE_OUT Ports" set "PROBE_OUT0 = 1" (because reset is a 1-bit signal
 - Then confirm and generate.
 #### Generated VIO
 ![Screenshot (2127)](https://user-images.githubusercontent.com/120498080/208319739-db6700a8-f480-4443-a113-efd717abc7a9.png)
@@ -274,13 +274,13 @@ Tlogic = Time required to reach the data from A to B
 
 # <h1 id="header-2">Day 2 - Exploring OpenFPGA, VPR and VTR</h1> 
 ## <h1 id="header-2_1">Introduction To OpenFPGA</h1>
-An open-source platform called OpenFPGA seeks to make it possible to quickly prototype adaptable FPGA systems. Below figure illustrates how a traditional approach would require a big team of seasoned engineers more than a year to complete a production-ready layout and related CAD tools. In actuality, the majority of engineering efforts are put into creating manual layouts and ad-hoc CAD support.
+An open-source platform called OpenFPGA seeks to make it possible to quickly prototype adaptable FPGA systems. The below figure illustrates how a traditional approach would require a big team of seasoned engineers for more than a year to complete a production-ready layout and related CAD tools. In actuality, the majority of engineering efforts are put into creating manual layouts and ad-hoc CAD support.
 ![Screenshot (2179)](https://user-images.githubusercontent.com/120498080/208620681-ce83bf1a-385b-41d4-887c-e09430eafed5.png)
-The development process for both hardware and software can be greatly sped it up with OpenFPGA. Based on an XML-based description file, OpenFPGA can automatically produce Verilog netlists describing an entire FPGA fabric. Within 24 hours, production-ready layout generation can be accomplished with the help of contemporary semi-custom design technologies. With the use of contemporary verification tools, OpenFPGA can automatically construct Verilog testbenches to verify the accuracy of FPGA fabric. To avoid repeating engineering while creating CAD tools for several FPGAs, OpenFPGA also offers native bitstream generating capability based on the same XML-based description file used in Verilog generation. The CAD tool is available for usage as soon as the FPGA architecture is complete.
+The development process for both hardware and software can be greatly sped up with OpenFPGA. Based on an XML-based description file, OpenFPGA can automatically produce Verilog netlists describing an entire FPGA fabric. Within 24 hours, production-ready layout generation can be accomplished with the help of contemporary semi-custom design technologies. With the use of contemporary verification tools, OpenFPGA can automatically construct Verilog test benches to verify the accuracy of FPGA fabric. To avoid repeating engineering while creating CAD tools for several FPGAs, OpenFPGA also offers native bitstream generating capability based on the same XML-based description file used in Verilog generation. The CAD tool is available for usage as soon as the FPGA architecture is complete.
 
-OpenFPGA opens up a wide design area for developing customisable FPGAs because it can support any architecture that VPR can describe. This includes the majority of architecture modifications present in contemporary FPGAs. In addition, OpenFPGA has improved syntax that enables users to alter transistor-level parameters in simple circuits. This makes it easier for developers to best tailor the P.P.A. (Power, Performance, and Area). A small number of young engineers or researchers now have access to adaptable FPGAs for prototype and study thanks to all these advantages.
+OpenFPGA opens up a wide design area for developing customizable FPGAs because it can support any architecture that VPR can describe. This includes the majority of architectural modifications present in contemporary FPGAs. In addition, OpenFPGA has improved syntax that enables users to alter transistor-level parameters in simple circuits. This makes it easier for developers to best tailor the P.P.A. (Power, Performance, and Area). A small number of young engineers or researchers now have access to adaptable FPGAs for prototype and study thanks to all these advantages.
 
-The following components make up OpenFPGA's tool functionality: FPGA-Verilog, FPGA-SDC, FPGA-Bitstream, and FPGA-SPICE. The remainder of this section will centre on the specific reasons for each of them, as seen in the image below.
+The following components make up OpenFPGA's tool functionality: FPGA-Verilog, FPGA-SDC, FPGA-Bitstream, and FPGA-SPICE. The remainder of this section will center on the specific reasons for each of them, as seen in the image below.
 ![Screenshot (2180)](https://user-images.githubusercontent.com/120498080/208624329-5e0816e9-06fd-4602-856a-9b022c637f7c.png)
 
 - [Opne FPGA and VTR Installation Guide](https://drive.google.com/file/d/1BbyCDvzvidx22hTT6BOYbCEFAXNhKalH/view?usp=sharing)
@@ -289,7 +289,7 @@ The following components make up OpenFPGA's tool functionality: FPGA-Verilog, FP
 ## <h1 id="header-2_2">VPR(Versatile Place and Route) </h1>
 The last part of VTR is versatile place and route (VPR). A BLIF circuit serves as its input, and it packs, puts, and routes the circuit on an input FPGA design.'
 
-During packing, adjacent and connected logic components of the circuit are grouped together into Logic Blocks that match the FPGA's hardware. These logic blocks and hard blocks are assigned to the FPGA's available hardware resources during placement. Finally, signal connections between blocks are formed during routing. Many other universities and businesses have contributed to the development of VPR, which is principally being done by the University of Toronto.
+During packing, adjacent and connected logic components of the circuit are grouped into Logic Blocks that match the FPGA's hardware. These logic blocks and hard blocks are assigned to the FPGA's available hardware resources during placement. Finally, signal connections between blocks are formed during routing. Many other universities and businesses have contributed to the development of VPR, which is principally being done by the University of Toronto.
 - [VPR Reference](https://docs.verilogtorouting.org/en/latest/vpr/)
 #### VPR Flow
 ![Screenshot (2078)](https://user-images.githubusercontent.com/120498080/208228994-29779770-a2ac-4f8e-882c-0333beaf97a9.png)
@@ -297,8 +297,8 @@ During packing, adjacent and connected logic components of the circuit are group
 
 ## <h1 id="header-2_3">VTR(Verilog to Routing)</h1>
 The Verilog to Routing (VTR) project offers free and open-source CAD tools for studying FPGA architecture.
-In contrast to closed-source tools, open source CAD tools allow for the investigation of novel FPGA architectures and CAD algorithms.
-A Verilog description of a digital circuit and information about the intended FPGA architecture are inputs into the VTR design flow. Next, it performs:
+In contrast to closed-source tools, open-source CAD tools allow for the investigation of novel FPGA architectures and CAD algorithms.
+A Verilog description of a digital circuit and information about the intended FPGA architecture are input into the VTR design flow. Next, it performs:
 - ODIN II -  Elaboration & Synthesis 
 - ABC - Logic Optimization & Technology Mapping 
 - VPR - Packing, Placement, Routing & Timing Analysis 
@@ -313,23 +313,23 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 ## <h1 id="header-2_4">Example 1 : VPR on a Pre-Synthesized Circuit</h1>
 ### Input to this VPR is:
 1. Technology mapped netlist of a Design (in form of **`tseng.blif`** file)
-2. FPGA Architecture discription file (in form of **`Earch.xml`** format)
-- **NOTE** This EArch.xml is already available (nearly 40 differnet FPGA Architectures available) available (For  our own FPGA achitecture it can be written using xml langage) 
-- **NOTE** This tseng.blif is generated from Tech Mapped Netlist and it contains information about the technology Tech Mapped circuits (for eg if we are targeting a 40nm circuit) which will be implemented in the target FPGA and used as a input file to VPR flow.
-### VPR tool will go through following steps. 
+2. FPGA Architecture description file (in form of **`Earch.xml`** format)
+- **NOTE** This EArch.xml is already available (nearly 40 different FPGA Architectures available) available (For  our FPGA achitecture it can be written using XML language) 
+- **NOTE** This tseng.blif is generated from Tech Mapped Netlist and it contains information about the technology Tech Mapped circuits (for eg if we are targeting a 40nm circuit) which will be implemented in the target FPGA and used as an input file to VPR flow.
+### VPR tool will go through the following steps. 
 #### 1. VPR Packing 
 - It is going to combine all the primitive netlist blocks(e.g. - all the LUTs,FF,etc which are the part of the design) 
-- These are going to be packen in CLB(Complex Logic Blocks).
+- These are going to be packed in CLB(Complex Logic Blocks).
 - The output of this is a `.net` file
 #### 2. VPR Placement 
 - The CLBs will get placed in the FPGA Grid.
 - The output of this is a `.place` file, which is going to contain the locations of where these CLBs are placed. 
 #### 3. VPR Route
-- It is going connect all of these CLBs into ths FPGA grid.
+- It is going to connect all of these CLBs to the FPGA grid.
 - The output of this is a `.route` file, which is going to contain all the route information.
-#### 4. VPR Aalysis
-- It dose the analysis in terms of Area, Timing and Power.
-- It is also going to output a Post-Implemantation Netlist( it will give information about resource usage, number of block pipes and wires used, timimg in terms of critical path delay and timimg path and also poer usage be each of these blocks)
+#### 4. VPR Analysis
+- It analyzes in terms of Area, Timing, and Power.
+- It is also going to output a Post-Implementation Netlist( it will give information about resource usage, number of block pipes and wires used, timing in terms of critical path delay and timing path and also power usage by each of these blocks)
 
 - Location of blif file in server : 
 > /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.blif
@@ -340,9 +340,9 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 #### Example `.xml` file explanation :
 ![Screenshot (2080)](https://user-images.githubusercontent.com/120498080/207940470-314389f2-05d8-4886-84b3-074b9638554b.png)
 
-- ***NOTE** Command to open the above blif and Earch.xml location `cd $VTR_ROOT` (after that use `cd` and `ls` to go into particular location and open the file)* 
+- ***NOTE** Command to open the above blif and Earch.xml location `cd $VTR_ROOT` (after that use `cd` and `ls` to go into a particular location and open the file)* 
 ***NOTE**
--  *Steps to make new working directory in Linux
+-  *Steps to make a new working directory in Linux
 #### *Move to our home directory
 > cd ~
 #### *Make a working directory
@@ -354,15 +354,15 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 >is22mtech14002@fpga-workshop-02:~/vtr_work/quickstart/vpr_tseng$
 ### Running VTR
 #### Command to run VPR
-- Use this commands in the working location to run VPR.
+- Use these commands in the working location to run VPR.
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --disp on
 ```
 ```
 $VTR_ROOT/vpr/vpr\                             // invoking vpr which is at VTR_ROOT (where vtr has been installed in the cloud)                                       
-$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\      // First input is FPGA Architecture Discription File (EArch.xml)
+$VTR_ROOT/vtr_flow/arch/timing/EArch.xml\      // First input is FPGA Architecture Description File (EArch.xml)
 $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
--- route_chan_width 100 \                      // use a benchmark file that is already beign converter into blf format
+-- route_chan_width 100 \                      // use a benchmark file that is already being converter into blf format
 -- disp on                                     // to open GUI
 ```
 
@@ -371,40 +371,40 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 #### Structure of FPGA Architecture
 ![Screenshot (2088)](https://user-images.githubusercontent.com/120498080/208081790-279b1699-d010-4a70-a94f-295040f1519a.png)
 #### Congestion Architecture 
-- It shows which area is how much Congusted.
+- It shows which area is how much Congested.
 ![Screenshot (2089)](https://user-images.githubusercontent.com/120498080/208081834-0f92663a-bc7e-4757-86eb-24f96f55c9a5.png)
-- There are also differnet views available of this FPGA Architecture which can be accessed through GUI
+- There are also different views available of this FPGA Architecture which can be accessed through GUI
 
-- Finally the output of this VPR step is 
-1. **tseng.net** Its a packed netlist format, its basically a xml file that describes post packed circuit. So it represent the user netlist in terms of complex logic blocks of this particular architecture. 
-2. **tseng.place** Its the output of Placement step. It is going to list the netlist and tells about the differnet block number and their placement in the Architecture.
-3. **tseng.route**  Its the output of Routing step which going to contain informating about the net and the nodes which are going to connect.
-4. **tseng.log** Its basically what it printed out in the terminal.
-- All the files are generate in same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
+- Finally, the output of this VPR step is 
+1. **tseng.net** It's a packed netlist format, it's an xml file that describes post packed circuit. So it represents the user netlist in terms of complex logic blocks of this particular architecture. 
+2. **tseng.place** It's the output of the Placement step. It is going to list the netlist and tells about the different block number and their placement in the Architecture.
+3. **tseng.route** It's the output of the Routing step which going to contain information about the net and the nodes which are going to connect.
+4. **tseng.log** It's basically what it printed out in the terminal.
+- All the files are generated in the same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
 - It will also generate `report_timing.setup.rpt` , `report_timing.hold.rpt`, `packing_pin_util.rpt`, etc files. in the same working directory.
 
 - ***NOTE** Command to search .rpt file in working directory `ls *.rpt`*
 ### Running VTR with added clock
 To run VTR with the clock I needed to define `tseng.sdc` and invoke it in the VTR command
 #### `tseng.sdc` file
-- To get the correct timing report I need to  set the clock and for that I need to set the contrains file (`tseng.sdc file`)
+- To get the correct timing report I need to  set the clock and for that, I need to set the constraints file (`tseng.sdc file`)
 ```
 create_clock -period 10 -name pclk     
 set_input_delay -clock pclk -max 0 [get_ports {*}]  
 set_output_delay -clock pclk -max 0 [get_ports {*}]  
 ```
 ```
-create_clock -period 10 -name pclk                    //Created a clock with time period of 10nsec with name plck (I can find it from timing report)
+create_clock -period 10 -name pclk                    //Created a clock with the period of 10nsec with name plck (I can find it from the timing report)
 set_input_delay -clock pclk -max 0 [get_ports {*}]    //Set input delay to zero
 set_output_delay -clock pclk -max 0 [get_ports ("}]   //Set output delay to zero
 ```
 ### Steps to add this clock to the Design
-- First go back to the same working directory and append the sdc option.
+- First, go back to the same working directory and append the sdc option.
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --sdc_file /home/is22mtech14002/LAB1/tseng.sdc  
 ```
 [Reference for VPR Command Line Options](https://docs.verilogtorouting.org/en/latest/vpr/command_line_usage/)
-- Finally it will generate several reports:
+- Finally, it will generate several reports:
 1. `report_timing.setup.rpt`
 2. `report_timing.hold.rpt`
 3. `report_unconstrained_timing.hold.rpt`
@@ -412,41 +412,41 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 5. `packing_pin_util.rpt`
 #### Setup Slack Path
 ![Screenshot (2087)](https://user-images.githubusercontent.com/120498080/208078972-dc84eab8-f2e4-45bd-b51f-cafacb8b42fc.png)
-- Finally I got a Setup Slack Path of 8.507nsec
+- Finally, I got a Setup Slack Path of 8.507nsec
 
 
 
 ## <h1 id="header-2_5">Example 2 :Run the entire VTR flow automatically</h1>
-- In VTR flow we will start with HDL going through Odin II then ABC then finally the VPR flow (as done is example 1)
+- In the VTR flow we will start with HDL going through Odin II then ABC then finally the VPR flow (as done in example 1)
 - There are two ways of running VTR :
 1. **Manually Running the VTR Flow**
 - We have to invoke Odin II manually
 - Then we have to do the technology mapping with ABC
-- Then mannualy implement the circuit using VPR
+- Then manually implement the circuit using VPR
 2. **Automatically Running the VTR Flow**
-- In Automatically Running the VTR Flow insted of invoking Odin II and ABC I used some existing file and VPR with the help of these files.
+- In Automatically Running the VTR Flow instead of invoking Odin II and ABC I used some existing files and VPR with the help of these files.
 ### Automatically Running VTR
 - To Automatically Run the VTR Flow
-I will be invoking python script present at 
+I will be invoking the python script present at 
 >$VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py
-- **NOTE** This `run_vtr_flow.py file` is alraedy available for this Open FPGA (for our simplicity) if we are Automatically Running the VTR Flow.
-- **NOTE** This `EArch.xml` is already available (nearly 40 differnet FPGA Architectures available) available (For  our own FPGA achitecture it can be written using xml langage) 
+- **NOTE** This `run_vtr_flow.py file` is already available for this Open FPGA (for our simplicity) if we are Automatically Running the VTR Flow.
+- **NOTE** This `EArch.xml` is already available (nearly 40 different FPGA Architectures available) available (For  our FPGA architecture it can be written using xml language) 
 #### Codes to run VTR tool
 ```
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v   $VTR_ROOT/vtr_flow/arch/timing/EArch.xml   -temp_dir .  --route_chan_width 100
 ```
-- Then run the commands in working direcory to generate `.blif` file 
+- Then run the commands in the working directory to generate `.blif` file 
 ```
- $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invocing Python script .py
+ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py \         //Invoicing Python script .py
     $VTR_ROOT/doc/src/quickstart/counter.v \          //Inputs the counter.v file
     $VTR_ROOT/vtr_flow/arch/timing/EArch.xml \        //Architecture onto which we want to map the counter.v file
-    -temp_dir . \                                     //Local working Directory
-    --route_chan_width 100                            // Rounting Channel width for the Architecture
+    -temp_dir . \                                     //Local Working Directory
+    --route_chan_width 100                            // Routing Channel width for the Architecture
 ```
-#### Codes of counter.v file
+#### Codes of the counter.v file
 ```verilog
 module up_counter    (
-out     ,  // Output of the counter
+out,  // Output of the counter
 enable  ,  // enable for counter
 clk     ,  // clock Input
 reset      // reset Input
@@ -470,7 +470,7 @@ endmodule
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --analysis --disp on
 ```
 --analysis      // to run GUI from analysis step onwards
-- Commands to invoke GUI with entire VPR flow
+- Commands to invoke GUI with the entire VPR flow
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif  --route_chan_width 100 --disp on
 ```
@@ -480,7 +480,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 - So now it will complete the entire VPR flow
 
 ### Generation of the Post-Implementation Netlist of the Design
-- Now I need to generete a Post-Implementation Netlist from VPR
+- Now I need to generate a Post-Implementation Netlist from VPR
 [Generation of the Post-Implementation Netlist](https://docs.verilogtorouting.org/en/latest/tutorials/timing_simulation/)
 
 ```
@@ -490,7 +490,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //Run VPR with the Architecture file (.xml file)
 /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/counter.pre-vpr.blif      //Run the .blif file that has been created from the VPR
 --route_chan_width 100 
---gen_post_synthesis_netlist on                                              //to genrete post synthesis netlist
+--gen_post_synthesis_netlist on                                              //to generate post-synthesis netlist
 ```
 - So now VPR will generate the  Post-Implementation Netlist (`up_counter_post_synthesis.v` file) and also the delay file (`up_counter_post_synthesis.sdf`) file
 
@@ -502,24 +502,24 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 > /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.sdf
 > /home/is22mtech14002/vtr_work/quickstart/vpr_tseng/up_counter_post_synthesis.v
 
-- **NOTE** This `privitive.v` file is specific for particular FPGA board and it is available in FPGA fabric (sometimes it have constrains which I neet to fix, like clock written as clk which should match with our up_counter_post_synthesis.v file)
+- **NOTE** This `privitive.v` file is specific for a particular FPGA board and it is available in FPGA fabric (sometimes it has constraints which I need to fix, like clock written as clk which should match with our up_counter_post_synthesis.v file)
 
 ### Post-Implementation Simulation in Vivado of the Design
-- Now create a project in VIVADO and add `primitives.v` and `up_counter_post_synthesis.v` as design sources  and `upcounter_testbench.v` as simulation sources and run the simulation.
-- **NOTE** In the generated `up_counter_post_synthesis.v` file have values assigned to cout and sumout as dontcares **`cout(1'bX)`** and **sumout(1'bX)** which shows an error in vivado simulator so it need to not assign any values as **`cout()`** and **sumout()**
+- Now create a project in VIVADO and add `primitives.v` and `up_counter_post_synthesis.v` as design sources and `upcounter_testbench.v` as simulation sources and run the simulation.
+- **NOTE** In the generated `up_counter_post_synthesis.v` file have values assigned to cout and sumout as don't care **`cout(1'bX)`** and **sumout(1'bX)** which shows an error in vivado simulator so it needs to not assign any values as **`cout()`** and **sumout()**
 #### Vivado error of generated `up_counter_post_synthesis.v`
 ![image (2)](https://user-images.githubusercontent.com/120498080/208493016-a17c34db-0aef-457e-97f1-59d9c65bedcb.png)
-- **NOTE** But due to some errors it was giving don't cares in the output if I where using generated `up_counter_post_synthesis.v` and provided `upcounter_testbench.v` and `primitives.v`in git repo.
+- **NOTE** But due to some errors it was giving don't care in the output if I where using generated `up_counter_post_synthesis.v` and provided `upcounter_testbench.v` and `primitives.v`in git repo.
 #### Comparison report of generated `up_counter_post_synthesis.v` and provided `up_counter_post_synthesis.v`
 ![Screenshot (2160)](https://user-images.githubusercontent.com/120498080/208436679-41fded33-2069-4c97-b24e-e9f8251c50fb.png)
-- But this missmatch can't be the reason of getting don't cares in the output.
-- According to me there must be some dissconnection in the nodes of the generated verilog codes in generated `up_counter_post_synthesis.v`
+- But this mismatch can't be the reason for getting don't cares in the output.
+- According to me there must be some disconnection in the nodes of the generated Verilog codes in generated `up_counter_post_synthesis.v`
 #### Behavioural Simulation of the generated `up_counter_post_synthesis.v`
 ![Screenshot (2161)](https://user-images.githubusercontent.com/120498080/208437905-24ecd678-6165-471e-be24-4176a42de94d.png)
-- So I used the provided `up_counter_post_synthesis.v` file and proceed furter.
+- So I used the provided `up_counter_post_synthesis.v` file and proceed further.
 #### Behavioural Simulation of the provided `up_counter_post_synthesis.v`
 ![Screenshot (2162)](https://user-images.githubusercontent.com/120498080/208438709-58782213-34a0-41ea-b25b-f5e37b6bc3ae.png)
-- **NOTE** It does not matter what FPGA we choose inintially in VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specifific to a open FPGA Architecture and to Xilinx particular architecture, but we are going to use this Xilinx tools only particularly for simulation purpose and for synthesis and simulation and so on. 
+- **NOTE** It does not matter what FPGA we choose initially in the VIVADO tool because we are not going to run an FPGA simulation, the up_counter_post_synthesis.v file is specific to an open FPGA Architecture and Xilinx's particular architecture, but we are going to use the Xilinx tools only particularly for simulation purposes and for synthesis and simulation, and so on. 
 
 
 ### Area Analysis in VTR of the Design
@@ -528,14 +528,14 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml                   //R
 ![Screenshot (2164)](https://user-images.githubusercontent.com/120498080/208465505-b6a85e2c-f537-4312-b723-1f2cb4a585bb.png)
 
 ### Timing Analysis in VTR of the Design
-- To do timing analysis using VTR I created a `counter.sdc` file whose clock name `up_counter_clk` should be same as the clock name in `counter.pre-vpr.blif` file
+- To do timing analysis using VTR I created a `counter.sdc` file whose clock name `up_counter_clk` should be the same as the clock name in `counter.pre-vpr.blif` file
 - In `counter.pre-vpr.blif` replace up_counter^clk with up_counter_clk
 ```
 create_clock -period 10 up_counter_clk
 set_input_delay -clock up_counter_clk -max 0 [get_ports {*}]
 set_output_delay -clock up_counter_clk -max 0 [get_ports {*}]
 ```
-- Then ron the timing analysis which will create the report in working directory.
+- Then run the timing analysis which will create the report in the working directory.
 
 #### Commands to run Timing Analysis in VTR
 ```
@@ -554,7 +554,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  /home/is22mtech14002
 $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga_workshop_collaterals/Day2/counter_files/counter.v   $VTR_ROOT/vtr_flow/arch/timing/EArch.xml  -power -cmos_tech /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml -temp_dir .  --route_chan_width 100
 ```
 ```
--power                                                                                         // to have the power estimaton 
+-power                                                                                         // to have the power estimation 
 -cmos_tech /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml    //passes cmos technology file available while downloading VTR
 ```
 - This will generate the 'counter.power` file in the working directory.
@@ -564,7 +564,7 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 
 ## <h1 id="header-2_6">Comparision of counnter design from Basys3 and VTR Flow</h1>
 ### Timing Comparision
-- I have used a clock frrquency of 100MHz (Time Period = 10nsec)
+- I have used a clock frequency of 100MHz (Period = 10nsec)
 
 | Parameters | Counter from Basys3 | Counter from VTR Flow |
 |:----------:|:-------------------:|:---------------------:|
@@ -600,27 +600,27 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 
 # <h1 id="header-3">Day 3 - RISC-V Core Programming Using Vivado</h1> 
 
-Here I used the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, I used no_ILA one because I am not using practical FPGA board). It has a 5 stage pipelined processor which is going to add first 9 numbers.
-Then I created a vivado project with adding basys3(xc7a35tcpg238-1) board and I added mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
+Here I used the verilog code of the RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, I used no_ILA one because I am not using practical FPGA board). It has a 5-stage pipelined processor which is going to add the first 9 numbers.
+Then I created a vivado project by adding basys3(xc7a35tcpg238-1) board and I added mythcore_test_no_ILA.v as the destination source and test.v as the simulation source and then perform the vivado simulations.
 
 ## <h1 id="header-3_1">Behavioral Simulation</h1> 
 ![Screenshot (2091)](https://user-images.githubusercontent.com/120498080/208234103-a18b8b86-aad0-4901-ab6e-8ce94ca0bfc0.png)
 
 ## RTL ANALYSIS
 ## <h1 id="header-3_2">1. Running with ILA(Integrated Logic Analyser)</h1> 
-After running Elaboration I set I/O Std as LVCMOS33 and clk to W5 and reset to R2 and for output port I am going to assign an ILA (Integrated Logic Analyser) to view the output (because I am not using practical FPGA board). Fo that I made some changes in the codes
-> Replace `module core(input clk, input reset,output [7,0]out);` with `module core(input clk, input reset);` so I do not need to map the outputs to any LEDs
-- Then again run the Elaboration (Do not the behavioral simulation at this point, otherwise it will show a missmatch in the number or ports because I have eleminated the output port here, as the testbench contain the output port) 
--  So I have gone with **Elaboration >> Syntheses >> Implemantation >> Bitstream**
+After running Elaboration I set I/O Std as LVCMOS33 and clk to W5 and reset to R2 for the output port I am going to assign an ILA (Integrated Logic Analyser) to view the output (because I am not using practical FPGA board). Fo that I made some changes to the codes
+> Replace `module core(input clk, input reset, output [7,0]out);` with `module core(input clk, input reset);` so I do not need to map the outputs to any LEDs
+- Then again run the Elaboration (Do not do the behavioral simulation at this point, otherwise it will show a mismatch in the number of ports because I have eliminated the output port here, as the testbench contain the output port) 
+-  So I have gone with **Elaboration >> Syntheses >> Implementation >> Bitstream**
 #### Running ILA in Vivado
-- I added ILA to probes the signals
+- I added ILA to probe the signals
 - For that go to IP Catalog/ILA(Integrated Logic Analyser)
 - In that set Number of Probes = 2 (because I wanted to check reset and output)
-- In next tab "Probe Ports" and set PROBE0|Probe With = 1 (because reset is a 1 bit signal) and PROBE1|Probe With = 8 (because output is a 8 bit signal)
+- In the next tab "Probe Ports" set PROBE0|Probe With = 1 (because reset is a 1-bit signal) and PROBE1|Probe With = 8 (because the output is a 8-bit signal)
 - Then confirm and generate.
 #### Generated ILA(Integrated Logic Analyser)
 ![Screenshot (2095)](https://user-images.githubusercontent.com/120498080/208235941-000dff30-d315-4349-a0e7-7d723e07d7f4.png)
-- Then copy this and paste it in our codes
+- Then copy this and paste it into our codes
 ```verilog
 ila_0 your_instance_name (
 	.clk(clk), // input wire clk
@@ -629,7 +629,7 @@ ila_0 your_instance_name (
 );
 ```
 ![Screenshot (2096)](https://user-images.githubusercontent.com/120498080/208236104-2e9b6322-6692-4e5a-bd05-a27c1626549c.png)
- - Finally run the sythesis and set clock as 100MHz Constrains Wizard.
+ - Finally, run the synthesis and set the clock as 100MHz Constrains Wizard.
 #### Constrains File
  ![Screenshot (2104)](https://user-images.githubusercontent.com/120498080/208252230-e09a8c3d-4792-425a-8819-77c2ce7e410e.png)
 ### SYNTHESIS and IMPLEMENTATION 
@@ -644,24 +644,24 @@ ila_0 your_instance_name (
 ![Screenshot (2100)](https://user-images.githubusercontent.com/120498080/208252113-b7869a24-82aa-44db-930b-d151173d6d1e.png)
 #### Power Report
 ![Screenshot (2105)](https://user-images.githubusercontent.com/120498080/208252633-0f729d19-de3a-46f3-b922-ef13db969ae1.png)
-- Then I proceed for Bitstream Genaration if I have the FPGA Basys3 Board. 
+- Then I proceed for Bitstream Generation if I have the FPGA Basys3 Board. 
 ## <h1 id="header-3_3">2. Running without ILA(Integrated Logic Analyser)</h1> 
-I create a project in vivado and I added `mythcore_test_no_ILA.v` as desination source and `test.v` as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below. For pin selection I refered [Schematic of Basys3 Board](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
+I create a project in vivado and I added `mythcore_test_no_ILA.v` as the destination source and `test.v` as the simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implementation>> Bitstream**. and set constraints as shown below. For pin selection, I referred to [Schematic of Basys3 Board](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 #### Constrains File
 ![Screenshot (2108)](https://user-images.githubusercontent.com/120498080/208255165-9b0db85a-5aba-4444-856b-27b6209a2e3e.png)
-- Finally go to Run and run the Post Implementation Timing Simulation and it will give the same output as before.
+- Finally, go running and run the Post Implementation Timing Simulation and it will give the same output as before.
 #### Post Implementation Timing Simulation
-- This simulation output waveform should match with the Behavioral Simulation output waveform.
+- This simulation output waveform should match the Behavioral Simulation output waveform.
 ![Screenshot (2107)](https://user-images.githubusercontent.com/120498080/208255251-dbd75711-772e-4476-9f44-7c2eff15a031.png)
 **NOTE**
-- **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
-- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA.
+- **Run Behavioral Simulation** It just takes the original design (the written .v file/verilog codes) and runs the testbench on it to give the output.
+- **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is closest to running in an FPGA.
 
 
 
 # <h1 id="header-4">Day 4 - Introduction To SOFA FPGA Fabric</h1>
 ## <h1 id="header-4_1">SOFA (Skywater Opensource FPGAs)</h1>
-SOFA (Skywater Opensource FPGAs) are a collection of opensource FPGAs IPs using the open-source [Skywater 130nm PDK](https://github.com/google/skywater-pdk) and [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) framework.
+SOFA (Skywater Opensource FPGAs) is a collection of opensource FPGAs IPs using the open-source [Skywater 130nm PDK](https://github.com/google/skywater-pdk) and [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) framework.
 Skywater Opensource FPGA (SOFA) is a completely open-source embedded FPGA IP library, including the description of the architecture and layouts that are ready for production. As shown in the illustration below, the Synopsys IC Compiler II, OpenFPGA, and Skywater 130nm PDK are used to develop SOFA IPs. The design flow runs for a total of 24 hours for each IP.
 
 The Caravel SoC interface is supported by all SOFA FPGAs. With its high-density architecture and low-cost design strategy, we hope to empower embedded applications.
@@ -669,22 +669,22 @@ The Caravel SoC interface is supported by all SOFA FPGAs. With its high-density 
 - [SOFA Main Reference](https://github.com/lnis-uofu/SOFA)
 ### The following eFPGA (Embedded FPGA) IPs are supported by this repository:
 - Architecture description file: Using the VTR project and the OpenFPGA project, users can examine architecture specifics and test architecture evaluation.
-- Fabrication-ready GDSII layouts: Users can integrate to their chip designs.
+- Fabrication-ready GDSII layouts: Users can integrate them into their chip designs.
 - Post-layout Verilog Netlists: Users can run HDL simulations on the eFPGA IPs to validate their applications.
 - Benchmark suites: An example benchmarking suite with which users can run quick examples on the eFPGA IPs
-- Documentation: Datasheets for each eFPGA IPs downto circuit-level details
+- Documentation: Datasheets for each eFPGA IPs down to circuit-level details
 
 ### Resource Utilization of HD eFPGA
 ![Screenshot (2109)](https://user-images.githubusercontent.com/120498080/208286236-582cb3e7-4223-475e-b94b-88bf657fd7cf.png)
 
 ## <h1 id="header-4_2">Running SOFA to design a counter</h1>
-First I started with a **design of a counter in SOFA** and then I will use a design of RISC-V processor called RVMyth in SOFA
+First I started with a **design of a counter in SOFA** and then I will use a design of a RISC-V processor called RVMyth in SOFA
 ### Installing and Running SOFA
-- Go to the directory in which SOFA is installed and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
-- Our working directoy in `Desktop/Day4_counter/SOFA/`
+- Go to the directory in which SOFA is installed and use `git clone https://github.com/lnis-uofu/SOFA.git` (where all the files are pre-available from SOFA) 
+- Our working directory in `Desktop/Day4_counter/SOFA/`
 - Then open `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.
-- Now open `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.
-- Then the architecture file is available under the `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.
+- Now open `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script going to call of invoking VPR tool.
+- Then the architecture file is available under the `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it gives an overview of how many LUTs, FF, etc are used.
 - Then `vim ~/.bashrc` and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
 ```
 export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
@@ -695,18 +695,18 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 - Then run 'make runOpenFPGA'
 ### Running OpenFPGA
 ![Screenshot (2145)](https://user-images.githubusercontent.com/120498080/208414894-c5232a8a-a70a-4cf0-9631-07f71cfa21cb.png)
-- So after completion it is going to dump all the outputs as .blif .rpt .log under the location: 
+- So after completion, it is going to dump all the outputs as .blif .rpt .log under the location: 
 - **File Dumping Location** `/Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH`
-- This `openfpgashell.log` files gives the detail about the set of commands it has run , the outputs, the area reports.
+- This `openfpgashell.log` file gives the detail about the set of commands it has run, the outputs, and the area reports.
 - **NOTE** If we face some error in running 'make runOpenFPGA' then we can study the error in this  `openfpgashell.log` files
 #### openfpgashell.log files
 ![Screenshot (2146)](https://user-images.githubusercontent.com/120498080/208415211-63b7b434-ff54-4f6a-97e6-a28cb4bec00e.png)
 
 
-- ***NOTE** Command to open a text edior in linux - After going into that folder use `vim <file_name.extension>*
-- ***NOTE** Command to close and save a text edior in linux - Press Esc then type `:wq` and press Enter*
-- ***NOTE** Command to close and not save a text edior in linux - Press Esc then type `:q!` and press Enter*
-- ***NOTE** Command to go back one folder in linux is `cd ../` and press Enter*
+- ***NOTE** Command to open a text editor in Linux - After going into that folder using `vim <file_name.extension>*
+- ***NOTE** Command to close and save a text editor in Linux - Press Esc then type `:wq` and press Enter*
+- ***NOTE** Command to close and not save a text editor in Linux - Press Esc then type `:q!` and press Enter*
+- ***NOTE** Command to go back to one folder in Linux is `cd ../` and press Enter*
 
 ### Area Analysis using SOFA
 - The `vpr_stdout.log file` generate in the Dump file location contain information about the Utilization Report(Area Report) of our Design. 
@@ -714,7 +714,7 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 ![Screenshot (2150)](https://user-images.githubusercontent.com/120498080/208416320-d1d55b2e-169f-4515-bbcf-3ea855e54d59.png)
 
 ### Timing Analysis using SOFA
-- To do timing analysis using SOFA make a `counter.sdc` file with details about the clock time periods and delays as shown below
+- To do timing analysis using SOFA makes a `counter.sdc` file with details about the clock periods and delays as shown below
 ```
 create_clock -period 20 clk
 set_input_delay -clock clk -max 0 [get_ports {*}]
@@ -730,18 +730,18 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - To Generation of Post Implementation Netlis add `--gen_post_synthesis_netlist on` on `Desktop/Day4_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `counter_post_synthesis.v` file in Dumping Location.
 #### Changes made in generate_testbench.openfpga
 ![Screenshot (2148)](https://user-images.githubusercontent.com/120498080/208416641-009fd10d-2f02-4629-8e19-e21dba169279.png)
-- Now after creation of this `counter_post_synthesis.v` file use `primitives.v` and `counter_tb.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
+- Now after the creation of this `counter_post_synthesis.v` file use `primitives.v` and `counter_tb.v` files and check the outputs in an FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
 #### Behavioural Simulation
 ![Screenshot (2130)](https://user-images.githubusercontent.com/120498080/208416788-93e7bc8f-7cef-4c4d-863f-a8607bfb43e0.png)
 ### Power Analysis using SOFA
-- To perform the Power Anlysis using SOFA we need to make some changes in `task_simulation.conf` file, `generate_testbench.openfpga` file and 'vpr_arch.xml` file ( changed vpr_arch.xml is alraedy available in gihub repo) 
+- To perform the Power analysis using SOFA we need to make some changes in the `task_simulation.conf` file, the `generate_testbench.openfpga` file, and the 'vpr_arch.xml` file ( changed vpr_arch.xml is already available in GitHub repo) 
 #### Changes in task_simulation.conf file
 ![Screenshot (2132)](https://user-images.githubusercontent.com/120498080/208365493-0fc4f058-0f3b-451b-8701-82aef2c5821c.png)
 #### Changes in task_simulation.conf file
-- Add `--power --activity_file /home/is22mtech14002/Desktop/DAY3_COUNTER/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH/counter_ace_out.act  --tech_properties /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml` where .act will is generated from prevour run of Open FPGA and 45nm.xml file is already available when we download VTR.
+- Add `--power --activity_file /home/is22mtech14002/Desktop/DAY3_COUNTER/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/counter/MIN_ROUTE_CHAN_WIDTH/counter_ace_out.act  --tech_properties /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/tech/PTM_45nm/45nm.xml` where .act will is generated from the previous run of Open FPGA and 45nm.xml file is already available when we download VTR.
 ![Screenshot (2135)](https://user-images.githubusercontent.com/120498080/208366229-40f5e6fc-665b-4f84-9f64-818893cd8410.png)
-- Then again run 'make runOpenFPGA' which will create `counter.power file` in dum File location which will contain information about power breakdown of the circuit.
-- But in our design we where getting errors in generation of the outputs.
+- Then again run 'make runOpenFPGA' which will create a `counter.power file` in the dump File location which will contain information about the power breakdown of the circuit.
+- But in our design, we were getting errors in the generation of the outputs.
 #### Generated error message in `openfpgashell.log`
 ![Screenshot (2163)](https://user-images.githubusercontent.com/120498080/208490994-30a72b2d-6d2f-4ddb-9378-caa58eaba133.png)
 
@@ -752,16 +752,16 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 Here **we are going to implement the RISC-V processor core which is the RVMyth Core on SOFA** 
 ## <h1 id="header-5_1">Running SOFA to design a RISC-V Core</h1>
 ### Installing and Running SOFA
-- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
-- Our working directoy in `Desktop/Day5_RVMyth/SOFA/`
-- Then open `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations.(changed task_simulation.conf is alraedy available in gihub repo Day5) 
+- Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (where all the files are pre-available from SOFA) 
+- Our working directory in `Desktop/Day5_RVMyth/SOFA/`
+- Then open `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/config/task_simulation.conf` which contains all the path information about .yml .openfgpa .xml counter.v etc files, and set the correct locations. (changed task_simulation.conf is already available in GitHub repo Day5) 
 #### Changes in task_simulation.conf file
 ![Screenshot (2137)](https://user-images.githubusercontent.com/120498080/208372853-8838a1cf-96c2-413d-9ec7-afd8e018e2a8.png)
-- Now open `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script goin to call of invoke VPR tool.(changed generate_testbench.openfpga is alraedy available in gihub repo Day5)
+- Now open `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` which is a Shell Script going to call of invoking VPR tool. (changed generate_testbench.openfpga is already available in GitHub repo Day5)
 #### Changes in generate_testbench.openfpga file
 ![Screenshot (2138)](https://user-images.githubusercontent.com/120498080/208373059-5edb2f96-1edb-49fb-a776-9724f81f922b.png)
 
-- Then the architecture file is available under the `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it give overview of how many LUTs, FF, etc are used.(changed vpr_arch.xml is alraedy available in gihub repo Day5)
+- Then the architecture file is available under the `Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/arch/vpr_arch.xml` which tool is going to use and it gives an overview of how many LUTs, FF, etc are used. (changed vpr_arch.xml is already available in GitHub repo Day5)
 - Then `vim ~/.bashrc` and give the correct location where VTR_ROOT, OPENFPGA and VIVADO is installed.
 ```
 export VTR_ROOT=/home/kunalg123/Desktop/vtr-verilog-to-routing
@@ -772,9 +772,9 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 - Then run `make runOpenFPGA`
 ### Running OpenFPGA
 ![Screenshot (2140)](https://user-images.githubusercontent.com/120498080/208392216-219c16e1-e13a-4af3-8cd5-ca9f99cb59ed.png)
-- So after completion it is going to dump all the outputs as .blif .rpt .log under the location: 
+- So after completion, it is going to dump all the outputs as .blif .rpt .log under the location: 
 - **File Dumping Location** `/Desktop/Day5_RVMyth/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/latest/vpr_arch/core/MIN_ROUTE_CHAN_WIDTH`
-- This `openfpgashell.log` files gives the detail about the set of commands it has run , the outputs, the area reports.
+- This `openfpgashell.log` file gives the detail about the set of commands it has run , the outputs, and the area reports.
 - **NOTE** If we face some error in running 'make runOpenFPGA' then we can study the error in this  `openfpgashell.log` files
 #### openfpgashell.log files
 ![Screenshot (2141)](https://user-images.githubusercontent.com/120498080/208392339-a2f44f10-23c8-4176-95f7-39a6595abcdb.png)
@@ -783,7 +783,7 @@ alias vivado=/tools/Xilinx/Vivado/2019.2/bin/vivado
 #### Output of Area Analysis
 ![Screenshot (2142)](https://user-images.githubusercontent.com/120498080/208397931-0b97b5b1-0dfe-4a7b-b805-0c10f0c0082f.png)
 ### Timing Analysis using SOFA
-- To do timing analysis using SOFA make a `mythcore.sdc` file with details about the clock time periods and delays as shown below (here we have used slow clock with period of 200nsec because its for a design of a processor and it need to meet the timings)
+- To do timing analysis using SOFA makes a `mythcore.sdc` file with details about the clock periods and delays as shown below (here we have used a slow clock with a period of 200nsec because it's for a design of a processor and it needs to meet the timings)
 ```
 create_clock -period 200 clk
 set_input_delay -clock clk -max 0 [get_ports {*}]
@@ -799,7 +799,7 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - To Generation of Post Implementation Netlis add `--gen_post_synthesis_netlist on` on `Desktop/Day3_counter/SOFA/FPGA1212_QLSOFA_HD_PNR/FPGA1212_QLSOFA_HD_task/generate_testbench.openfpga` and run the `make runOpenFPGA` again then it will generate a `core_post_synthesis.v` file in Dumping Location.
 #### Changes made in generate_testbench.openfpga
 ![Screenshot (2158)](https://user-images.githubusercontent.com/120498080/208426103-a925cd43-58b7-466a-80e7-e5ffae9d7526.png)
-- Now after creation of this `core_post_synthesis.v` file use `primitives.v` and `test.v` file and check the outputs in and FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
+- Now after the creation of this `core_post_synthesis.v` file use `primitives.v` and `test.v` files and check the outputs in an FPGA simulator like vivado (while project creation we can choose any board we want because we are using OpenFPGA)
 #### Behavioural Simulation
 ![Screenshot (2159)](https://user-images.githubusercontent.com/120498080/208431880-73730c32-2cc1-4195-9730-e937f860a197.png)
 
@@ -813,4 +813,4 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - https://skywater-openfpga.readthedocs.io/_/downloads/en/latest/pdf/
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
 # <h1 id="header-7">Acknowledgement</h1>
-Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this  workshop taught me a lot of new things about the design of counter and RISC-V processor in FPGA Basys 3 board and in Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP.   
+Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this workshop taught me a lot of new things about the design of counter and RISC-V processor in FPGA Basys 3 board and  Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP.   
