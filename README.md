@@ -547,16 +547,16 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 
 
 
-# Day 3 - RISC-V Core Programming Using Vivado
+# <h1 id="header-3">Day 3 - RISC-V Core Programming Using Vivado</h1> 
 
 We use the verilog code of RISC-V processor core called RVMyth (mythcore_test_no_ILA.v)(ILA - Integrated Logic Analyser, we use no_ILA one because we are noe using practical FPGA board). It has a 5 stage pipelined processor which is going to add first 9 numbers.
 Then we create a vivado project with adding basys3(xc7a35tcpg238-1) board and we add mythcore_test_no_ILA.v as desination source and test.v as simulation source and then perform the vivado simulations.
 
-## Behavioral Simulation
+## <h1 id="header-3_1">Behavioral Simulation</h1> 
 ![Screenshot (2091)](https://user-images.githubusercontent.com/120498080/208234103-a18b8b86-aad0-4901-ab6e-8ce94ca0bfc0.png)
 
 ## RTL ANALYSIS
-### 1. Running with ILA(Integrated Logic Analyser)
+## <h1 id="header-3_2">1. Running with ILA(Integrated Logic Analyser)</h1> 
 After running Elaboration we set I/O Std to LVCMOS33 and clk to W5 and reset to R2 and for output port we are going to assign an ILA (Integrated Logic Analyser) to view the output (ecause we are noe using practical FPGA board). Fo that we neet to make some changes in the codes
 > Replace `module core(input clk, input reset,output [7,0]out);` with `module core(input clk, input reset);` so we do not need to map the outputs to any LEDs
 - Then again run the Elaboration (Make sure we do not the behavioral simulation at this point, otherwise it will show a missmatch in the number or ports because we have eleminated the output port here, as the testbench contain the output port) 
@@ -594,7 +594,7 @@ ila_0 your_instance_name (
 #### Power Report
 ![Screenshot (2105)](https://user-images.githubusercontent.com/120498080/208252633-0f729d19-de3a-46f3-b922-ef13db969ae1.png)
 - Then we can go for Bitstream Genaration if we have the FPGA Basys3 Board. 
-### 2. Running without ILA(Integrated Logic Analyser)
+## <h1 id="header-3_3">2. Running without ILA(Integrated Logic Analyser)</h1> 
 We create a project in vivado and we add `mythcore_test_no_ILA.v` as desination source and `test.v` as simulation source and then perform **Simulation>>Elaboration >> Syntheses >> Implemantation >> Bitstream**. and set constrains as shown below. For pin selection we can refer [Schematic of Basys3 Board](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 #### Constrains File
 ![Screenshot (2108)](https://user-images.githubusercontent.com/120498080/208255165-9b0db85a-5aba-4444-856b-27b6209a2e3e.png)
