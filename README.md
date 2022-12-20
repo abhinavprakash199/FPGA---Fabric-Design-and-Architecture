@@ -566,8 +566,8 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ### Timing Comparision
 - I have used a clock frrquency of 100MHz (Time Period = 10nsec)
 |Parameters |Counter from Basys3 |Counter from VTR Flow|
-|:---:|:---:|:---:|
-|Technology |28nm|40nm|
+|:---------:|:------------------:|:-------------------:|
+| Technology|28nm                |40nm                 |
 
 
 
