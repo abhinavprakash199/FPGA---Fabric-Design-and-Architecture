@@ -8,44 +8,32 @@ This repository contains all the information studied and created during the FPGA
 
 
 # **Day 1 - Exploring FPGA Basics and Vivado**
-
 ## FPGA (Field Programmable Gate Array) 
+### Introduction to FPGA 
 The term FPGA stands for Field Programmable Gate Array and, it is a one type of  semiconductor logic chip which can be programmed to become almost any kind of system or digital circuit, similar to PLDs. PLDS are limited to hundreds of gates, but FPGAs supports thousands of gates. The configuration of the FPGA architecture is generally specified using a language, i.e., HDL (Hardware Description language) which is similar to the one used for an ASIC ( Application Specific Integrated Circuit).
 ![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
-
 FPGAs can provide a number of advantages over a fixed function ASIC technology such as standard cells. Normally, ASICs takes months to manufacture and the cost of them will be thousands of dollars to obtain the device. But, FPGAs are fabricated in less than a second,the cost will be from a few dollars to a thousand dollars.The flexible nature of the FPGA comes at a significant costin area, power consumption and delay.When compared to a standard cell ASIC, an FPGA requires 20 to 35 times more area, and the speed’s performance will be 3 to 4 times slower than the ASIC. This article describes about theFPGA basics and FPGA architecture module that includes I/O pad, logic blocks and switch matrix. FPGAs are some of the new trending areas of VLSI.
-
-
 ### FPGA Architecture
 The general FPGA architecture consists of three types of modules. They are I/O blocks or Pads, Switch Matrix/ Interconnection Wires and Configurable logic blocks (CLB). The basic FPGA architecture has two dimensional arrays of logic blocks with a means for a user  to arrange the interconnection between the logic blocks. The functions of an FPGA architecture module are discussed below:
-
 - CLB (Configurable Logic Block) includes digital logic, inputs, outputs. It implements the user logic.
 - Interconnects provide direction between the logic blocks to implement the user logic.
 - Depending on the logic, switch matrix provides switching between interconnects.
 - I/O Pads used for the outside world to communicate with different applications
-
 ![Screenshot (2176)](https://user-images.githubusercontent.com/120498080/208611382-16d884fd-bda5-4188-9fbb-b79df8038ab1.png)
-
 Logic Block contains  MUX (Multiplexer), D flip flop and LUT. LUT implements the combinational logical functions; the MUX is used for selection logic, and D flip flop stores the output of the LUT
-
 The basic building block of the FPGA is the Look Up Table based function generator. The number of inputs to the LUT vary from 3,4,6, and even 8 after experiments. Now, we have adaptive LUTs that provides two outputs per single LUT with the implementation of two function generators.
-
 ![Screenshot (2177)](https://user-images.githubusercontent.com/120498080/208611400-3a3ee907-f95e-4949-ba90-f03cf880aa2f.png)
-
 Xilinx Virtex-5 is the most popular FPGA, that contains a Look up Table (LUT) which is connected with MUX, and a flip flop as discussed above. Present FPGA consists of about hundreds or thousands of configurable logic blocks. For configuring the FPGA,  Modelsim and Xilinx ISE softwares are used to generate a bitstream file and for development.
-
 ### Basys 3 Artix-7 FPGA Board
 The Basys 3 is an entry-level FPGA development board designed exclusively for the Vivado® Design Suite featuring the Xilinx® Artix®-7-FPGA architecture. Basys 3 is the newest addition to the popular Basys line of FPGA development boards for students or beginners just getting started with FPGA technology. The Basys 3 includes the standard features found on all Basys boards: complete ready-to-use hardware, a large collection of on-board I/O devices, all required FPGA support circuits, and a free version of development tools and at a student-level price point.
-
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
+
 
 ## Counter Example in Vivado
 A counter is a device that stores (and sometimes displays) the number of times a specific event or process has occurred in digital logic and computing, frequently in relation to a clock. The most typical kind is a sequential digital logic circuit, which has several output lines and a clock-input line. The binary or BCD number system is represented by the values on the output lines as a number. The value in the counter is increased or decreased with each pulse applied to the clock input.
 - A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
 - Below mentioned the RTL for the counter modules that is being used.
-
 - ***NOTE**Linux codes to download GitHub file from link `git clone https://github.com/nandithaec/fpga_workshop_collaterals.git`*
-
 ### VERILOG Codes "counter_clk_div.v"
 ```verilog
 module counter(clk,reset,count);
@@ -107,26 +95,21 @@ always
 #5 clk=~clk;  // toggle or negate the clk input every 5 units of time
 endmodule 
 ```
-
-## Behavioral Simulation
+### Behavioral Simulation of the Counter
 ![Screenshot (2115)](https://user-images.githubusercontent.com/120498080/208306281-42b14bad-2357-4156-9cb7-18f147949796.png)
-## RTL ANALYSIS
-### Elaborate Design
+### RTL ANALYSIS 
+#### Elaborate Design of the Counter
 It is going to bind few module and the modulate hierarchi and it will also enstablish certain net connectivities.
 It is usually done before Synthesis
-
-#### Scheamatic
+#### Schematic of the Counter
 - To see how the designes are actually getting mapped.
-
 ![Screenshot (2043)](https://user-images.githubusercontent.com/120498080/207792466-697fca77-ced7-4c0f-b1da-4283731ff720.png)
-
-### I/O Planning
+### I/O Planning of the Counter
 - It se to obsreve the differnet pins of FPGA
 ![Screenshot (2044)](https://user-images.githubusercontent.com/120498080/207792629-8a565a89-b586-48dc-9be4-0dd4756585db.png)
-
 ### Mapping I/O Ports to the pins of the FPGA
 - If we do not have access to FPGA board then we can use the scheamitic of basis 3 and map the pins accordingle
-#### Scheamatc of Basys3 Board
+#### Schematic of Basys3 Board
 [SCHEMATIC PDF](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 ![Screenshot (2046)](https://user-images.githubusercontent.com/120498080/207820032-b6efb987-a4ae-45eb-af8a-756cf998eaf4.png)
 #### Mapping in constarints.edx file 
@@ -134,12 +117,11 @@ It is usually done before Synthesis
 - Then by setting the inputs and outputs we generate the `constarints.edx file`
 - Provinging the clovk frequency of 100MHz (time period of 10nsec).
 ![Screenshot (2172)](https://user-images.githubusercontent.com/120498080/208490548-82b91717-2562-458c-b1f6-286b71ac4b67.png)
-#### What is Slack 
+### Introduction to Slack 
 - **Slack** is the difference between achieved or actual time and the desired time for a timing path.  The amount of timing path slack tells us whether the design operates at the desired speed or frequency.
 ![Screenshot (2174)](https://user-images.githubusercontent.com/120498080/208606261-344b03cc-e153-46ad-b017-233a816e2c72.png)
 Tcq = Time Delay to reach the data from D to A
 Tlogic = Time required to reach the data from A to B
-
 - **Setup Time** The amount of time needed for the input to a flip-flop to be steady prior to a clock edge is known as setup time.
 - **Hold Time** The hold time is the shortest period of time necessary for the input to a flip-flop to remain steady following a clock edge.
 - **Data Arrival Time** This is the amount of time needed for data to go through the data path.(Tcq + Tlogic)
@@ -150,47 +132,36 @@ Tlogic = Time required to reach the data from A to B
 - A positive setup slack indicates that the design is operating at the desired frequency and also has some additional margin.
 - Zero setup slack indicates that there is no buffer available and that the design is precisely operating at the intended frequency.
 - Negative setup Slack indicates that the restricted frequency and time are not met by the design. This is called as setup violation.
-
-
-## SYNTHESIS & IMPLEMANTATION
+### SYNTHESIS & IMPLEMANTATION
 - Clock frequency is 100MHz (from Constraints Wizard)
-
-#### Report Timing Summary
+#### Report Timing Summary of the Counter
 ![Screenshot (2068)](https://user-images.githubusercontent.com/120498080/207813932-5b9ffb95-2197-4598-a2ae-e8f5f9a9e220.png)
-#### Set of Paths of Timing Report 
+#### Set of Paths of Timing Report  of the Counter
 ![Screenshot (2073)](https://user-images.githubusercontent.com/120498080/207833329-2a05d4fc-fcd4-4984-b865-ecf12f37cce0.png)
-#### Path report if Path1 in Paths Timing Report 
+#### Path report if Path1 in Paths Timing Report of the Counter
 ![Screenshot (2074)](https://user-images.githubusercontent.com/120498080/207833693-368619f4-b532-4f29-a548-1e18c5a0f546.png)
 ![Screenshot (2075)](https://user-images.githubusercontent.com/120498080/207834358-a9078258-db6d-4ff8-9b60-e7fadf99afa4.png)
 ![Screenshot (2076)](https://user-images.githubusercontent.com/120498080/207834391-bacc2dda-c8e7-478a-a2e8-cc4ddb944bcc.png)
- 
-#### Schematic
+ #### Circut of the Counter 
 - It shows the synthesized netlist of the schematic
 ![Screenshot (2069)](https://user-images.githubusercontent.com/120498080/207824737-cfb319d1-aaba-44fe-9699-2e830f28b627.png)
-#### Power Report
+#### Power Report of the Counter
 ![Screenshot (2070)](https://user-images.githubusercontent.com/120498080/207825343-2fa69e41-a876-4a59-8982-9898858ec658.png)
-
-#### Report Utilazation
+#### Report Utilazation of the Counter
 - It basic aly tells about the area report.
 - e.g - it shows us how many resources has been utilized in the FPGA
 ![Screenshot (2071)](https://user-images.githubusercontent.com/120498080/207827717-1e2d4d97-c7d2-49d3-8d4b-9eeea1413900.png)
-
-
-
-## PROGRAM AND DEBUG
-### Generate Bitstream
+### PROGRAM AND DEBUG
+#### Generate Bitstream of the Counter
 - Here we locally connect the FPGA Basis3 board into out pc, program the board and test the output by adjusting reset switch (as we do have access to the Basys3 board so we are not doing it here)
-
-## Alternative way is Post Implementation Timing Simulation
-
+### Alternative way is Post Implementation Timing Simulation
 **NOTE**
 - **Run Behavioral Simulation** It just take the original design (the written .v file/verilog codes) and run the testbench on it to give the output.
 - **Run Post Implementation Timing Simulation** It is creating a Post Implementation Simulation netlist (e.g. - it is completing the synthesis and implementation) and then it is running the testbench in that netlist which is all most close to as of running in a FPGA.
-
-
-### POST IMPLEMENTATION TIMIMG SIMULATION
+#### POST IMPLEMENTATION TIMIMG SIMULATION
 - This simulation output waveform should match with the Behavioral Simulation output waveform.
 ![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
+
 ## VIO - Virtual Input/Output 
 - VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to our design(counter) the we are able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
 - So this need some changes is the codes : we have create a instance of the VIO 
@@ -198,17 +169,14 @@ Tlogic = Time required to reach the data from A to B
 2. "counter_out" and "div_clk" will be an input to VIO which is taken from output of counter
 ### VIO Block Diagram
 ![Screenshot (2125)](https://user-images.githubusercontent.com/120498080/208318452-00b8e63e-20ab-46c9-be3f-61ed70be2bc4.png)
-
 ### Opening VIO in vivado
 - Fo that go to IP Catalog/VIO
 - In that set  "Input Probes Cout = 2" (because we are having 2 inputs ) and "Output Probes Cout = 1" (because we are having 1 output(rset))
 - In next tab "PROBE_IN Ports" and set "PROBE_IN0 = 1" (because div_clk is a 1 bit signal) and "PROBE_IN1 = 4" (because counter_out is a 1 bit signal)
 - In next tab "PROBE_OUT Ports" and set "PROBE_OUT0 = 1" (because reset is a 1 bit signal
 - Then confirm and generate.
-
 #### Generated VIO
 ![Screenshot (2127)](https://user-images.githubusercontent.com/120498080/208319739-db6700a8-f480-4443-a113-efd717abc7a9.png)
-
 - Then use the codes 'counter_clk_div_vio.v` and go for Simulation >>Elaboration >> Syntheses >> Implemantation >> Bitstream Generation and set clk as W5.
 - Then after connecting the Basys3 FPGA board go to Open Hardware Manager and observe the outputs.
 
