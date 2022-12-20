@@ -79,13 +79,13 @@ This repository contains all the information studied and created during the [FPG
 
 <div class="toc">
   <ul>
-    <li><a href="#header-5">References</a></li>
+    <li><a href="#header-6">References</a></li>
   </ul>
 </div>
 
 <div class="toc">
   <ul>
-    <li><a href="#header-5">Acknowledgement</a></li>
+    <li><a href="#header-7">Acknowledgement</a></li>
   </ul>
 </div>
 
@@ -780,7 +780,7 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 #### Behavioural Simulation
 ![Screenshot (2159)](https://user-images.githubusercontent.com/120498080/208431880-73730c32-2cc1-4195-9730-e937f860a197.png)
 
-# <h1 id="header-5">References</h1>
+# <h1 id="header-6">References</h1>
 - [VLSI System Design](https://www.vlsisystemdesign.com/ip/)
 - https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
 - https://docs.verilogtorouting.org/en/latest/arch/reference/#arch-grid-layout
@@ -789,5 +789,5 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - https://openfpga.readthedocs.io/en/master/
 - https://skywater-openfpga.readthedocs.io/_/downloads/en/latest/pdf/
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
-# <h1 id="header-6">Acknowledgement</h1>
+# <h1 id="header-7">Acknowledgement</h1>
 Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this  workshop taught me a lot of new things about the design of counter and RISC-V processor in FPGA Basys 3 board and in Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP.   
