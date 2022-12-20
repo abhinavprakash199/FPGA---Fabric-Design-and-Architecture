@@ -222,7 +222,7 @@ Tlogic = Time required to reach the data from A to B
 
 
 # <h1 id="header-2">Day 2 - Exploring OpenFPGA, VPR and VTR</h1> 
-## Introduction To OpenFPGA
+## <h1 id="header-2_1">Introduction To OpenFPGA, VPR and VTR</h1>
 An open-source platform called OpenFPGA seeks to make it possible to quickly prototype adaptable FPGA systems. Below figure illustrates how a traditional approach would require a big team of seasoned engineers more than a year to complete a production-ready layout and related CAD tools. In actuality, the majority of engineering efforts are put into creating manual layouts and ad-hoc CAD support.
 ![Screenshot (2179)](https://user-images.githubusercontent.com/120498080/208620681-ce83bf1a-385b-41d4-887c-e09430eafed5.png)
 The development process for both hardware and software can be greatly sped it up with OpenFPGA. Based on an XML-based description file, OpenFPGA can automatically produce Verilog netlists describing an entire FPGA fabric. Within 24 hours, production-ready layout generation can be accomplished with the help of contemporary semi-custom design technologies. With the use of contemporary verification tools, OpenFPGA can automatically construct Verilog testbenches to verify the accuracy of FPGA fabric. To avoid repeating engineering while creating CAD tools for several FPGAs, OpenFPGA also offers native bitstream generating capability based on the same XML-based description file used in Verilog generation. The CAD tool is available for usage as soon as the FPGA architecture is complete.
@@ -234,8 +234,7 @@ The following components make up OpenFPGA's tool functionality: FPGA-Verilog, FP
 
 - [Opne FPGA and VTR Installation Guide](https://drive.google.com/file/d/1BbyCDvzvidx22hTT6BOYbCEFAXNhKalH/view?usp=sharing)
 
-
-## VPR(Versatile Place and Route) 
+## <h1 id="header-2_2">VPR(Versatile Place and Route)</h1>
 The last part of VTR is versatile place and route (VPR). A BLIF circuit serves as its input, and it packs, puts, and routes the circuit on an input FPGA design.'
 
 During packing, adjacent and connected logic components of the circuit are grouped together into Logic Blocks that match the FPGA's hardware. These logic blocks and hard blocks are assigned to the FPGA's available hardware resources during placement. Finally, signal connections between blocks are formed during routing. Many other universities and businesses have contributed to the development of VPR, which is principally being done by the University of Toronto.
@@ -244,7 +243,7 @@ During packing, adjacent and connected logic components of the circuit are group
 ![Screenshot (2078)](https://user-images.githubusercontent.com/120498080/208228994-29779770-a2ac-4f8e-882c-0333beaf97a9.png)
 
 
-## VTR(Verilog to Routing)
+## <h1 id="header-2_4">VTR(Verilog to Routing)</h1>
 The Verilog to Routing (VTR) project offers free and open-source CAD tools for studying FPGA architecture.
 In contrast to closed-source tools, open source CAD tools allow for the investigation of novel FPGA architectures and CAD algorithms.
 A Verilog description of a digital circuit and information about the intended FPGA architecture are inputs into the VTR design flow. Next, it performs:
@@ -259,7 +258,7 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 ![Screenshot (2077)](https://user-images.githubusercontent.com/120498080/208229019-3d36e223-5d2e-4410-927c-3ecb3ff7f7ec.png)
 
 
-## Example 1 : VPR on a Pre-Synthesized Circuit
+## <h1 id="header-2_4">Example 1 : VPR on a Pre-Synthesized Circuit</h1>
 ### Input to this VPR is:
 1. Technology mapped netlist of a Design (in form of **`tseng.blif`** file)
 2. FPGA Architecture discription file (in form of **`Earch.xml`** format)
@@ -365,7 +364,7 @@ $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/be
 
 
 
-## Example 2 :Run the entire VTR flow automatically 
+## <h1 id="header-2_5">Example 2 :Run the entire VTR flow automatically </h1>
 - In VTR flow we will start with HDL going through Odin II then ABC then finally the VPR flow (as done is example 1)
 - There are two ways of running VTR :
 1. **Manually Running the VTR Flow**
@@ -512,7 +511,8 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ![Screenshot (2167)](https://user-images.githubusercontent.com/120498080/208471755-803825a8-1e10-43eb-aec6-db124452e25d.png)
 
 
-## Comparision of counnter design from Basys3 and VTR Flow
+## <h1 id="header-2_6">Comparision of counnter design from Basys3 and VTR Flow</h1>
+
 
 
 
