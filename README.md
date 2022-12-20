@@ -132,8 +132,10 @@ Tlogic = Time required to reach the data from A to B
 - **Data Arrival Time** This is the amount of time needed for data to go through the data path.(Tcq + Tlogic)
 - **Data Required Time** This is the amount of time needed for the clock go through through clock path.(T - Tsetup)
 - Setup and hold slack is the difference between data required time and data arrival time.
+
 **Setup Slack = Data Required Time - Data Arrival Time**
 **Hold Slack= Data Arrival Time- Data Required Time**
+
 - A positive setup slack indicates that the design is operating at the desired frequency and also has some additional margin.
 - Zero setup slack indicates that there is no buffer available and that the design is precisely operating at the intended frequency.
 - Negative setup Slack indicates that the restricted frequency and time are not met by the design. This is called as setup violation.
@@ -196,6 +198,10 @@ An open-source platform called OpenFPGA seeks to make it possible to quickly pro
 The development process for both hardware and software can be greatly sped it up with OpenFPGA. Based on an XML-based description file, OpenFPGA can automatically produce Verilog netlists describing an entire FPGA fabric. Within 24 hours, production-ready layout generation can be accomplished with the help of contemporary semi-custom design technologies. With the use of contemporary verification tools, OpenFPGA can automatically construct Verilog testbenches to verify the accuracy of FPGA fabric. To avoid repeating engineering while creating CAD tools for several FPGAs, OpenFPGA also offers native bitstream generating capability based on the same XML-based description file used in Verilog generation. The CAD tool is available for usage as soon as the FPGA architecture is complete.
 
 OpenFPGA opens up a wide design area for developing customisable FPGAs because it can support any architecture that VPR can describe. This includes the majority of architecture modifications present in contemporary FPGAs. In addition, OpenFPGA has improved syntax that enables users to alter transistor-level parameters in simple circuits. This makes it easier for developers to best tailor the P.P.A. (Power, Performance, and Area). A small number of young engineers or researchers now have access to adaptable FPGAs for prototype and study thanks to all these advantages.
+
+The following components make up OpenFPGA's tool functionality: FPGA-Verilog, FPGA-SDC, FPGA-Bitstream, and FPGA-SPICE. The remainder of this section will centre on the specific reasons for each of them, as seen in the image below.
+![Screenshot (2180)](https://user-images.githubusercontent.com/120498080/208624329-5e0816e9-06fd-4602-856a-9b022c637f7c.png)
+
 - [Opne FPGA and VTR Installation Guide](https://drive.google.com/file/d/1BbyCDvzvidx22hTT6BOYbCEFAXNhKalH/view?usp=sharing)
 
 
@@ -215,6 +221,7 @@ A Verilog description of a digital circuit and information about the intended FP
 - ODIN II -  Elaboration & Synthesis 
 - ABC - Logic Optimization & Technology Mapping 
 - VPR - Packing, Placement, Routing & Timing Analysis 
+
 to generate FPGA area and speed data. The data necessary for bitstream synthesis to target actual FPGA devices can also be produced via VTR.
 The benchmark designs included in VTR are ideal for evaluating FPGA architectures and are adaptable and can accommodate a variety of hypothetical, commercial-like, and practical FPGA architectures.
 - [VTR Reference](https://docs.verilogtorouting.org/en/latest/quickstart/)
@@ -243,33 +250,29 @@ The benchmark designs included in VTR are ideal for evaluating FPGA architecture
 - It dose the analysis in terms of Area, Timing and Power.
 - It is also going to output a Post-Implemantation Netlist( it will give information about resource usage, number of block pipes and wires used, timimg in terms of critical path delay and timimg path and also poer usage be each of these blocks)
 
-
-- Location of blif file : 
+- Location of blif file in server : 
 > /home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/benchmarks/blif/tseng.blif
   
-- Location of Earch.xml file :
+- Location of Earch.xml file in server :
 >/home/kunalg123/Desktop/vtr-verilog-to-routing/vtr_flow/arch/timing/Earch.xml
 
-#### Example xml file explanation :
+#### Example `.xml` file explanation :
 ![Screenshot (2080)](https://user-images.githubusercontent.com/120498080/207940470-314389f2-05d8-4886-84b3-074b9638554b.png)
 
 - ***NOTE** Command to open the above blif and Earch.xml location `cd $VTR_ROOT` (after that use `cd` and `ls` to go into particular location and open the file)* 
-
-### Make new working directory
-#### Move to our home directory
+***NOTE**
+-  *Steps to make new working directory in Linux
+#### *Move to our home directory
 > cd ~
-
-#### Make a working directory
+#### *Make a working directory
 > mkdir -p vtr_work/quickstart/vpr_tseng
-
-#### Move into the working directory
-> cd ~/vtr_work/quickstart/vpr_tseng
+#### *Move into the working directory
+> cd ~/vtr_work/quickstart/vpr_tseng*
 
 #### Working Location :
 >is22mtech14002@fpga-workshop-02:~/vtr_work/quickstart/vpr_tseng$
-
 #### Command to run VPR
-- Use this command in the working location to run VPR
+- Use this commands in the working location to run VPR.
 ```
 $VTR_ROOT/vpr/vpr $VTR_ROOT/vtr_flow/arch/timing/EArch.xml $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blif --route_chan_width 100 --disp on
 ```
@@ -285,12 +288,10 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 ![Screenshot (2081)](https://user-images.githubusercontent.com/120498080/207940492-b3c8ddb5-da7d-4026-86e0-b2f7bba9bce7.png)
 #### Structure of FPGA Architecture
 ![Screenshot (2088)](https://user-images.githubusercontent.com/120498080/208081790-279b1699-d010-4a70-a94f-295040f1519a.png)
-#### Congestion Architecture
+#### Congestion Architecture 
 - It shows which area is how much Congusted.
 ![Screenshot (2089)](https://user-images.githubusercontent.com/120498080/208081834-0f92663a-bc7e-4757-86eb-24f96f55c9a5.png)
-
 - There are also differnet views available of this FPGA Architecture which can be accessed through GUI
-
 
 - Finally the output of this VPR step is 
 1. **tseng.net** Its a packed netlist format, its basically a xml file that describes post packed circuit. So it represent the user netlist in terms of complex logic blocks of this particular architecture. 
@@ -300,9 +301,7 @@ $VTR_ROOT/vtr_flow/benchmarks/blif/tseng.blf\
 - All the files are generate in same working directory `/home/kunalg123/Desktop/vtr-verilog-to-routing/`
 - It will also generate report_timing.setup.rpt , report_timing.hold.rpt, packing_pin_util.rpt, etc files. in the same working directory.
 
-
 - ***NOTE** Command to search .rpt file in working directory `ls *.rpt`*
-
 
 #### tseng.sdc file
 - To get the correct timing report we need to  set the clock and for that we need to set the contrains file (tseng.sdc file)
