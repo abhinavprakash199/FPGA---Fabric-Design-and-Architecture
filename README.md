@@ -6,9 +6,37 @@ This repository contains all the information studied and created during the FPGA
 
 
 
+
 # **Day 1 - Exploring FPGA Basics and Vivado**
-## FPGA Architecture
-L 1 to 3
+
+### FPGA (Field Programmable Gate Array) 
+The term FPGA stands for Field Programmable Gate Array and, it is a one type of  semiconductor logic chip which can be programmed to become almost any kind of system or digital circuit, similar to PLDs. PLDS are limited to hundreds of gates, but FPGAs supports thousands of gates. The configuration of the FPGA architecture is generally specified using a language, i.e., HDL (Hardware Description language) which is similar to the one used for an ASIC ( Application Specific Integrated Circuit).
+![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
+
+FPGAs can provide a number of advantages over a fixed function ASIC technology such as standard cells. Normally, ASICs takes months to manufacture and the cost of them will be thousands of dollars to obtain the device. But, FPGAs are fabricated in less than a second,the cost will be from a few dollars to a thousand dollars.The flexible nature of the FPGA comes at a significant costin area, power consumption and delay.When compared to a standard cell ASIC, an FPGA requires 20 to 35 times more area, and the speed’s performance will be 3 to 4 times slower than the ASIC. This article describes about theFPGA basics and FPGA architecture module that includes I/O pad, logic blocks and switch matrix. FPGAs are some of the new trending areas of VLSI.
+
+
+### FPGA Architecture
+The general FPGA architecture consists of three types of modules. They are I/O blocks or Pads, Switch Matrix/ Interconnection Wires and Configurable logic blocks (CLB). The basic FPGA architecture has two dimensional arrays of logic blocks with a means for a user  to arrange the interconnection between the logic blocks. The functions of an FPGA architecture module are discussed below:
+
+- CLB (Configurable Logic Block) includes digital logic, inputs, outputs. It implements the user logic.
+- Interconnects provide direction between the logic blocks to implement the user logic.
+- Depending on the logic, switch matrix provides switching between interconnects.
+- I/O Pads used for the outside world to communicate with different applications
+
+![Screenshot (2176)](https://user-images.githubusercontent.com/120498080/208611382-16d884fd-bda5-4188-9fbb-b79df8038ab1.png)
+
+Logic Block contains  MUX (Multiplexer), D flip flop and LUT. LUT implements the combinational logical functions; the MUX is used for selection logic, and D flip flop stores the output of the LUT
+
+The basic building block of the FPGA is the Look Up Table based function generator. The number of inputs to the LUT vary from 3,4,6, and even 8 after experiments. Now, we have adaptive LUTs that provides two outputs per single LUT with the implementation of two function generators.
+
+![Screenshot (2177)](https://user-images.githubusercontent.com/120498080/208611400-3a3ee907-f95e-4949-ba90-f03cf880aa2f.png)
+
+Xilinx Virtex-5 is the most popular FPGA, that contains a Look up Table (LUT) which is connected with MUX, and a flip flop as discussed above. Present FPGA consists of about hundreds or thousands of configurable logic blocks. For configuring the FPGA,  Modelsim and Xilinx ISE softwares are used to generate a bitstream file and for development.
+
+### Basys 3 Artix-7 FPGA Board
+The Basys 3 is an entry-level FPGA development board designed exclusively for the Vivado® Design Suite featuring the Xilinx® Artix®-7-FPGA architecture. Basys 3 is the newest addition to the popular Basys line of FPGA development boards for students or beginners just getting started with FPGA technology. The Basys 3 includes the standard features found on all Basys boards: complete ready-to-use hardware, a large collection of on-board I/O devices, all required FPGA support circuits, and a free version of development tools and at a student-level price point.
+![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
 
 
@@ -794,6 +822,8 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - [VLSI System Design](https://www.vlsisystemdesign.com/ip/)
 - https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
 - https://docs.verilogtorouting.org/en/latest/arch/reference/#arch-grid-layout
+- https://www.xilinx.com/products/boards-and-kits/1-54wqge.html
+- https://www.elprocus.com/fpga-architecture-and-applications/
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
 
 
