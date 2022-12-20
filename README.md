@@ -36,6 +36,7 @@ Xilinx Virtex-5 is the most popular FPGA, that contains a Look up Table (LUT) wh
 
 ### Basys 3 Artix-7 FPGA Board
 The Basys 3 is an entry-level FPGA development board designed exclusively for the Vivado® Design Suite featuring the Xilinx® Artix®-7-FPGA architecture. Basys 3 is the newest addition to the popular Basys line of FPGA development boards for students or beginners just getting started with FPGA technology. The Basys 3 includes the standard features found on all Basys boards: complete ready-to-use hardware, a large collection of on-board I/O devices, all required FPGA support circuits, and a free version of development tools and at a student-level price point.
+
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
 
