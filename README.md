@@ -570,6 +570,8 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 | Parameters | Counter from Basys3 | Counter from VTR Flow |
 |:----------:|:-------------------:|:---------------------:|
 | Technology | 28nm                |  40nm                 |
+|Worst Setup Slack|5.989nsec|9.0976nm|
+
 
 
 
