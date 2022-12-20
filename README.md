@@ -9,7 +9,7 @@ This repository contains all the information studied and created during the FPGA
 
 # **Day 1 - Exploring FPGA Basics and Vivado**
 
-### FPGA (Field Programmable Gate Array) 
+## FPGA (Field Programmable Gate Array) 
 The term FPGA stands for Field Programmable Gate Array and, it is a one type of  semiconductor logic chip which can be programmed to become almost any kind of system or digital circuit, similar to PLDs. PLDS are limited to hundreds of gates, but FPGAs supports thousands of gates. The configuration of the FPGA architecture is generally specified using a language, i.e., HDL (Hardware Description language) which is similar to the one used for an ASIC ( Application Specific Integrated Circuit).
 ![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
 
@@ -39,40 +39,15 @@ The Basys 3 is an entry-level FPGA development board designed exclusively for th
 
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
-
-
 ## Counter Example in Vivado
-A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
-Below mentioned the RTL for the counter modules that is being used.
+A counter is a device that stores (and sometimes displays) the number of times a specific event or process has occurred in digital logic and computing, frequently in relation to a clock. The most typical kind is a sequential digital logic circuit, which has several output lines and a clock-input line. The binary or BCD number system is represented by the values on the output lines as a number. The value in the counter is increased or decreased with each pulse applied to the clock input.
+- A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
+- Below mentioned the RTL for the counter modules that is being used.
 
 - ***NOTE**Linux codes to download GitHub file from link `git clone https://github.com/nandithaec/fpga_workshop_collaterals.git`*
 
 ### VERILOG Codes "counter_clk_div.v"
-
 ```verilog
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 23.03.2022 00:47:56
-// Design Name: 
-// Module Name: counter
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
 module counter(clk,reset,count);
 input clk,reset;
 output reg [3:0] count = 4'b0000;
@@ -97,7 +72,6 @@ else
         end
     end
  end
-  
  always @ (posedge clk_div)
  begin
  if (reset)
@@ -109,9 +83,7 @@ else
     count <= count + 1;
  end
  end
-
 endmodule
-
 ```
 ### VERILOG testbench "test_counter.v"
 ```verilog
@@ -120,39 +92,24 @@ endmodule
 module test_counter();
 reg clk, reset;
 wire [3:0] out;
-
 //create an instance of the design
 counter dut(clk, reset, out);  
-
 initial begin
-
 //note that these statements are sequential.. execute one after the other 
-
 //$dumpfile ("count.vcd"); 
 //$dumpvars(0,upcounter_testbench);
-
 clk=0;  //at time=0
-
 reset=1;//at time=0
-
 #20; //delay 20 units
 reset=0; //after 20 units of time, reset becomes 0
-
-
 end
-
-
 always 
 #5 clk=~clk;  // toggle or negate the clk input every 5 units of time
-
-
 endmodule 
 ```
 
-## BEHAVIORAL SIMULATION
+## Behavioral Simulation
 ![Screenshot (2115)](https://user-images.githubusercontent.com/120498080/208306281-42b14bad-2357-4156-9cb7-18f147949796.png)
-
-![Screenshot (2041)](https://user-images.githubusercontent.com/120498080/207792232-9b68120f-8b85-4007-a252-f2f653b11717.png)
 ## RTL ANALYSIS
 ### Elaborate Design
 It is going to bind few module and the modulate hierarchi and it will also enstablish certain net connectivities.
@@ -164,12 +121,12 @@ It is usually done before Synthesis
 ![Screenshot (2043)](https://user-images.githubusercontent.com/120498080/207792466-697fca77-ced7-4c0f-b1da-4283731ff720.png)
 
 ### I/O Planning
-- To obsreve the differnet pins of FPGA
+- It se to obsreve the differnet pins of FPGA
 ![Screenshot (2044)](https://user-images.githubusercontent.com/120498080/207792629-8a565a89-b586-48dc-9be4-0dd4756585db.png)
 
 ### Mapping I/O Ports to the pins of the FPGA
 - If we do not have access to FPGA board then we can use the scheamitic of basis 3 and map the pins accordingle
-#### Sceheamitic of basis 3 
+#### Scheamatc of Basys3 Board
 [SCHEMATIC PDF](https://digilent.com/reference/_media/reference/programmable-logic/basys-3/basys-3_sch.pdf)
 ![Screenshot (2046)](https://user-images.githubusercontent.com/120498080/207820032-b6efb987-a4ae-45eb-af8a-756cf998eaf4.png)
 #### Mapping in constarints.edx file 
