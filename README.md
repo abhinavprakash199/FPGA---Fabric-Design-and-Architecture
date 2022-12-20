@@ -565,6 +565,8 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ## <h1 id="header-2_6">Comparision of counnter design from Basys3 and VTR Flow</h1>
 ### Timing Comparision
 - I have used a clock frrquency of 100MHz (Time Period = 10nsec)
+
+
 | Parameters | Counter from Basys3 | Counter from VTR Flow |
 |:----------:|:-------------------:|:---------------------:|
 | Technology | 28nm                |  40nm                 |
