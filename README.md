@@ -521,7 +521,6 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 #### Output of Power Analysis
 ![Screenshot (2167)](https://user-images.githubusercontent.com/120498080/208471755-803825a8-1e10-43eb-aec6-db124452e25d.png)
 
-
 ## <h1 id="header-2_6">Comparision of counnter design from Basys3 and VTR Flow</h1>
 
 
