@@ -5,12 +5,15 @@ This repository contains all the information studied and created during the [FPG
 
 <div class="toc">
   <ul>
-    <li><a href="#header-1_1">Day 1 - Exploring FPGA Basics and Vivado</a></li>
+    <li><a href="#header-1">Day 1 - Exploring FPGA Basics and Vivado</a></li>
+	<ul>
+        <li><a href="#header-1_1">FPGA (Field Programmable Gate Array)</a></li>
+      </ul>
       <ul>
-        <li><a href="#header-2">Counter Example in Vivado</a></li>
+        <li><a href="#header-1_2">Counter Example in Vivado</a></li>
       </ul>
 	<ul>
-        <li><a href="#header-3">VIO - Virtual Input/Output</a></li>
+        <li><a href="#header-1_3">VIO - Virtual Input/Output</a></li>
       </ul>
   </ul>
 </div>
@@ -20,8 +23,8 @@ This repository contains all the information studied and created during the [FPG
 
 
 
-# <h1 id="header-1_1">**Day 1 - Exploring FPGA Basics and Vivado**</h1> 
-## FPGA (Field Programmable Gate Array)
+# <h1 id="header-1">**Day 1 - Exploring FPGA Basics and Vivado**</h1> 
+## <h1 id="header-1_1">FPGA (Field Programmable Gate Array)</h1> 
 ### Introduction to FPGA 
 FPGA, or field programmable gate array, is a type of semiconductor logic device that, like PLDs, may be configured to create virtually any system or digital circuit. PLDS can support only a few hundred gates, but FPGAs can accommodate thousands of gates. An ASIC-like language called HDL (Hardware Description Language) is typically used to specify the setting of the FPGA design ( Application Specific Integrated Circuit).
 ![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
@@ -46,7 +49,7 @@ The most well-known FPGA, the Xilinx Virtex-5, has a flip-flop and a look-up tab
 The Basys 3 is a basic FPGA development board using the Xilinx® Artix®-7-FPGA architecture that was created specifically for the Vivado® Design Suite. The Basys 3 is the most recent model in the well-liked Basys range of FPGA development boards for novices or students just entering into FPGA technology. The Basys 3 has all of the features that are common to all Basys boards, including fully functional hardware that is ready for use, a sizable selection of on-board I/O devices, all necessary FPGA support circuits, a free version of development tools, and a price point that is affordable for students.
 ![Screenshot (2175)](https://user-images.githubusercontent.com/120498080/208610017-dc1e8d76-1b4a-46a1-b593-3c33c153aefa.png)
 
-## <h2 id="header-2"> Counter Example in Vivado</h2>
+## <h2 id="header-1_2"> Counter Example in Vivado</h2>
 A counter is a device that stores (and sometimes displays) the number of times a specific event or process has occurred in digital logic and computing, frequently in relation to a clock. The most typical kind is a sequential digital logic circuit, which has several output lines and a clock-input line. The binary or BCD number system is represented by the values on the output lines as a number. The value in the counter is increased or decreased with each pulse applied to the clock input.
 - A 4-bit up counter is being used for exploring the Vivado tool and OpenFPGA. 
 - Below mentioned the RTL for the counter modules that is being used.
@@ -181,7 +184,7 @@ Tlogic = Time required to reach the data from A to B
 - This simulation output waveform should match with the Behavioral Simulation output waveform.
 ![Screenshot (2114)](https://user-images.githubusercontent.com/120498080/208306396-6639e787-08aa-4695-be2d-d27e47f8ec8f.png)
 
-## <h3 id="header-3"> VIO - Virtual Input/Output </h3>
+## <h3 id="header-1_3"> VIO - Virtual Input/Output </h3>
 - VIO is an IP which comes along with vivado (inbulid into vivado), so when this interface is virtualy connected to our design(counter) the we are able to virtually provide the input (rest) through this VIO and observe the outputs (out and div_clk) 
 - So this need some changes is the codes : we have create a instance of the VIO 
 1. "reset" will be output from VIO which is given as input to the counter.
