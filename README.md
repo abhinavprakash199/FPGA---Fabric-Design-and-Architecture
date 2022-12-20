@@ -566,11 +566,26 @@ $VTR_ROOT/vtr_flow/scripts/run_vtr_flow.py     /home/is22mtech14002/Desktop/fpga
 ### Timing Comparision
 - I have used a clock frrquency of 100MHz (Time Period = 10nsec)
 
-
 | Parameters | Counter from Basys3 | Counter from VTR Flow |
 |:----------:|:-------------------:|:---------------------:|
 | Technology | 28nm                |  40nm                 |
-|Worst Setup Slack|5.989nsec|9.0976nm|
+|Worst Setup Slack|5.989nsec|9.0976nsec|
+|Worst Hold Slack|0.117nsec|0.293nsec|
+
+### Area Comparision
+
+| Parameters | Counter from Basys3 | Counter from VTR Flow |
+|:----------:|:-------------------:|:---------------------:|
+| LUTs | 23|18|
+|I/Os|6|7|
+|FF|31|4|
+
+### Power Comparision
+
+| Parameters | Counter from Basys3 | Counter from VTR Flow |
+|:----------:|:-------------------:|:---------------------:|
+| Power | 84mWatt|0.3212mWatt|
+
 
 
 
