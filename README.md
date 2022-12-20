@@ -60,7 +60,10 @@ This repository contains all the information studied and created during the [FPG
   <ul>
     <li><a href="#header-4">Day 4 - Introduction To SOFA FPGA Fabric</a></li>
 	<ul>
-        <li><a href="#header-4_1">Running SOFA to design a counter</a></li>
+        <li><a href="#header-4_1">SOFA (Skywater Opensource FPGAs)</a></li>
+      </ul>
+	  <ul>
+        <li><a href="#header-4_2">Running SOFA to design a counter</a></li>
       </ul>
   </ul>
 </div>
@@ -633,8 +636,8 @@ We create a project in vivado and we add `mythcore_test_no_ILA.v` as desination 
 
 
 
-# Day 4 - Introduction To SOFA FPGA Fabric
-## SOFA (Skywater Opensource FPGAs)
+# <h1 id="header-4">Day 4 - Introduction To SOFA FPGA Fabric</h1>
+## <h1 id="header-4_1">SOFA (Skywater Opensource FPGAs)</h1>
 SOFA (Skywater Opensource FPGAs) are a collection of opensource FPGAs IPs using the open-source [Skywater 130nm PDK](https://github.com/google/skywater-pdk) and [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) framework.
 Skywater Opensource FPGA (SOFA) is a completely open-source embedded FPGA IP library, including the description of the architecture and layouts that are ready for production. As shown in the illustration below, the Synopsys IC Compiler II, OpenFPGA, and Skywater 130nm PDK are used to develop SOFA IPs. The design flow runs for a total of 24 hours for each IP.
 
@@ -651,7 +654,7 @@ The Caravel SoC interface is supported by all SOFA FPGAs. With its high-density 
 ### Resource Utilization of HD eFPGA
 ![Screenshot (2109)](https://user-images.githubusercontent.com/120498080/208286236-582cb3e7-4223-475e-b94b-88bf657fd7cf.png)
 
-## Running SOFA to design a counter
+## <h1 id="header-4_2">Running SOFA to design a counter</h1>
 First we will start with a **design of a counter in SOFA** and then we will use a design of RISC-V processor called RVMyth in SOFA
 ### Installing and Running SOFA
 - Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
@@ -722,9 +725,9 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 
 
 
-# Day 5 - RISCV Core on Custom SOFA Fabric
+# <h1 id="header-5">Day 5 - RISCV Core on Custom SOFA Fabric</h1>
 Here **we are going to implement the RISC-V processor core which is the RVMyth Core on SOFA** 
-## Running SOFA to design a RISC-V Core
+## <h1 id="header-5_1">Running SOFA to design a RISC-V Core</h1>
 ### Installing and Running SOFA
 - Go to the directory in which we need to install SOFA and use `git clone https://github.com/lnis-uofu/SOFA.git` (here all the files are pre available from SOFA) 
 - Our working directoy in `Desktop/Day5_RVMyth/SOFA/`
@@ -777,7 +780,7 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 #### Behavioural Simulation
 ![Screenshot (2159)](https://user-images.githubusercontent.com/120498080/208431880-73730c32-2cc1-4195-9730-e937f860a197.png)
 
-# References
+# <h1 id="header-5">References</h1>
 - [VLSI System Design](https://www.vlsisystemdesign.com/ip/)
 - https://docs.verilogtorouting.org/en/latest/vtr/cad_flow/
 - https://docs.verilogtorouting.org/en/latest/arch/reference/#arch-grid-layout
@@ -786,5 +789,5 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - https://openfpga.readthedocs.io/en/master/
 - https://skywater-openfpga.readthedocs.io/_/downloads/en/latest/pdf/
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
-# Acknowledgement
+# <h1 id="header-6">Acknowledgement</h1>
 Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this  workshop taught me a lot of new things about the design of counter and RISC-V processor in FPGA Basys 3 board and in Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP.   
