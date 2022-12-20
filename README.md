@@ -4,7 +4,7 @@ This repository contains all the information studied and created during the [FPG
 
 
 ##### Table of Contents  
-[Headers](#headers)  
+[Day 1 - Exploring FPGA Basics and Vivado](# **Day 1 - Exploring FPGA Basics and Vivado**)  
 [Emphasis](#emphasis)  
 ...snip...    
 <a name="headers"/>
