@@ -148,8 +148,22 @@ It is usually done before Synthesis
 - Then by setting the inputs and outputs we generate the `constarints.edx file`
 - Provinging the clovk frequency of 100MHz (time period of 10nsec).
 ![Screenshot (2172)](https://user-images.githubusercontent.com/120498080/208490548-82b91717-2562-458c-b1f6-286b71ac4b67.png)
-#### Theoty Slack 
-Do if from lec 4
+#### What is Slack 
+- **Slack** is the difference between achieved or actual time and the desired time for a timing path.  The amount of timing path slack tells us whether the design operates at the desired speed or frequency.
+![Screenshot (2174)](https://user-images.githubusercontent.com/120498080/208606261-344b03cc-e153-46ad-b017-233a816e2c72.png)
+Tcq = Time Delay to reach the data from D to A
+Tlogic = Time required to reach the data from A to B
+
+- **Setup Time** The amount of time needed for the input to a flip-flop to be steady prior to a clock edge is known as setup time.
+- **Hold Time** The hold time is the shortest period of time necessary for the input to a flip-flop to remain steady following a clock edge.
+- **Data Arrival Time** This is the amount of time needed for data to go through the data path.(Tcq + Tlogic)
+- **Data Required Time** This is the amount of time needed for the clock go through through clock path.(T - Tsetup)
+- Setup and hold slack is the difference between data required time and data arrival time.
+**Setup Slack = Data Required Time - Data Arrival Time**
+**Hold Slack= Data Arrival Time- Data Required Time**
+- A positive setup slack indicates that the design is operating at the desired frequency and also has some additional margin.
+- Zero setup slack indicates that there is no buffer available and that the design is precisely operating at the intended frequency.
+- Negative setup Slack indicates that the restricted frequency and time are not met by the design. This is called as setup violation.
 
 
 ## SYNTHESIS & IMPLEMANTATION
