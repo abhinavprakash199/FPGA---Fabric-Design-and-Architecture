@@ -20,10 +20,25 @@ This repository contains all the information studied and created during the [FPG
 
 
 
+<div class="toc">
+  <ul>
+    <li><a href="#header-2">Day 2 - Exploring OpenFPGA, VPR and VTR</a></li>
+	<ul>
+        <li><a href="#header-2_1">FPGA (Field Programmable Gate Array)</a></li>
+      </ul>
+      <ul>
+        <li><a href="#header-2_2">Counter Example in Vivado</a></li>
+      </ul>
+	<ul>
+        <li><a href="#header-2_3">VIO - Virtual Input/Output</a></li>
+      </ul>
+  </ul>
+</div>
 
 
 
-# <h1 id="header-1">**Day 1 - Exploring FPGA Basics and Vivado**</h1> 
+
+# <h1 id="header-1">Day 1 - Exploring FPGA Basics and Vivado</h1> 
 ## <h1 id="header-1_1">FPGA (Field Programmable Gate Array)</h1> 
 ### Introduction to FPGA 
 FPGA, or field programmable gate array, is a type of semiconductor logic device that, like PLDs, may be configured to create virtually any system or digital circuit. PLDS can support only a few hundred gates, but FPGAs can accommodate thousands of gates. An ASIC-like language called HDL (Hardware Description Language) is typically used to specify the setting of the FPGA design ( Application Specific Integrated Circuit).
@@ -206,7 +221,7 @@ Tlogic = Time required to reach the data from A to B
 
 
 
-# **Day 2 - Exploring OpenFPGA, VPR and VTR**
+# <h1 id="header-2">Day 2 - Exploring OpenFPGA, VPR and VTR</h1> 
 ## Introduction To OpenFPGA
 An open-source platform called OpenFPGA seeks to make it possible to quickly prototype adaptable FPGA systems. Below figure illustrates how a traditional approach would require a big team of seasoned engineers more than a year to complete a production-ready layout and related CAD tools. In actuality, the majority of engineering efforts are put into creating manual layouts and ad-hoc CAD support.
 ![Screenshot (2179)](https://user-images.githubusercontent.com/120498080/208620681-ce83bf1a-385b-41d4-887c-e09430eafed5.png)
