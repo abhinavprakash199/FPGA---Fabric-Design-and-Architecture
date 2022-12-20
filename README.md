@@ -20,8 +20,8 @@ This repository contains all the information studied and created during the [FPG
 
 
 
-# **Day 1 - Exploring FPGA Basics and Vivado**
-## <h1 id="header-1">FPGA (Field Programmable Gate Array)</h1> 
+# **<h1 id="header-1">Day 1 - Exploring FPGA Basics and Vivado</h1>** 
+## FPGA (Field Programmable Gate Array)
 ### Introduction to FPGA 
 FPGA, or field programmable gate array, is a type of semiconductor logic device that, like PLDs, may be configured to create virtually any system or digital circuit. PLDS can support only a few hundred gates, but FPGAs can accommodate thousands of gates. An ASIC-like language called HDL (Hardware Description Language) is typically used to specify the setting of the FPGA design ( Application Specific Integrated Circuit).
 ![Screenshot (2178)](https://user-images.githubusercontent.com/120498080/208611881-bd44dbc3-ce2d-47d8-a469-6b193dcde3c6.png)
