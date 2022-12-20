@@ -710,5 +710,4 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - https://skywater-openfpga.readthedocs.io/_/downloads/en/latest/pdf/
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
 # Acknowledgement
-- [Kunal Ghosh](https://github.com/kunalg123) Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.
-- [Nanditha Rao](https://github.com/nandithaec) Assistant Professor at International Institute of Information Technology – Bangalore
+Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this  workshop taught me a lot of new things about the design of counter and RISC - V processor in FPGA Basys 3 board and in Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP.   
