@@ -1,5 +1,8 @@
 # **FPGA - Fabric, Design, and, Architecture**
 This repository contains the whole summary of hands on done by Abhinav Prakash (IS22MTECH14002) during the workshop "FPGA - Fabric, Design, and Architecture" organised by VSD. It is primarily focused on a complete FPGA flow using the maximum open-source tools.
+
+![FPGA banner-2048x1024](https://user-images.githubusercontent.com/120498080/218565585-87f32cea-898e-4fb7-9359-4d12f87c26f5.png)
+
 # Table of Contents
 <div class="toc">
   <ul>
