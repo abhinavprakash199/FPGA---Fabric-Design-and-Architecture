@@ -92,6 +92,10 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
   </ul>
 </div>
 
+* Accreditation(#Accreditation)
+
+
+
 # <h1 id="header-1">Day 1 - Exploring FPGA Basics and Vivado</h1> 
 ## <h1 id="header-1_1">FPGA (Field Programmable Gate Array)</h1> 
 ### Introduction to FPGA 
@@ -816,4 +820,9 @@ set_output_delay -clock clk -max 0 [get_ports {*}]
 - https://skywater-openfpga.readthedocs.io/_/downloads/en/latest/pdf/
 - [Workshop GitHub Material]( https://github.com/nandithaec/fpga_workshop_collaterals)
 # <h1 id="header-7">Acknowledgement</h1>
-Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this workshop taught me a lot of new things about the design of counter and RISC-V processor in FPGA Basys 3 board and  Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP.   
+Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https://github.com/kunalg123) {Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd.} and [Dr. Nanditha Rao](https://www.iiitb.ac.in/faculty/nanditha-rao) {Assistant Professor at International Institute of Information Technology – Bangalore} for tremendous assistance in planning and presenting this workshop on FPGA Fabric Design and Architecture. The workshop was excellent and well designed, this workshop taught me a lot of new things about the design of counter and RISC-V processor in FPGA Basys 3 board and  Open Source FPGA using VTR and VPR flow and about the SOFA FPGA fabric IP. 
+
+
+
+# Accreditation
+![FPGA - Fabric, Design, and, Architecture_page-0001](https://user-images.githubusercontent.com/120498080/232224355-68ed2646-bd15-4181-b159-4dd4f78c6a58.jpg)
