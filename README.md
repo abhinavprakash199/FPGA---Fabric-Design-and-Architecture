@@ -93,6 +93,7 @@ This repository contains the whole summary of hands on done by Abhinav Prakash (
 </div>
 
 * [Accreditation](#Accreditation)
+* [Inquiries](#Inquiries)
 
 
 
@@ -826,3 +827,7 @@ Finally, I would like to express my sincere gratitude to [Mr. Kunal Ghosh](https
 
 # Accreditation
 ![FPGA - Fabric, Design, and, Architecture_page-0001](https://user-images.githubusercontent.com/120498080/232224355-68ed2646-bd15-4181-b159-4dd4f78c6a58.jpg)
+
+# Inquiries
+- Connect with me at [LinkedIn](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)
+
